@@ -1,9 +1,9 @@
-import "./globals.css";
+import { CMS_NAME, EXAMPLE_PATH } from "@/lib/constants";
 import { Inter } from "next/font/google";
-import { EXAMPLE_PATH, CMS_NAME } from "@/lib/constants";
+import "./globals.css";
 
 export const metadata = {
-  title: `Next.js and ${CMS_NAME} Example`,
+  title: `Home | ddhightower`,
   description: `This is a blog built with Next.js and ${CMS_NAME}.`,
 };
 
