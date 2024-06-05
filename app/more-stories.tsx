@@ -1,7 +1,7 @@
-import Link from "next/link";
+import { Box, Card, CardBody, Heading, Link, Text } from "@chakra-ui/react";
 import Avatar from "./avatar";
-import DateComponent from "./date";
 import CoverImage from "./cover-image";
+import DateComponent from "./date";
 
 function PostPreview({
   title,
@@ -19,27 +19,36 @@ function PostPreview({
   slug: string;
 }) {
   return (
-    <div>
-      <div className="mb-5">
-        <CoverImage title={title} slug={slug} url={coverImage.url} />
-      </div>
-      <h3 className="text-3xl mb-3 leading-snug">
-        <Link href={`/posts/${slug}`} className="hover:underline">
-          {title}
-        </Link>
-      </h3>
-      <div className="text-lg mb-4">
-        <DateComponent dateString={date} />
-      </div>
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      {author && <Avatar name={author.name} picture={author.picture} />}
-    </div>
+    <Card mx="auto" my={5} shadow={"lg"} boxShadow={"lg"}>
+      <CoverImage title={title} slug={slug} url={coverImage.url} />
+      <CardBody>
+        <Heading as="h3" size="lg" mb={3}>
+          <Link
+            href={`/posts/${slug}`}
+            _hover={{ textDecoration: "underline" }}
+          >
+            {title}
+          </Link>
+        </Heading>
+        <Box mb={4}>
+          <DateComponent dateString={date} />
+        </Box>
+        <Text fontSize="lg" mb={4}>
+          {excerpt}
+        </Text>
+        {author && (
+          <Box display="flex" alignItems="center">
+            <Avatar name={author.name} picture={author.picture} />
+          </Box>
+        )}
+      </CardBody>
+    </Card>
   );
 }
 
 export default function MoreStories({ morePosts }: { morePosts: any[] }) {
   return (
-    <section>
+    <section className="bg-red">
       <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
         More Stories
       </h2>
