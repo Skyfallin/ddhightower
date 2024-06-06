@@ -5,7 +5,7 @@ const customTheme = extendTheme({
   styles: {
     global: {
       "html, body": {
-        backgroundColor: "#fffaf0", // FloralWhite color
+        backgroundColor: "#faebd7", // Antique white
       },
     },
   },
