@@ -5,7 +5,7 @@ const customTheme = extendTheme({
   styles: {
     global: {
       "html, body": {
-        backgroundColor: "#ff3333", // Cornsilk color
+        backgroundColor: "#fffaf0", // FloralWhite color
       },
     },
   },
