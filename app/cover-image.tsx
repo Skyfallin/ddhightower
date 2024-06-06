@@ -1,4 +1,4 @@
-import ContentfulImage from "../lib/contentful-image";
+import { Image } from "@chakra-ui/react";
 import Link from "next/link";
 
 function cn(...classes: any[]) {
@@ -15,16 +15,26 @@ export default function CoverImage({
   slug?: string;
 }) {
   const image = (
-    <ContentfulImage
+    <Image
       alt={`Cover Image for ${title}`}
-      priority
-      width={2000}
-      height={1000}
-      className={cn("shadow-small", {
-        "hover:shadow-medium transition-shadow duration-200": slug,
-      })}
       src={url}
+      width="100%"
+      height="auto"
+      maxH={"500px"}
+      // borderRadius="full"
+      objectFit="cover"
+      cursor={slug ? "pointer" : "default"}
     />
+    // <ContentfulImage
+    //   alt={`Cover Image for ${title}`}
+    //   priority
+    //   width={500}
+    //   height={500}
+    //   className={cn("shadow-small", {
+    //     "hover:shadow-medium transition-shadow duration-200": slug,
+    //   })}
+    //   src={url}
+    // />
   );
 
   return (
