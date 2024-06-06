@@ -60,9 +60,27 @@ function PostPreview({
               </Link>
             </Heading>
 
-            <Box display={"flex"} justifyContent={"space-between"}>
+            {/* <Box display={"flex"} justifyContent={"space-between"}>
               <Text fontSize="lg">{excerpt}</Text>
               <Button colorScheme="purple">Read More</Button>
+            </Box> */}
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Text
+                fontSize="lg"
+                flexShrink={1}
+                // whiteSpace="nowrap"
+                overflow="hidden"
+                textOverflow="ellipsis"
+              >
+                {excerpt}
+              </Text>
+              <Button colorScheme="purple" minW="100px" ml={4}>
+                Read More
+              </Button>
             </Box>
           </CardBody>
         </Box>
