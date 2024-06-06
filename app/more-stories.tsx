@@ -29,9 +29,19 @@ function PostPreview({
   return (
     <div className="lg-min-w-740">
       <Card mx="auto" my={5} shadow={"lg"} boxShadow={"lg"}>
-        <Button>
+        <Box
+          background={"red"}
+          borderRadius={"md"}
+          display={"inline-flex"}
+          fontWeight={"bold"}
+          marginLeft={"8px"}
+          marginTop={"8px"}
+          maxW={"80px"}
+          placeContent={"center"}
+          padding={"4px"}
+        >
           <DateComponent dateString={date} />
-        </Button>
+        </Box>
 
         <TopShadow />
 
