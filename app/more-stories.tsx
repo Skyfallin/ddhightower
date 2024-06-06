@@ -9,7 +9,6 @@ import {
 } from "@chakra-ui/react";
 import TopShadow from "./components/top-shadow";
 import CoverImage from "./cover-image";
-import DateComponent from "./date";
 
 function PostPreview({
   title,
@@ -29,28 +28,10 @@ function PostPreview({
   return (
     <div className="lg-min-w-740">
       <Card mx="auto" my={5} shadow={"lg"} boxShadow={"lg"} borderRadius={"lg"}>
-        <Button
-          borderRadius={"sm"}
-          colorScheme="yellow"
-          display={"inline-flex"}
-          h="100%"
-          placeContent={"center"}
-          paddingTop={"12px"}
-          paddingBottom={"16px"}
-          cursor={"default"}
-        >
-          <DateComponent dateString={date} />
-        </Button>
-
         <TopShadow />
 
         <Box display={"flex"} flexDirection={"column"}>
-          <Box
-            alignSelf={"center"}
-            background="#ECC94B"
-            className="w-full h-auto object-cover"
-            paddingTop="4px"
-          >
+          <Box className="w-full h-auto object-cover">
             <CoverImage title={title} slug={slug} url={coverImage.url} />
           </Box>
 
