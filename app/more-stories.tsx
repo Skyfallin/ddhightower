@@ -29,12 +29,17 @@ function PostPreview({
   return (
     <div className="lg-min-w-740">
       <Card mx="auto" my={5} shadow={"lg"} boxShadow={"lg"}>
-        <Button w="auto">Test</Button>
+        <Button>
+          <DateComponent dateString={date} />
+        </Button>
+
         <TopShadow />
+
         <Box display={"flex"} flexDirection={"column"}>
           <Box alignSelf={"center"} paddingTop={"16px"}>
             <CoverImage title={title} slug={slug} url={coverImage.url} />
           </Box>
+
           <CardBody>
             <Heading as="h3" size="lg" mb={3}>
               <Link
@@ -44,10 +49,11 @@ function PostPreview({
                 {title}
               </Link>
             </Heading>
-            <Box mb={4}>
-              <DateComponent dateString={date} />
+
+            <Box display={"flex"} justifyContent={"space-between"}>
+              <Text fontSize="lg">{excerpt}</Text>
+              <Button colorScheme="purple">Read More</Button>
             </Box>
-            <Text fontSize="lg">{excerpt}</Text>
           </CardBody>
         </Box>
       </Card>
