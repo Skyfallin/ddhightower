@@ -28,26 +28,29 @@ function PostPreview({
 }) {
   return (
     <div className="lg-min-w-740">
-      <Card mx="auto" my={5} shadow={"lg"} boxShadow={"lg"} borderRadius={"sm"}>
-        <Box
-          background={"#A0AEC0"}
+      <Card mx="auto" my={5} shadow={"lg"} boxShadow={"lg"} borderRadius={"lg"}>
+        <Button
           borderRadius={"sm"}
+          colorScheme="yellow"
           display={"inline-flex"}
-          // fontWeight={"bold"}
-          marginLeft={"8px"}
-          marginTop={"8px"}
-          maxW={"80px"}
+          h="100%"
           placeContent={"center"}
-          paddingY={"4px"}
-          textColor={"#ffffff"}
+          paddingTop={"12px"}
+          paddingBottom={"16px"}
+          cursor={"default"}
         >
           <DateComponent dateString={date} />
-        </Box>
+        </Button>
 
         <TopShadow />
 
         <Box display={"flex"} flexDirection={"column"}>
-          <Box alignSelf={"center"} paddingTop={"16px"}>
+          <Box
+            alignSelf={"center"}
+            background="#ECC94B"
+            className="w-full h-auto object-cover"
+            paddingTop="4px"
+          >
             <CoverImage title={title} slug={slug} url={coverImage.url} />
           </Box>
 
@@ -80,7 +83,7 @@ function PostPreview({
                 {excerpt}
               </Text>
               <Button
-                colorScheme="purple"
+                colorScheme="teal"
                 minW="100px"
                 ml={4}
                 borderRadius={"sm"}
