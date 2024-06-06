@@ -1,0 +1,6 @@
+/* styles.css */
+@media screen and (min-width: 1600px) {
+  .lg-min-w-740 {
+    min-width: 740px;
+  }
+}

@@ -2,6 +2,7 @@ import { CMS_NAME, EXAMPLE_PATH } from "@/lib/constants";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./theme/styles.css";
 
 export const metadata = {
   title: `Home | D. D. Hightower`,
