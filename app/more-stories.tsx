@@ -83,7 +83,7 @@ function PostPreview({
                 {excerpt}
               </Text>
               <Button
-                colorScheme="teal"
+                colorScheme="yellow"
                 minW="100px"
                 ml={4}
                 borderRadius={"sm"}
