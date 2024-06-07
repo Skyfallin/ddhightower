@@ -14,6 +14,7 @@ const Label: React.FC<LabelProps> = ({
     <Box
       background={bgColor}
       borderRadius="md"
+      display={"inline-block"}
       fontSize="sm"
       padding="6px"
       textColor="#fff"

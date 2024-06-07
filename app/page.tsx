@@ -7,6 +7,7 @@ import MoreStories from "./components/more-stories";
 import CoverImage from "./cover-image";
 
 import { getAllPosts } from "@/lib/api";
+import { Box } from "@chakra-ui/react";
 import Intro from "./components/intro";
 import Label from "./components/label";
 
@@ -37,11 +38,14 @@ function HeroPost({
               {title}
             </Link>
           </h3>
-          <Label bgColor="#7A8450">
-            {/* <Box fontSize="lg"> */}
-            <Date dateString={date} />
-            {/* </Box> */}
-          </Label>
+          <Box display={"flex"} gap={2}>
+            <Label>
+              <Date dateString={date} />
+            </Label>
+            <Label bgColor="#7A8450" fontWeight={"bold"}>
+              NEW
+            </Label>
+          </Box>
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
