@@ -15,17 +15,13 @@ const customTheme = extendTheme({
         height: "12px",
       },
       "::-webkit-scrollbar-thumb": {
-        background: "#5D4037", // Dark brown for the scroll bit
+        background: "#823038", // Wine color for the scroll bit
         borderRadius: "10px",
         border: "3px solid transparent",
         backgroundClip: "content-box",
       },
-      "::-webkit-scrollbar-track": {
-        background: "#808080", // Gray for the gutter
-        borderRadius: "10px",
-      },
       "::-webkit-scrollbar-thumb:hover": {
-        background: "#4E342E", // Slightly darker brown on hover
+        background: "#9B4046", // Slightly lighter wine color on hover
       },
     },
   },
