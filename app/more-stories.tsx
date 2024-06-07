@@ -20,8 +20,18 @@ function PostPreview({
   slug: string;
 }) {
   return (
-    <div className="lg-min-w-740">
-      <Card mx="auto" my={5} shadow={"lg"} boxShadow={"lg"} borderRadius={"lg"}>
+    <Box className="lg-min-w-740">
+      <Card
+        className="lg-min-w-740"
+        mx="auto"
+        my={5}
+        shadow={"lg"}
+        boxShadow={"lg"}
+        borderRadius={"lg"}
+        variant="outline"
+        transition="transform 0.2s ease-in-out"
+        _hover={{ transform: "scale(1.024)" }}
+      >
         <TopShadow />
 
         <Box display={"flex"} flexDirection={"column"}>
@@ -50,7 +60,7 @@ function PostPreview({
                   borderRadius={"sm"}
                   minW="100px"
                   textColor={"#faebd7"}
-                  marginTop={"8px"}
+                  marginTop={"12px"}
                 >
                   Read More
                 </Button>
@@ -59,7 +69,7 @@ function PostPreview({
           </CardBody>
         </Box>
       </Card>
-    </div>
+    </Box>
   );
 }
 

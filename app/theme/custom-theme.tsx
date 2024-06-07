@@ -1,5 +1,5 @@
-// theme.ts
 import { extendTheme } from "@chakra-ui/react";
+import Card from "./card-theme";
 
 const customTheme = extendTheme({
   styles: {
@@ -55,13 +55,7 @@ const customTheme = extendTheme({
         },
       },
     },
-    Card: {
-      baseStyle: {
-        container: {
-          backgroundColor: "#FDF6ED", // Floral white
-        },
-      },
-    },
+    Card,
   },
   fonts: {
     heading: "'Merriweather', serif",
