@@ -64,7 +64,7 @@ function PostPreview({
                 {excerpt}
               </Text>
               <Button
-                colorScheme="yellow"
+                background="#62B6CB"
                 minW="100px"
                 ml={4}
                 borderRadius={"sm"}

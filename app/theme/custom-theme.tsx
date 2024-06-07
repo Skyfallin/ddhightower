@@ -1,7 +1,16 @@
-// pages/_app.js
+// theme.ts
 import { extendTheme } from "@chakra-ui/react";
 
 const customTheme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        backgroundColor: "#faebd7", // Antique white
+        fontFamily: "'Libre Baskerville', serif",
+        color: "#222725", // Eerie black
+      },
+    },
+  },
   components: {
     Box: {
       baseStyle: {
@@ -15,21 +24,18 @@ const customTheme = extendTheme({
         },
       },
     },
-    Text: {
-      fontSize: "sm", // Set default body font size to 'sm'
-    },
-  },
-  styles: {
-    global: {
-      body: {
-        backgroundColor: "#faebd7", // Antique white
-        fontSize: "sm", // Set default body font size to 'sm'
-      },
-    },
   },
   fonts: {
     heading: "'Merriweather', serif",
     body: "'Libre Baskerville', serif",
+  },
+  Text: {
+    baseStyle: {
+      fontFamily: "'Libre Baskerville', serif", // Set default font family for Text
+    },
+    defaultProps: {
+      size: "lg", // Set default size for Text
+    },
   },
 });
 
