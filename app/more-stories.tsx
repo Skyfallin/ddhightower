@@ -1,3 +1,4 @@
+import { truncateText } from "@/util/text-util";
 import {
   Box,
   Button,
@@ -45,29 +46,22 @@ function PostPreview({
               </Link>
             </Heading>
 
-            {/* <Box display={"flex"} justifyContent={"space-between"}>
-              <Text fontSize="lg">{excerpt}</Text>
-              <Button colorScheme="purple">Read More</Button>
-            </Box> */}
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-            >
+            <Box alignItems="center" display="flex" flexDirection="column">
               <Text
-                fontSize="lg"
+                alignSelf={"flex-start"}
+                fontSize="sm"
                 flexShrink={1}
-                // whiteSpace="nowrap"
                 overflow="hidden"
                 textOverflow="ellipsis"
               >
-                {excerpt}
+                {truncateText(excerpt)}
               </Text>
               <Button
-                minW="100px"
-                ml={4}
+                alignSelf="flex-end"
                 borderRadius={"sm"}
+                minW="100px"
                 textColor={"#faebd7"}
+                marginTop={"8px"}
               >
                 Read More
               </Button>
