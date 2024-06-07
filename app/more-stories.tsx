@@ -1,6 +1,14 @@
 import { truncateText } from "@/util/text-util";
-import { Box, Button, Card, CardBody, Heading, Text } from "@chakra-ui/react";
-import Link from "next/link";
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  Heading,
+  LinkBox,
+  LinkOverlay,
+  Text,
+} from "@chakra-ui/react";
 import TopShadow from "./components/top-shadow";
 import CoverImage from "./cover-image";
 import DateComponent from "./date";
@@ -10,7 +18,6 @@ function PostPreview({
   coverImage,
   date,
   excerpt,
-  author,
   slug,
 }: {
   title: string;
@@ -21,14 +28,13 @@ function PostPreview({
   slug: string;
 }) {
   return (
-    <Box className="lg-min-w-740">
+    <LinkBox as="article" className="lg-min-w-740">
       <Card
-        className="lg-min-w-740"
-        mx="auto"
-        my={5}
-        shadow={"lg"}
-        boxShadow={"lg"}
         borderRadius={"lg"}
+        boxShadow={"lg"}
+        mx="auto"
+        my={4}
+        shadow={"lg"}
         variant="outline"
         transition="transform 0.2s ease-in-out"
         _hover={{ transform: "scale(1.024)" }}
@@ -41,51 +47,49 @@ function PostPreview({
           </Box>
 
           <CardBody>
-            <Link href={`/posts/${slug}`}>
+            <Box
+              alignItems="flex-start"
+              display="flex"
+              flexDirection="column"
+              gap={2}
+            >
               <Box
-                alignItems="flex-start"
-                display="flex"
-                flexDirection="column"
-                gap={2}
+                background={"#A2B5CD"}
+                borderRadius={"md"}
+                fontSize="sm"
+                fontWeight="bold"
+                padding={"6px"}
+                textColor={"#fff"}
               >
-                <Box
-                  background={"#A2B5CD"}
-                  borderRadius={"md"}
-                  fontSize="sm"
-                  fontWeight="bold"
-                  padding={"6px"}
-                  textColor={"#fff"}
-                >
-                  <DateComponent dateString={date} />
-                </Box>
-
-                <Heading as="h3" size="lg">
-                  {title}
-                </Heading>
-
-                <Text
-                  fontSize="sm"
-                  flexShrink={1}
-                  overflow="hidden"
-                  textOverflow="ellipsis"
-                >
-                  {truncateText(excerpt)}
-                </Text>
-
-                <Button
-                  alignSelf="flex-end"
-                  borderRadius={"sm"}
-                  minW="100px"
-                  textColor={"#faebd7"}
-                >
-                  Read More
-                </Button>
+                <DateComponent dateString={date} />
               </Box>
-            </Link>
+
+              <Heading as="h3" size="lg">
+                <LinkOverlay href={`/posts/${slug}`}>{title}</LinkOverlay>
+              </Heading>
+
+              <Text
+                fontSize="sm"
+                flexShrink={1}
+                overflow="hidden"
+                textOverflow="ellipsis"
+              >
+                {truncateText(excerpt)}
+              </Text>
+
+              <Button
+                alignSelf="flex-end"
+                borderRadius={"sm"}
+                minW="100px"
+                textColor={"#faebd7"}
+              >
+                Read More
+              </Button>
+            </Box>
           </CardBody>
         </Box>
       </Card>
-    </Box>
+    </LinkBox>
   );
 }
 
