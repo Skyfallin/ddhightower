@@ -1,13 +1,6 @@
 import { truncateText } from "@/util/text-util";
-import {
-  Box,
-  Button,
-  Card,
-  CardBody,
-  Heading,
-  Link,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, Heading, Text } from "@chakra-ui/react";
+import Link from "next/link";
 import TopShadow from "./components/top-shadow";
 import CoverImage from "./cover-image";
 
@@ -37,35 +30,32 @@ function PostPreview({
           </Box>
 
           <CardBody>
-            <Heading as="h3" size="lg" mb={3}>
-              <Link
-                href={`/posts/${slug}`}
-                _hover={{ textDecoration: "underline" }}
-              >
+            <Link href={`/posts/${slug}`}>
+              <Heading as="h3" size="lg" mb={3}>
                 {title}
-              </Link>
-            </Heading>
+              </Heading>
 
-            <Box alignItems="center" display="flex" flexDirection="column">
-              <Text
-                alignSelf={"flex-start"}
-                fontSize="sm"
-                flexShrink={1}
-                overflow="hidden"
-                textOverflow="ellipsis"
-              >
-                {truncateText(excerpt)}
-              </Text>
-              <Button
-                alignSelf="flex-end"
-                borderRadius={"sm"}
-                minW="100px"
-                textColor={"#faebd7"}
-                marginTop={"8px"}
-              >
-                Read More
-              </Button>
-            </Box>
+              <Box alignItems="center" display="flex" flexDirection="column">
+                <Text
+                  alignSelf={"flex-start"}
+                  fontSize="sm"
+                  flexShrink={1}
+                  overflow="hidden"
+                  textOverflow="ellipsis"
+                >
+                  {truncateText(excerpt)}
+                </Text>
+                <Button
+                  alignSelf="flex-end"
+                  borderRadius={"sm"}
+                  minW="100px"
+                  textColor={"#faebd7"}
+                  marginTop={"8px"}
+                >
+                  Read More
+                </Button>
+              </Box>
+            </Link>
           </CardBody>
         </Box>
       </Card>
