@@ -1,4 +1,4 @@
-import { truncateText } from "@/util/text-util";
+import { truncateText } from "@/app/util/text-util";
 import {
   Box,
   Button,
