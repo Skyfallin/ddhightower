@@ -64,7 +64,6 @@ function PostPreview({
                 {excerpt}
               </Text>
               <Button
-                background="#A40606"
                 minW="100px"
                 ml={4}
                 borderRadius={"sm"}

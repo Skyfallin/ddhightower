@@ -35,6 +35,30 @@ const customTheme = extendTheme({
         backgroundColor: "#faebd7", // Antique White for Box component (used as card)
       },
     },
+    Button: {
+      variants: {
+        solid: {
+          bg: "#823038", // Wine color background
+          color: "#faebd7", // Antique white text color
+          _hover: {
+            bg: "#9B4046", // Slightly lighter wine color on hover
+          },
+        },
+        outline: {
+          borderColor: "#823038", // Wine color border
+          color: "#823038", // Wine color text
+          _hover: {
+            bg: "#f0e6dc", // Light brown on hover
+          },
+        },
+        ghost: {
+          color: "#823038", // Wine color text
+          _hover: {
+            bg: "#f0e6dc", // Light brown on hover
+          },
+        },
+      },
+    },
     Card: {
       baseStyle: {
         container: {
