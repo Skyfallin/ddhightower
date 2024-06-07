@@ -9,6 +9,24 @@ const customTheme = extendTheme({
         fontFamily: "'Libre Baskerville', serif",
         color: "#222725", // Eerie black
       },
+      // Custom scrollbar styles
+      "::-webkit-scrollbar": {
+        width: "12px",
+        height: "12px",
+      },
+      "::-webkit-scrollbar-thumb": {
+        background: "#5D4037", // Dark brown for the scroll bit
+        borderRadius: "10px",
+        border: "3px solid transparent",
+        backgroundClip: "content-box",
+      },
+      "::-webkit-scrollbar-track": {
+        background: "#D3D3D3", // Grey for the gutter
+        borderRadius: "10px",
+      },
+      "::-webkit-scrollbar-thumb:hover": {
+        background: "#4E342E", // Slightly darker brown on hover
+      },
     },
   },
   components: {
