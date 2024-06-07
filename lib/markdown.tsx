@@ -68,11 +68,24 @@ const renderOptions = (links: AssetLink): Options => ({
 
       return <RichTextAsset id={id} assets={links.block} />;
     },
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <Text mb={4} whiteSpace="pre-line">
-        {children}
-      </Text>
-    ),
+    [BLOCKS.PARAGRAPH]: (node, children) => {
+      const textContent = children?
+        .map((child) => (typeof child === "string" ? child : ""))
+        .join("");
+
+      const parts = textContent.split(/(\*[^*]+\*)/).filter(Boolean);
+
+      return (
+        <Text mb={4} whiteSpace="pre-line">
+          {parts.map((part, index) => {
+            if (/^\*[^*]+\*$/.test(part)) {
+              return <em key={index}>{part.slice(1, -1)}</em>;
+            }
+            return part;
+          })}
+        </Text>
+      );
+    },
   },
 });
 
