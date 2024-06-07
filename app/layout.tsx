@@ -1,13 +1,12 @@
-import { CMS_NAME, EXAMPLE_PATH } from "@/lib/constants";
+"use client";
+
+import { EXAMPLE_PATH } from "@/lib/constants";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { metadata } from "./metadata";
+import customTheme from "./theme/custom-theme";
 import "./theme/styles.css";
-
-export const metadata = {
-  title: `Home | D. D. Hightower`,
-  description: `This is a blog built with Next.js and ${CMS_NAME}.`,
-};
 
 const inter = Inter({
   variable: "--font-inter",
@@ -50,8 +49,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </head>
       <body>
-        <ChakraProvider cssVarsRoot="body">
+        <ChakraProvider cssVarsRoot="body" theme={customTheme}>
           <section className="min-h-screen">
             {children}
             <Footer />
