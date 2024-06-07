@@ -64,10 +64,11 @@ function PostPreview({
                 {excerpt}
               </Text>
               <Button
-                background="#62B6CB"
+                background="#A40606"
                 minW="100px"
                 ml={4}
                 borderRadius={"sm"}
+                textColor={"#faebd7"}
               >
                 Read More
               </Button>

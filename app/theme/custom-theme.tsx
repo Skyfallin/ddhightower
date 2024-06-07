@@ -21,7 +21,7 @@ const customTheme = extendTheme({
         backgroundClip: "content-box",
       },
       "::-webkit-scrollbar-track": {
-        background: "#D3D3D3", // Grey for the gutter
+        background: "#808080", // Gray for the gutter
         borderRadius: "10px",
       },
       "::-webkit-scrollbar-thumb:hover": {
