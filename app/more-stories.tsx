@@ -3,6 +3,7 @@ import { Box, Button, Card, CardBody, Heading, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import TopShadow from "./components/top-shadow";
 import CoverImage from "./cover-image";
+import DateComponent from "./date";
 
 function PostPreview({
   title,
@@ -41,13 +42,28 @@ function PostPreview({
 
           <CardBody>
             <Link href={`/posts/${slug}`}>
-              <Heading as="h3" size="lg" mb={3}>
-                {title}
-              </Heading>
+              <Box
+                alignItems="flex-start"
+                display="flex"
+                flexDirection="column"
+                gap={2}
+              >
+                <Box
+                  background={"#A2B5CD"}
+                  borderRadius={"md"}
+                  fontSize="sm"
+                  fontWeight="bold"
+                  padding={"6px"}
+                  textColor={"#fff"}
+                >
+                  <DateComponent dateString={date} />
+                </Box>
 
-              <Box alignItems="center" display="flex" flexDirection="column">
+                <Heading as="h3" size="lg">
+                  {title}
+                </Heading>
+
                 <Text
-                  alignSelf={"flex-start"}
                   fontSize="sm"
                   flexShrink={1}
                   overflow="hidden"
@@ -55,12 +71,12 @@ function PostPreview({
                 >
                   {truncateText(excerpt)}
                 </Text>
+
                 <Button
                   alignSelf="flex-end"
                   borderRadius={"sm"}
                   minW="100px"
                   textColor={"#faebd7"}
-                  marginTop={"12px"}
                 >
                   Read More
                 </Button>
