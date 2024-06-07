@@ -69,7 +69,9 @@ const renderOptions = (links: AssetLink): Options => ({
       return <RichTextAsset id={id} assets={links.block} />;
     },
     [BLOCKS.PARAGRAPH]: (node, children) => {
-      const textContent = children?
+      // Ensure children is always an array
+      const childrenArray = Array.isArray(children) ? children : [children];
+      const textContent = childrenArray
         .map((child) => (typeof child === "string" ? child : ""))
         .join("");
 
