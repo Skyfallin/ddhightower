@@ -58,7 +58,7 @@ const customTheme = extendTheme({
     Card: {
       baseStyle: {
         container: {
-          backgroundColor: "#faebd7", // Antique White
+          backgroundColor: "#FDF6ED", // Floral white
         },
       },
     },
