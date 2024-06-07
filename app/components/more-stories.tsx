@@ -1,22 +1,24 @@
-import { truncateText } from "@/util/text-util";
+import { truncateText } from "@/app/util/text-util";
 import {
   Box,
   Button,
   Card,
   CardBody,
   Heading,
-  Link,
+  LinkBox,
+  LinkOverlay,
   Text,
 } from "@chakra-ui/react";
-import TopShadow from "./components/top-shadow";
-import CoverImage from "./cover-image";
+import CoverImage from "../cover-image";
+import DateComponent from "./date";
+import Label from "./label";
+import TopShadow from "./top-shadow";
 
 function PostPreview({
   title,
   coverImage,
   date,
   excerpt,
-  author,
   slug,
 }: {
   title: string;
@@ -27,8 +29,17 @@ function PostPreview({
   slug: string;
 }) {
   return (
-    <div className="lg-min-w-740">
-      <Card mx="auto" my={5} shadow={"lg"} boxShadow={"lg"} borderRadius={"lg"}>
+    <LinkBox as="article" className="lg-min-w-740">
+      <Card
+        borderRadius={"lg"}
+        boxShadow={"lg"}
+        mx="auto"
+        my={4}
+        shadow={"lg"}
+        variant="outline"
+        transition="transform 0.2s ease-in-out"
+        _hover={{ transform: "scale(1.024)" }}
+      >
         <TopShadow />
 
         <Box display={"flex"} flexDirection={"column"}>
@@ -37,18 +48,21 @@ function PostPreview({
           </Box>
 
           <CardBody>
-            <Heading as="h3" size="lg" mb={3}>
-              <Link
-                href={`/posts/${slug}`}
-                _hover={{ textDecoration: "underline" }}
-              >
-                {title}
-              </Link>
-            </Heading>
+            <Box
+              alignItems="flex-start"
+              display="flex"
+              flexDirection="column"
+              gap={2}
+            >
+              <Label>
+                <DateComponent dateString={date} />
+              </Label>
 
-            <Box alignItems="center" display="flex" flexDirection="column">
+              <Heading as="h3" size="lg">
+                <LinkOverlay href={`/posts/${slug}`}>{title}</LinkOverlay>
+              </Heading>
+
               <Text
-                alignSelf={"flex-start"}
                 fontSize="sm"
                 flexShrink={1}
                 overflow="hidden"
@@ -56,12 +70,12 @@ function PostPreview({
               >
                 {truncateText(excerpt)}
               </Text>
+
               <Button
                 alignSelf="flex-end"
                 borderRadius={"sm"}
                 minW="100px"
                 textColor={"#faebd7"}
-                marginTop={"8px"}
               >
                 Read More
               </Button>
@@ -69,7 +83,7 @@ function PostPreview({
           </CardBody>
         </Box>
       </Card>
-    </div>
+    </LinkBox>
   );
 }
 

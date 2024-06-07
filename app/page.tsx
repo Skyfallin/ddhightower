@@ -2,24 +2,14 @@ import { draftMode } from "next/headers";
 import Link from "next/link";
 
 import Avatar from "./avatar";
+import Date from "./components/date";
+import MoreStories from "./components/more-stories";
 import CoverImage from "./cover-image";
-import Date from "./date";
-import MoreStories from "./more-stories";
 
 import { getAllPosts } from "@/lib/api";
-
-function Intro() {
-  return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
-      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        D. D. Hightower
-      </h1>
-      <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A collection of chapters for the upcoming Runic Novel, ©2024
-      </h2>
-    </section>
-  );
-}
+import { Box } from "@chakra-ui/react";
+import Intro from "./components/intro";
+import Label from "./components/label";
 
 function HeroPost({
   title,
@@ -48,9 +38,14 @@ function HeroPost({
               {title}
             </Link>
           </h3>
-          <div className="mb-4 md:mb-0 text-lg">
-            <Date dateString={date} />
-          </div>
+          <Box display={"flex"} gap={2}>
+            <Label>
+              <Date dateString={date} />
+            </Label>
+            <Label bgColor="#7A8450" fontWeight={"bold"}>
+              NEW
+            </Label>
+          </Box>
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
