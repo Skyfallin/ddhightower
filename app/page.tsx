@@ -7,6 +7,7 @@ import Date from "./date";
 import MoreStories from "./more-stories";
 
 import { getAllPosts } from "@/lib/api";
+import { Divider } from "@chakra-ui/react";
 
 function Intro() {
   return (
@@ -14,6 +15,12 @@ function Intro() {
       <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
         D. D. Hightower
       </h1>
+      <Divider
+        borderColor="#222725"
+        height="100px"
+        borderWidth={1}
+        orientation="vertical"
+      />
       <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
         A collection of chapters for the upcoming Runic Novel, ©2024
       </h2>
