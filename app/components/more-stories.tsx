@@ -9,9 +9,10 @@ import {
   LinkOverlay,
   Text,
 } from "@chakra-ui/react";
-import TopShadow from "./components/top-shadow";
-import CoverImage from "./cover-image";
+import CoverImage from "../cover-image";
 import DateComponent from "./date";
+import Label from "./label";
+import TopShadow from "./top-shadow";
 
 function PostPreview({
   title,
@@ -53,16 +54,9 @@ function PostPreview({
               flexDirection="column"
               gap={2}
             >
-              <Box
-                background={"#A2B5CD"}
-                borderRadius={"md"}
-                fontSize="sm"
-                fontWeight="bold"
-                padding={"6px"}
-                textColor={"#fff"}
-              >
+              <Label>
                 <DateComponent dateString={date} />
-              </Box>
+              </Label>
 
               <Heading as="h3" size="lg">
                 <LinkOverlay href={`/posts/${slug}`}>{title}</LinkOverlay>

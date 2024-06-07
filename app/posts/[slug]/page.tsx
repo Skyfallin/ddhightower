@@ -2,9 +2,9 @@ import { draftMode } from "next/headers";
 import Link from "next/link";
 
 import Avatar from "../../avatar";
+import Date from "../../components/date";
+import MoreStories from "../../components/more-stories";
 import CoverImage from "../../cover-image";
-import Date from "../../date";
-import MoreStories from "../../more-stories";
 
 import { getAllPosts, getPostAndMorePosts } from "@/lib/api";
 import { Markdown } from "@/lib/markdown";
