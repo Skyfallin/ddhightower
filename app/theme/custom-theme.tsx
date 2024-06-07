@@ -9,6 +9,11 @@ const customTheme = extendTheme({
       },
     },
   },
+  fonts: {
+    heading: "'Merriweather', serif",
+    // body: "'Roboto Slab', serif",
+    body: "'Libre Baskerville', serif",
+  },
 });
 
 export default customTheme;
