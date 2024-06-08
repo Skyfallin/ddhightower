@@ -19,7 +19,6 @@ const Intro = () => {
           borderColor="#222725"
           flex={1}
           height="114px"
-          borderWidth={1}
           orientation="vertical"
         />
       </Center>
