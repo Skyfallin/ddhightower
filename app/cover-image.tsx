@@ -21,20 +21,10 @@ export default function CoverImage({
       width="100%"
       height="auto"
       maxH={"500px"}
-      // borderRadius="full"
+      borderTopRadius="lg"
       objectFit="cover"
       cursor={slug ? "pointer" : "default"}
     />
-    // <ContentfulImage
-    //   alt={`Cover Image for ${title}`}
-    //   priority
-    //   width={500}
-    //   height={500}
-    //   className={cn("shadow-small", {
-    //     "hover:shadow-medium transition-shadow duration-200": slug,
-    //   })}
-    //   src={url}
-    // />
   );
 
   return (
