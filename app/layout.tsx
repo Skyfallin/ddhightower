@@ -1,6 +1,5 @@
 "use client";
 
-import { EXAMPLE_PATH } from "@/lib/constants";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -30,7 +29,7 @@ function Footer() {
               Read on Medium
             </a>
             <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
+              href={`https://github.com/skyfallin/`}
               className="mx-3 font-bold hover:underline"
             >
               View on GitHub
