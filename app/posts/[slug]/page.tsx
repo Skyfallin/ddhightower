@@ -43,7 +43,11 @@ export default async function PostPage({
           )}
         </div>
         <div className="mb-8 sm:mx-0 md:mb-16">
-          <CoverImage title={post.title} url={post.coverImage.url} />
+          <CoverImage
+            title={post.title}
+            url={post.coverImage.url}
+            borderRadius={"full"}
+          />
         </div>
         <div className="mx-auto max-w-2xl">
           <div className="mb-6 block md:hidden">

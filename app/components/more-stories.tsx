@@ -44,7 +44,12 @@ function PostPreview({
 
         <Box display={"flex"} flexDirection={"column"}>
           <Box className="w-full h-auto object-cover">
-            <CoverImage title={title} slug={slug} url={coverImage.url} />
+            <CoverImage
+              title={title}
+              slug={slug}
+              url={coverImage.url}
+              borderRadius={"half"}
+            />
           </Box>
 
           <CardBody>

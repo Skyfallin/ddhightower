@@ -1,19 +1,20 @@
 import { Image } from "@chakra-ui/react";
 import Link from "next/link";
 
-function cn(...classes: any[]) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export default function CoverImage({
   title,
   url,
   slug,
+  borderRadius,
 }: {
   title: string;
   url: string;
   slug?: string;
+  borderRadius: "half" | "full";
 }) {
+  const borderTopRadius = borderRadius === "half" ? "lg" : undefined;
+  const borderRadiusFull = borderRadius === "full" ? "lg" : undefined;
+
   const image = (
     <Image
       alt={`Cover Image for ${title}`}
@@ -21,7 +22,8 @@ export default function CoverImage({
       width="100%"
       height="auto"
       maxH={"500px"}
-      borderTopRadius="lg"
+      borderTopRadius={borderTopRadius}
+      borderRadius={borderRadiusFull}
       objectFit="cover"
       cursor={slug ? "pointer" : "default"}
     />
