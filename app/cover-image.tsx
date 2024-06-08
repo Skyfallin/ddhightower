@@ -1,17 +1,19 @@
 import { Image } from "@chakra-ui/react";
 import Link from "next/link";
 
+interface CoverImageProps {
+  title: string;
+  url: string;
+  slug?: string;
+  borderRadius: "half" | "full";
+}
+
 export default function CoverImage({
   title,
   url,
   slug,
   borderRadius,
-}: {
-  title: string;
-  url: string;
-  slug?: string;
-  borderRadius: "half" | "full";
-}) {
+}: Readonly<CoverImageProps>) {
   const borderTopRadius = borderRadius === "half" ? "lg" : undefined;
   const borderRadiusFull = borderRadius === "full" ? "lg" : undefined;
 
