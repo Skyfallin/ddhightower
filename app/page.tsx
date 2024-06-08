@@ -1,7 +1,6 @@
 import { draftMode } from "next/headers";
 import Link from "next/link";
 
-import Avatar from "./avatar";
 import Date from "./components/date";
 import MoreStories from "./components/more-stories";
 import CoverImage from "./cover-image";
@@ -10,13 +9,13 @@ import { getAllPosts } from "@/lib/api";
 import { Box } from "@chakra-ui/react";
 import Intro from "./components/intro";
 import Label from "./components/label";
+import { truncateText } from "./util/text-util";
 
 function HeroPost({
   title,
   coverImage,
   date,
   excerpt,
-  author,
   slug,
 }: {
   title: string;
@@ -48,8 +47,9 @@ function HeroPost({
           </Box>
         </div>
         <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          {author && <Avatar name={author.name} picture={author.picture} />}
+          <p className="text-lg leading-relaxed mb-4">
+            {truncateText(excerpt)}
+          </p>
         </div>
       </div>
     </section>
