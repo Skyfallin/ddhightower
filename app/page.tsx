@@ -52,7 +52,7 @@ function HeroPost({
           </Box>
         </div>
         <div>
-          <p className="text-lg leading-relaxed mb-4">
+          <p className="text-lg leading-relaxed mt-4 md:mt-0 mb-4">
             {truncateText(excerpt)}
           </p>
         </div>
