@@ -11,6 +11,8 @@ import Intro from "./components/intro";
 import Label from "./components/label";
 import { truncateText } from "./util/text-util";
 
+const HERO_SLUG = "day-of-steel";
+
 function HeroPost({
   title,
   coverImage,
@@ -37,7 +39,7 @@ function HeroPost({
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
-          <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
+          <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
             <Link href={`/posts/${slug}`} className="hover:underline">
               {title}
             </Link>
@@ -64,7 +66,9 @@ function HeroPost({
 export default async function Page() {
   const { isEnabled } = draftMode();
   const allPosts = await getAllPosts(isEnabled);
-  const heroPost = allPosts[0];
+  console.log(allPosts);
+  // const heroPost = allPosts[0]; latest
+  const heroPost = allPosts.find((post) => post.slug === HERO_SLUG);
   const morePosts = allPosts.slice(1);
 
   return (
