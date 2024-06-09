@@ -8,11 +8,22 @@ import CoverImage from "./cover-image";
 import { getAllPosts } from "@/lib/api";
 import { Box } from "@chakra-ui/react";
 import { FaThumbtack } from "react-icons/fa";
-import Intro from "./components/intro";
+// import Intro from "./components/intro";
 import Label from "./components/label";
 import { truncateText } from "./util/text-util";
 
 const HERO_SLUG = "day-of-steel";
+
+import dynamic from "next/dynamic";
+import ResponsiveIntro from "./components/responsive-intro";
+
+// Dynamically import your components
+const Intro = dynamic(() => import("./components/intro"));
+const IntroMobile = dynamic(() => import("./components/intro-mobile"));
+
+interface HomePageProps {
+  isMobile: boolean;
+}
 
 function HeroPost({
   title,
@@ -67,7 +78,7 @@ function HeroPost({
   );
 }
 
-export default async function Page() {
+export default async function Page({ isMobile }: Readonly<HomePageProps>) {
   const { isEnabled } = draftMode();
   const allPosts = await getAllPosts(isEnabled);
   console.log(allPosts);
@@ -78,7 +89,7 @@ export default async function Page() {
 
   return (
     <div className="container mx-auto px-5">
-      <Intro />
+      <ResponsiveIntro />
       {heroPost && (
         <HeroPost
           title={heroPost.title}
