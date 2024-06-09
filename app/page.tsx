@@ -28,7 +28,12 @@ function HeroPost({
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        <CoverImage title={title} slug={slug} url={coverImage.url} />
+        <CoverImage
+          title={title}
+          slug={slug}
+          url={coverImage.url}
+          borderRadius={"full"}
+        />
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
@@ -47,7 +52,7 @@ function HeroPost({
           </Box>
         </div>
         <div>
-          <p className="text-lg leading-relaxed mb-4">
+          <p className="text-lg leading-relaxed mt-4 md:mt-0 mb-4">
             {truncateText(excerpt)}
           </p>
         </div>

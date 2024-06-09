@@ -8,6 +8,7 @@ import CoverImage from "../../cover-image";
 
 import { getAllPosts, getPostAndMorePosts } from "@/lib/api";
 import { Markdown } from "@/lib/markdown";
+import { Divider } from "@chakra-ui/react";
 
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
@@ -42,7 +43,11 @@ export default async function PostPage({
           )}
         </div>
         <div className="mb-8 sm:mx-0 md:mb-16">
-          <CoverImage title={post.title} url={post.coverImage.url} />
+          <CoverImage
+            title={post.title}
+            url={post.coverImage.url}
+            borderRadius={"full"}
+          />
         </div>
         <div className="mx-auto max-w-2xl">
           <div className="mb-6 block md:hidden">
@@ -61,7 +66,9 @@ export default async function PostPage({
           </div>
         </div>
       </article>
-      <hr className="border-accent-2 mt-28 mb-24" />
+
+      <Divider borderColor="#222725" mt={8} mb={20} />
+
       <MoreStories morePosts={morePosts} />
     </div>
   );

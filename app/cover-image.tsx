@@ -1,19 +1,22 @@
 import { Image } from "@chakra-ui/react";
 import Link from "next/link";
 
-function cn(...classes: any[]) {
-  return classes.filter(Boolean).join(" ");
+interface CoverImageProps {
+  title: string;
+  url: string;
+  slug?: string;
+  borderRadius: "half" | "full";
 }
 
 export default function CoverImage({
   title,
   url,
   slug,
-}: {
-  title: string;
-  url: string;
-  slug?: string;
-}) {
+  borderRadius,
+}: Readonly<CoverImageProps>) {
+  const borderTopRadius = borderRadius === "half" ? "lg" : undefined;
+  const borderRadiusFull = borderRadius === "full" ? "lg" : undefined;
+
   const image = (
     <Image
       alt={`Cover Image for ${title}`}
@@ -21,20 +24,11 @@ export default function CoverImage({
       width="100%"
       height="auto"
       maxH={"500px"}
-      // borderRadius="full"
+      borderTopRadius={borderTopRadius}
+      borderRadius={borderRadiusFull}
       objectFit="cover"
       cursor={slug ? "pointer" : "default"}
     />
-    // <ContentfulImage
-    //   alt={`Cover Image for ${title}`}
-    //   priority
-    //   width={500}
-    //   height={500}
-    //   className={cn("shadow-small", {
-    //     "hover:shadow-medium transition-shadow duration-200": slug,
-    //   })}
-    //   src={url}
-    // />
   );
 
   return (
