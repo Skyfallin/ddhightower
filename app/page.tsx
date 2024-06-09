@@ -7,6 +7,7 @@ import CoverImage from "./cover-image";
 
 import { getAllPosts } from "@/lib/api";
 import { Box } from "@chakra-ui/react";
+import { FaThumbtack } from "react-icons/fa";
 import Intro from "./components/intro";
 import Label from "./components/label";
 import { truncateText } from "./util/text-util";
@@ -44,12 +45,15 @@ function HeroPost({
               {title}
             </Link>
           </h3>
-          <Box display={"flex"} gap={2}>
+          <Box display="flex" gap={2}>
+            <Box display="flex" alignItems="center">
+              <FaThumbtack
+                color="#7A8450"
+                style={{ height: "100%", width: "auto" }}
+              />
+            </Box>
             <Label>
               <Date dateString={date} />
-            </Label>
-            <Label bgColor="#7A8450" fontWeight={"bold"}>
-              NEW
             </Label>
           </Box>
         </div>
