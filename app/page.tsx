@@ -73,7 +73,8 @@ export default async function Page() {
   console.log(allPosts);
   // const heroPost = allPosts[0]; latest
   const heroPost = allPosts.find((post) => post.slug === HERO_SLUG);
-  const morePosts = allPosts.slice(1);
+  // const morePosts = allPosts.slice(1); // latest
+  const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG);
 
   return (
     <div className="container mx-auto px-5">
