@@ -1,7 +1,7 @@
 import { Text } from "@chakra-ui/react";
 import {
-  documentToReactComponents,
   Options,
+  documentToReactComponents,
 } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import Image from "next/image";
@@ -68,13 +68,21 @@ const renderOptions = (links: AssetLink): Options => ({
 
       return <RichTextAsset id={id} assets={links.block} />;
     },
-    [BLOCKS.PARAGRAPH]: (node, children) => {
+    [BLOCKS.PARAGRAPH]: (_node, children) => {
       // Ensure children is always an array
       const childrenArray = Array.isArray(children) ? children : [children];
       const textContent = childrenArray
         .map((child) => (typeof child === "string" ? child : ""))
         .join("");
 
+      // Check for headings
+      if (textContent.startsWith("## ")) {
+        return <h2>{textContent.slice(3)}</h2>;
+      } else if (textContent.startsWith("# ")) {
+        return <h1>{textContent.slice(2)}</h1>;
+      }
+
+      // Check for italic text
       const parts = textContent.split(/(\*[^*]+\*)/).filter(Boolean);
 
       return (
