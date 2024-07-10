@@ -13,7 +13,7 @@ import Label from "./components/label";
 import ResponsiveIntro from "./components/responsive-intro";
 import { truncateText } from "./util/text-util";
 
-const HERO_SLUG = "day-of-steel";
+const HERO_SLUG = "prologue";
 
 function HeroPost({
   title,
