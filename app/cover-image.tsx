@@ -20,6 +20,7 @@ export default function CoverImage({
   const image = (
     <Image
       alt={`Cover Image for ${title}`}
+      aspectRatio={{ base: 1 / 1, sm: "unset" }}
       src={url}
       width="100%"
       height="auto"
