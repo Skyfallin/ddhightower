@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        charcoal: "#262a33",
+      },
       fontFamily: {
         sans: ["var(--font-inter)"],
       },
