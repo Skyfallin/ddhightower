@@ -77,7 +77,7 @@ export default async function Page() {
   const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG);
 
   return (
-    <div className="container mx-auto px-5 max-w-7xl">
+    <div className="container mx-auto px-5 max-w-84rem">
       <ResponsiveIntro />
       {heroPost && (
         <HeroPost
