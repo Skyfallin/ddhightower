@@ -39,7 +39,7 @@ function HeroPost({
           borderRadius={"full"}
         />
       </div>
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28 bg-blue-200">
+      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
           <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
             <Link href={`/posts/${slug}`} className="hover:underline">
@@ -77,7 +77,7 @@ export default async function Page() {
   const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG);
 
   return (
-    <div className="container mx-auto px-5">
+    <div className="container mx-auto px-5 max-w-7xl">
       <ResponsiveIntro />
       {heroPost && (
         <HeroPost
