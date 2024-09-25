@@ -1,4 +1,4 @@
-import { Image } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import Link from "next/link";
 
 interface CoverImageProps {
@@ -18,19 +18,26 @@ export default function CoverImage({
   const borderRadiusFull = borderRadius === "full" ? "3xl" : undefined;
 
   const image = (
-    <Image
-      alt={`Cover Image for ${title}`}
-      src={url}
-      width="100%"
-      height="auto"
+    <Box
+      maxW="1360px"
+      maxH="492px"
       margin="auto"
-      maxW={"1360px"}
-      maxH={"500px"}
-      borderTopRadius={borderTopRadius}
       borderRadius={borderRadiusFull}
-      objectFit="cover"
-      cursor={slug ? "pointer" : "default"}
-    />
+      overflow="hidden"
+      aspectRatio={{ base: 1, md: 2.6 / 1 }}
+    >
+      <Image
+        alt={`Cover Image for ${title}`}
+        src={url}
+        height="100%"
+        width="100%"
+        margin="auto"
+        borderTopRadius={borderTopRadius}
+        borderRadius={borderRadiusFull}
+        objectFit="cover"
+        cursor={slug ? "pointer" : "default"}
+      />
+    </Box>
   );
 
   return (
