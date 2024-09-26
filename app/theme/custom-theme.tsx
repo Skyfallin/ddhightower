@@ -41,7 +41,7 @@ const customTheme = extendTheme({
           bg: wineColor, // Wine color background
           color: "#faebd7", // Antique white text color
           _hover: {
-            bg: wineHoverColor, // Slightly lighter wine color on hover
+            bg: "blue.600", // Slightly lighter wine color on hover
           },
         },
         outline: {
