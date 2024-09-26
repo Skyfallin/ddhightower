@@ -3,6 +3,7 @@
 import { ChakraProvider, Divider } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import HeaderBar from "./components/header-bar";
+import NavBar from "./components/nav-bar";
 import "./globals.css";
 import { metadata } from "./metadata";
 import customTheme from "./theme/custom-theme";
@@ -59,6 +60,7 @@ export default function RootLayout({
       <body>
         <ChakraProvider cssVarsRoot="body" theme={customTheme}>
           <HeaderBar />
+          <NavBar />
           <section className="min-h-screen">
             {children}
             <Footer />
