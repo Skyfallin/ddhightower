@@ -8,6 +8,7 @@ import {
   Link,
   Text,
 } from "@chakra-ui/react";
+import { usePathname } from "next/navigation";
 import React from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
@@ -22,12 +23,16 @@ const navLinks: NavLink[] = [
     text: "Home",
   },
   {
-    hyperlink: "",
+    hyperlink: "chapters",
     text: "Sample Chapters",
   },
 ];
 
 const NavBar: React.FC = () => {
+  const pathName = usePathname();
+
+  console.log(pathName);
+
   return (
     <Flex
       as="nav"
@@ -83,16 +88,25 @@ const NavBar: React.FC = () => {
       <Divider borderColor={"#33302e"} opacity={0.25} />
 
       <Flex fontWeight={"bold"} gap={4} py={2}>
-        {navLinks.map((link, index) => (
-          <a
-            key={index}
-            href={link.hyperlink}
-            rel="noopener noreferrer"
-            className="text-wine hover:text-blue-600 flex-shrink-0"
-          >
-            {link.text}
-          </a>
-        ))}
+        {navLinks.map((link, index) => {
+          const isActive = pathName === link.hyperlink;
+
+          return (
+            <Link
+              key={index}
+              href={link.hyperlink}
+              rel="noopener noreferrer"
+              textColor={"#990f3d"}
+              _hover={{ color: "blue.600" }}
+              flexShrink={0}
+              textDecoration={isActive ? "underline" : "none"}
+              textUnderlineOffset="12px"
+              textDecorationThickness="2px"
+            >
+              {link.text}
+            </Link>
+          );
+        })}
       </Flex>
 
       <Divider borderColor={"#33302e"} opacity={0.25} />
