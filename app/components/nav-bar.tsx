@@ -56,6 +56,7 @@ const NavBar: React.FC = () => {
         <Link href="/">
           <Text
             color={"#33302e"}
+            display={{ base: "none", md: "block" }} // Only show on larger screens
             fontFamily="'Libre Baskerville', serif"
             fontSize="6xl"
             fontWeight="bold"
