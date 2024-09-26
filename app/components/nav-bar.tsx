@@ -17,12 +17,12 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   {
-    hyperlink: "test",
+    hyperlink: "blog",
     text: "Blog",
   },
   {
-    hyperlink: "test",
-    text: "Realms of Runesong",
+    hyperlink: "",
+    text: "Sample Chapters",
   },
 ];
 
@@ -32,7 +32,6 @@ const NavBar: React.FC = () => {
       as="nav"
       align="center"
       justify="space-between"
-      //   backgroundColor={"salmon"}
       flexDirection={"column"}
     >
       <Flex
@@ -85,7 +84,7 @@ const NavBar: React.FC = () => {
             href={link.hyperlink}
             target="_blank"
             rel="noopener noreferrer"
-            //   className="text-white hover:text-wine-hover flex-shrink-0 my-auto"
+            className="text-wine hover:text-wine-hover flex-shrink-0"
           >
             {link.text}
           </a>
