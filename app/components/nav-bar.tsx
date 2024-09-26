@@ -10,6 +10,22 @@ import {
 import React from "react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
+interface NavLink {
+  hyperlink: string;
+  text: string;
+}
+
+const navLinks: NavLink[] = [
+  {
+    hyperlink: "test",
+    text: "Blog",
+  },
+  {
+    hyperlink: "test",
+    text: "Realms of Runesong",
+  },
+];
+
 const NavBar: React.FC = () => {
   return (
     <Flex
@@ -58,6 +74,22 @@ const NavBar: React.FC = () => {
         >
           Contact
         </Button>
+      </Flex>
+
+      <Divider borderColor={"#33302e"} opacity={0.25} />
+
+      <Flex fontWeight={"bold"} gap={4} py={2}>
+        {navLinks.map((link, index) => (
+          <a
+            key={index}
+            href={link.hyperlink}
+            target="_blank"
+            rel="noopener noreferrer"
+            //   className="text-white hover:text-wine-hover flex-shrink-0 my-auto"
+          >
+            {link.text}
+          </a>
+        ))}
       </Flex>
 
       <Divider borderColor={"#33302e"} opacity={0.25} />
