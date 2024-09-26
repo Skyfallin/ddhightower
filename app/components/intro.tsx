@@ -1,35 +1,29 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 
 const Intro = () => {
   return (
-    <Box display="flex" paddingY={2}>
-      {/* <Box flex={1.5} alignSelf="center">
+    <Flex flexDirection="column" paddingY={4}>
+      <Box flex={1.5} alignSelf="center">
         <Heading
           as="h1"
+          color={"#33302e"}
           fontFamily="'Libre Baskerville', serif"
-          fontSize="8xl"
+          fontSize="4xl"
           fontWeight="bold"
-          letterSpacing="-4px"
+          letterSpacing="-1px"
         >
           D. D. Hightower
         </Heading>
-      </Box> */}
-      {/* <Center mx="auto">
-        <Divider
-          borderColor="#222725"
-          flex={1}
-          height="114px"
-          orientation="vertical"
-        />
-      </Center> */}
+      </Box>
+      {/* // TODO: smaller text size and omit top box ^ UNLESS on mobile. Then remove mobile component. */}
       <Box alignContent={"center"} flex={1} padding={4}>
-        <Text>
+        <Text size={["vs", "sm", "md"]} textAlign={"center"}>
           Explore the creative world of D. D. Hightower, a New York-based
-          fantasy novelist and software developer. Dive into a collection of
-          exclusive preview chapters and other exciting writing projects.
+          fantasy novelist. Dive into a collection of exclusive preview chapters
+          and other exciting writing projects.
         </Text>
       </Box>
-    </Box>
+    </Flex>
   );
 };
 

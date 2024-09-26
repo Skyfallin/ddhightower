@@ -9,8 +9,8 @@ import { getAllPosts } from "@/lib/api";
 import { Box } from "@chakra-ui/react";
 import { FaThumbtack } from "react-icons/fa";
 // import Intro from "./components/intro";
+import Intro from "./components/intro";
 import Label from "./components/label";
-import ResponsiveIntro from "./components/responsive-intro";
 import { truncateText } from "./util/text-util";
 
 const HERO_SLUG = "prologue";
@@ -78,7 +78,7 @@ export default async function Page() {
 
   return (
     <div className="container mx-auto px-5 max-w-84rem">
-      <ResponsiveIntro />
+      <Intro />
       {heroPost && (
         <HeroPost
           title={heroPost.title}
