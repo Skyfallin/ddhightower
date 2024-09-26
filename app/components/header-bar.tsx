@@ -1,3 +1,4 @@
+import { Flex } from "@chakra-ui/react";
 import React from "react";
 import {
   FaDiscord,
@@ -38,19 +39,24 @@ const socialLinks: SocialLink[] = [
 const HeaderBar: React.FC = () => {
   return (
     <div className="bg-charcoal text-white h-10">
-      <div className="container mx-auto px-5 max-w-84rem flex space-x-4 h-full">
+      <Flex
+        backgroundColor={"samon"}
+        className="container mx-auto px-5 max-w-84rem h-full"
+        gap={4}
+        justifyContent={["center", "center", "flex-end"]} // center on base/sm, flex-end on md and up
+      >
         {socialLinks.map((link, index) => (
           <a
             key={index}
             href={link.hyperlink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-400 flex-shrink-0 my-auto"
+            className="text-white hover:text-wine-hover flex-shrink-0 my-auto"
           >
             {link.icon}
           </a>
         ))}
-      </div>
+      </Flex>
     </div>
   );
 };

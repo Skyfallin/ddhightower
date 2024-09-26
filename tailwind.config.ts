@@ -11,6 +11,10 @@ export default {
     extend: {
       colors: {
         charcoal: "#262a33",
+        wine: {
+          DEFAULT: "#990f3d",
+          hover: "#BA124A",
+        },
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
