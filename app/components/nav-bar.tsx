@@ -53,7 +53,10 @@ const NavBar: React.FC = () => {
           </InputGroup>
         </Flex>
 
-        <Link href="/">
+        <Link
+          href="/"
+          _hover={{ textDecoration: "none" }} // Removes underline on hover
+        >
           <Text
             color={"#33302e"}
             display={{ base: "none", md: "block" }} // Only show on larger screens
