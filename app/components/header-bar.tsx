@@ -51,7 +51,7 @@ const HeaderBar: React.FC = () => {
             href={link.hyperlink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-wine-hover flex-shrink-0 my-auto"
+            className="text-white hover:text-blue-600 flex-shrink-0 my-auto"
           >
             {link.icon}
           </a>

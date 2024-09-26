@@ -18,8 +18,8 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   {
-    hyperlink: "blog",
-    text: "Blog",
+    hyperlink: "home",
+    text: "Home",
   },
   {
     hyperlink: "",
@@ -46,7 +46,7 @@ const NavBar: React.FC = () => {
               <FaMagnifyingGlass color="#33302e" />
             </InputLeftElement>
             <Input
-              borderColor={"#262a33"}
+              borderColor={"#33302e"}
               placeholder="Search..."
               rounded="full"
               paddingLeft="2.5rem" // Add left padding to prevent text overlap
@@ -89,7 +89,7 @@ const NavBar: React.FC = () => {
             href={link.hyperlink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-wine hover:text-wine-hover flex-shrink-0"
+            className="text-wine hover:text-blue-600 flex-shrink-0"
           >
             {link.text}
           </a>
