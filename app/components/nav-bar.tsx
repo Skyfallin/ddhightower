@@ -70,10 +70,10 @@ const NavBar: React.FC = () => {
         </Link>
 
         <Button
+          className="bg-text-charcoal-light hover:bg-text-white hover:text-charcoal-light border border-charcoal text-white font-bold duration-200 transition-colors mb-6 lg:mb-0"
           borderRadius="0"
           backgroundColor="#33302e"
-          color="white"
-          _hover={{ backgroundColor: "blue.600" }}
+          _hover={{ backgroundColor: "white" }}
           my={"auto"}
         >
           Contact

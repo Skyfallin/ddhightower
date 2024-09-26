@@ -10,7 +10,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        charcoal: "#262a33",
+        charcoal: {
+          DEFAULT: "#262a33",
+          light: "#33302e",
+        },
         wine: {
           DEFAULT: "#990f3d",
           hover: "#BA124A",
