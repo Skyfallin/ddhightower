@@ -5,6 +5,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Link,
   Text,
 } from "@chakra-ui/react";
 import React from "react";
@@ -39,7 +40,6 @@ const NavBar: React.FC = () => {
         justifyContent={"space-evenly"}
         padding="1rem"
       >
-        {/* Search Icon and Search Bar */}
         <Flex align="center">
           <InputGroup width="200px">
             <InputLeftElement pointerEvents="none">
@@ -53,17 +53,17 @@ const NavBar: React.FC = () => {
           </InputGroup>
         </Flex>
 
-        {/* Name */}
-        <Text
-          color={"#33302e"}
-          fontFamily="'Libre Baskerville', serif"
-          fontSize="6xl"
-          fontWeight="bold"
-        >
-          D. D. Hightower
-        </Text>
+        <Link href="/">
+          <Text
+            color={"#33302e"}
+            fontFamily="'Libre Baskerville', serif"
+            fontSize="6xl"
+            fontWeight="bold"
+          >
+            D. D. Hightower
+          </Text>
+        </Link>
 
-        {/* Contact Button */}
         <Button
           borderRadius="0"
           backgroundColor="blue.500"
