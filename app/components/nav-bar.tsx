@@ -18,7 +18,7 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   {
-    hyperlink: "home",
+    hyperlink: "/",
     text: "Home",
   },
   {
@@ -87,7 +87,6 @@ const NavBar: React.FC = () => {
           <a
             key={index}
             href={link.hyperlink}
-            target="_blank"
             rel="noopener noreferrer"
             className="text-wine hover:text-blue-600 flex-shrink-0"
           >
