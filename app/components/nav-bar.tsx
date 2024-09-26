@@ -1,4 +1,3 @@
-// nav-bar.tsx
 import {
   Button,
   Divider,
@@ -17,18 +16,13 @@ const NavBar: React.FC = () => {
       as="nav"
       align="center"
       justify="space-between"
-      padding="1rem"
-      //   backgroundColor="gray.100"
       //   backgroundColor={"salmon"}
       flexDirection={"column"}
-      gap={4}
-      //   py={4}
-      //   my={4}
-      //   className="container mx-auto px-5 max-w-84rem h-full"
     >
       <Flex
-        justifyContent={"space-evenly"}
         className="container mx-auto px-5 max-w-84rem h-full"
+        justifyContent={"space-evenly"}
+        padding="1rem"
       >
         {/* Search Icon and Search Bar */}
         <Flex align="center">
@@ -48,9 +42,8 @@ const NavBar: React.FC = () => {
         <Text
           color={"#33302e"}
           fontFamily="'Libre Baskerville', serif"
-          fontSize="4xl"
+          fontSize="6xl"
           fontWeight="bold"
-          //   letterSpacing="-4px"
         >
           D. D. Hightower
         </Text>
@@ -61,12 +54,13 @@ const NavBar: React.FC = () => {
           backgroundColor="blue.500"
           color="white"
           _hover={{ backgroundColor: "blue.600" }}
+          my={"auto"}
         >
           Contact
         </Button>
       </Flex>
 
-      <Divider />
+      <Divider borderColor={"#33302e"} opacity={0.25} />
     </Flex>
   );
 };

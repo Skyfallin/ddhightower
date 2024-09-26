@@ -1,9 +1,9 @@
-import { Box, Center, Divider, Heading, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 
 const Intro = () => {
   return (
-    <Box display="flex" paddingY={12}>
-      <Box flex={1.5} alignSelf="center">
+    <Box display="flex" paddingY={2}>
+      {/* <Box flex={1.5} alignSelf="center">
         <Heading
           as="h1"
           fontFamily="'Libre Baskerville', serif"
@@ -13,15 +13,15 @@ const Intro = () => {
         >
           D. D. Hightower
         </Heading>
-      </Box>
-      <Center mx="auto">
+      </Box> */}
+      {/* <Center mx="auto">
         <Divider
           borderColor="#222725"
           flex={1}
           height="114px"
           orientation="vertical"
         />
-      </Center>
+      </Center> */}
       <Box alignContent={"center"} flex={1} padding={4}>
         <Text>
           Explore the creative world of D. D. Hightower, a New York-based
