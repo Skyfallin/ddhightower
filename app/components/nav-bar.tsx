@@ -43,9 +43,10 @@ const NavBar: React.FC = () => {
         <Flex align="center">
           <InputGroup width="200px">
             <InputLeftElement pointerEvents="none">
-              <FaMagnifyingGlass color="gray.500" />
+              <FaMagnifyingGlass color="#33302e" />
             </InputLeftElement>
             <Input
+              borderColor={"#262a33"}
               placeholder="Search..."
               rounded="full"
               paddingLeft="2.5rem" // Add left padding to prevent text overlap
@@ -70,7 +71,7 @@ const NavBar: React.FC = () => {
 
         <Button
           borderRadius="0"
-          backgroundColor="blue.500"
+          backgroundColor="#33302e"
           color="white"
           _hover={{ backgroundColor: "blue.600" }}
           my={"auto"}
