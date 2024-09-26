@@ -29,8 +29,6 @@ export default function CoverImage({
       borderRadius={borderRadiusFull}
       objectFit="cover"
       cursor={slug ? "pointer" : "default"}
-      transition="transform 0.2s ease-in-out"
-      _hover={{ transform: "scale(1.024)" }}
     />
   );
 

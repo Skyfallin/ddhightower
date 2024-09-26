@@ -5,6 +5,7 @@ import CoverImage from "./cover-image";
 
 import { getAllPosts } from "@/lib/api";
 // import Intro from "./components/intro";
+import { Box } from "@chakra-ui/react";
 import Intro from "./components/intro";
 
 const HERO_SLUG = "prologue";
@@ -25,14 +26,18 @@ function HeroPost({
 }) {
   return (
     <section>
-      <div className="mb-8 md:mb-16">
+      <Box
+        className="mb-8 md:mb-16"
+        transition="transform 0.2s ease-in-out"
+        _hover={{ transform: "scale(1.024)" }}
+      >
         <CoverImage
           title={title}
           slug={slug}
           url={coverImage.url}
           borderRadius={"full"}
         />
-      </div>
+      </Box>
     </section>
   );
 }
