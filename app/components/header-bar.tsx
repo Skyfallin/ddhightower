@@ -20,7 +20,7 @@ const socialLinks: SocialLink[] = [
   // },
   {
     icon: <FaInstagram size={"24"} />,
-    hyperlink: "https://x.com/",
+    hyperlink: "https://www.instagram.com/d_d_hightower/",
   },
   {
     icon: <FaThreads size={"24"} />,
@@ -28,7 +28,7 @@ const socialLinks: SocialLink[] = [
   },
   {
     icon: <FaTiktok size={"24"} />,
-    hyperlink: "https://x.com/",
+    hyperlink: "https://www.tiktok.com/@d_d_hightower/",
   },
   {
     icon: <FaXTwitter size={"24"} />,
@@ -36,7 +36,7 @@ const socialLinks: SocialLink[] = [
   },
   {
     icon: <FaYoutube size={"24"} />,
-    hyperlink: "https://x.com/",
+    hyperlink: "https://www.youtube.com/@DDHightower/",
   },
 ];
 
