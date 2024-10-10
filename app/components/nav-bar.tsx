@@ -87,7 +87,7 @@ const NavBar: React.FC = () => {
 
       <Divider borderColor={"#33302e"} opacity={0.25} />
 
-      <Flex fontWeight={"bold"} gap={4} my={"8px"}>
+      <Flex fontWeight={"bold"} gap={4} py={2}>
         {navLinks.map((link, index) => {
           const isActive = pathName === link.hyperlink;
 
@@ -101,7 +101,7 @@ const NavBar: React.FC = () => {
               _hover={{ color: "blue.600" }}
               flexShrink={0}
               textDecoration={isActive ? "underline" : "none"}
-              textUnderlineOffset="12px"
+              textUnderlineOffset={"0.75rem"}
               textDecorationThickness="2px"
             >
               {link.text}
