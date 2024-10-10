@@ -101,7 +101,7 @@ const NavBar: React.FC = () => {
               _hover={{ color: "blue.600" }}
               flexShrink={0}
               textDecoration={isActive ? "underline" : "none"}
-              textUnderlineOffset={"0.75rem"}
+              textUnderlineOffset={"1rem"}
               textDecorationThickness="2px"
             >
               {link.text}
