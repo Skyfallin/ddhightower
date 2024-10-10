@@ -47,7 +47,7 @@ const HeaderBar: React.FC = () => {
       >
         {socialLinks.map((link, index) => (
           <Link
-            _hover={{ color: "#FEE75C" }}
+            _hover={{ color: "#FFF1E0" }}
             flexShrink={0}
             href={link.hyperlink}
             key={index}
