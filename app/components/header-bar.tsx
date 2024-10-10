@@ -1,8 +1,8 @@
 import { Box, Flex, Link } from "@chakra-ui/react";
 import React from "react";
 import {
-  FaDiscord,
   FaInstagram,
+  FaThreads,
   FaTiktok,
   FaXTwitter,
   FaYoutube,
@@ -14,13 +14,17 @@ interface SocialLink {
 }
 
 const socialLinks: SocialLink[] = [
-  {
-    icon: <FaDiscord size={"24"} />,
-    hyperlink: "https://x.com/",
-  },
+  // {
+  //   icon: <FaDiscord size={"24"} />,
+  //   hyperlink: "https://x.com/",
+  // },
   {
     icon: <FaInstagram size={"24"} />,
     hyperlink: "https://x.com/",
+  },
+  {
+    icon: <FaThreads size={"24"} />,
+    hyperlink: "https://www.threads.net/@d_d_hightower/",
   },
   {
     icon: <FaTiktok size={"24"} />,
@@ -28,7 +32,7 @@ const socialLinks: SocialLink[] = [
   },
   {
     icon: <FaXTwitter size={"24"} />,
-    hyperlink: "https://x.com/",
+    hyperlink: "https://x.com/D_D_Hightower/",
   },
   {
     icon: <FaYoutube size={"24"} />,
