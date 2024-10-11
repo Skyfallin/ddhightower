@@ -37,8 +37,10 @@ const NavBar: React.FC = () => {
     <Flex
       as="nav"
       align="center"
-      borderBottom="1px solid rgba(51, 48, 46, 0.25)"
+      // borderBottom="1px solid rgba(51, 48, 46, 0.25)"
       flexDirection={"column"}
+      // position={"relative"}
+      // gap={2}
     >
       <Flex
         className="container mx-auto px-5 max-w-84rem h-full"
@@ -87,7 +89,7 @@ const NavBar: React.FC = () => {
 
       <Divider borderColor={"#33302e"} opacity={0.25} />
 
-      <Flex fontWeight={"bold"} gap={4} py={2}>
+      <Flex fontWeight={"bold"} gap={4} paddingTop={2}>
         {navLinks.map((link, index) => {
           const isActive = pathName === link.hyperlink;
 
@@ -100,15 +102,30 @@ const NavBar: React.FC = () => {
               textColor={"#990f3d"}
               _hover={{ color: "blue.600" }}
               flexShrink={0}
+              // background={"salmon"}
+              // borderBottom={isActive ? "2px solid #990f3d" : "none"} // Add border for active link
+              // position={"relative"}
+              // _after={{
+              //   content: '""',
+              //   position: "absolute",
+              //   left: 0,
+              //   right: 0,
+              //   bottom: 0, // Align the underline with the bottom of the link container
+              //   height: "2px",
+              //   width: "100vh", // Ensure underline matches text width
+              //   backgroundColor: isActive ? "#990f3d" : "blue", // Active link color
+              //   transition: "background-color 0.3s ease",
+              // }}
               textDecoration={isActive ? "underline" : "none"}
-              textUnderlineOffset={"1rem"}
-              textDecorationThickness="2px"
+              textUnderlineOffset={"10px"}
+              textDecorationThickness="4px"
             >
               {link.text}
             </Link>
           );
         })}
       </Flex>
+      <Divider borderColor={"#33302e"} opacity={0.25} mt={"8px"} />
     </Flex>
   );
 };
