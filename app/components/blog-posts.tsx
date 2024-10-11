@@ -43,19 +43,22 @@ const PrevArrow = ({ className, style, onClick }) => {
 // Sample data for the carousel
 const carouselData = [
   {
-    imageSrc: "/images/panel1.jpg",
+    imageSrc:
+      "https://images.ctfassets.net/j40z2xmw1dqz/1H7XGkEmIhEwBKbJHDTqXU/9056dafd10eb03ce4d7d2d191d48af7b/skyfallin_Generate_a_high-quality_birds-eye_view_of_a_charming__bbc1c8b5-bb69-4bb4-8612-f9f5165265f3.png",
     date: "October 11, 2024",
     title: "Panel One",
     excerpt: "This is the first panel of the carousel.",
   },
   {
-    imageSrc: "/images/panel2.jpg",
+    imageSrc:
+      "https://images.ctfassets.net/j40z2xmw1dqz/1H7XGkEmIhEwBKbJHDTqXU/9056dafd10eb03ce4d7d2d191d48af7b/skyfallin_Generate_a_high-quality_birds-eye_view_of_a_charming__bbc1c8b5-bb69-4bb4-8612-f9f5165265f3.png",
     date: "October 12, 2024",
     title: "Panel Two",
     excerpt: "This is the second panel of the carousel.",
   },
   {
-    imageSrc: "/images/panel3.jpg",
+    imageSrc:
+      "https://images.ctfassets.net/j40z2xmw1dqz/1H7XGkEmIhEwBKbJHDTqXU/9056dafd10eb03ce4d7d2d191d48af7b/skyfallin_Generate_a_high-quality_birds-eye_view_of_a_charming__bbc1c8b5-bb69-4bb4-8612-f9f5165265f3.png",
     date: "October 13, 2024",
     title: "Panel Three",
     excerpt: "This is the third panel of the carousel.",

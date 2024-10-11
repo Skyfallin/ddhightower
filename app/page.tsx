@@ -21,7 +21,6 @@ function HeroPost({
   coverImage: any;
   date: string;
   excerpt: string;
-  author: any;
   slug: string;
 }) {
   return (
@@ -58,7 +57,6 @@ export default async function Page() {
           title={heroPost.title}
           coverImage={heroPost.coverImage}
           date={heroPost.date}
-          author={heroPost.author}
           slug={heroPost.slug}
           excerpt={heroPost.excerpt}
         />

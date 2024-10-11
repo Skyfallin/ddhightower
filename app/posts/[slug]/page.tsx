@@ -1,6 +1,5 @@
 import { draftMode } from "next/headers";
 
-import Avatar from "../../avatar";
 import Date from "../../components/date";
 import MoreStories from "../../components/more-stories";
 import CoverImage from "../../cover-image";
@@ -36,11 +35,7 @@ export default async function PostPage({
           />
         </div>
         <div className="mx-auto max-w-2xl">
-          <div className="mb-6 block md:hidden">
-            {post.author && (
-              <Avatar name={post.author.name} picture={post.author.picture} />
-            )}
-          </div>
+          <div className="mb-6 block md:hidden"></div>
           <div className="mb-6 text-lg">
             <Date dateString={post.date} />
           </div>
