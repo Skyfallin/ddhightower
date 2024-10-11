@@ -117,7 +117,7 @@ const NavBar: React.FC = () => {
               //   transition: "background-color 0.3s ease",
               // }}
               textDecoration={isActive ? "underline" : "none"}
-              textUnderlineOffset={"10px"}
+              textUnderlineOffset={"0.6rem"}
               textDecorationThickness="4px"
             >
               {link.text}
@@ -125,7 +125,7 @@ const NavBar: React.FC = () => {
           );
         })}
       </Flex>
-      <Divider borderColor={"#33302e"} opacity={0.25} mt={"8px"} />
+      <Divider borderColor={"#33302e"} opacity={0.25} mt={2} />
     </Flex>
   );
 };
