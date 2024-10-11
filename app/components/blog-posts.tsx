@@ -1,11 +1,10 @@
-"use client";
+"use client"; // react-slick uses client components
+
 import { Box } from "@chakra-ui/react";
-//use client if you using App router, because react-slick is client components
-
 import Slider from "react-slick";
-
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import BlogPost from "./blog-post";
 
 // Custom Next Arrow
 const NextArrow = ({ className, style, onClick }) => {
@@ -41,6 +40,40 @@ const PrevArrow = ({ className, style, onClick }) => {
   );
 };
 
+// Sample data for the carousel
+const carouselData = [
+  {
+    imageSrc: "/images/panel1.jpg",
+    date: "October 11, 2024",
+    title: "Panel One",
+    excerpt: "This is the first panel of the carousel.",
+  },
+  {
+    imageSrc: "/images/panel2.jpg",
+    date: "October 12, 2024",
+    title: "Panel Two",
+    excerpt: "This is the second panel of the carousel.",
+  },
+  {
+    imageSrc: "/images/panel3.jpg",
+    date: "October 13, 2024",
+    title: "Panel Three",
+    excerpt: "This is the third panel of the carousel.",
+  },
+  {
+    imageSrc: "/images/panel1.jpg",
+    date: "October 11, 2024",
+    title: "Panel 4",
+    excerpt: "This is the first panel of the carousel.",
+  },
+  {
+    imageSrc: "/images/panel2.jpg",
+    date: "October 12, 2024",
+    title: "Panel 5",
+    excerpt: "This is the second panel of the carousel.",
+  },
+];
+
 function MultipleItems() {
   const settings = {
     dots: true,
@@ -56,37 +89,19 @@ function MultipleItems() {
     ), // Use your custom arrow
   };
   return (
-    <div className="slider-container">
+    <Box className="slider-container">
       <Slider {...settings}>
-        <Box background="saddlebrown">
-          <h3>1</h3>
-        </Box>
-        <Box>
-          <h3>2</h3>
-        </Box>
-        <Box>
-          <h3>3</h3>
-        </Box>
-        <Box>
-          <h3>4</h3>
-        </Box>
-        <Box>
-          <h3>5</h3>
-        </Box>
-        <Box>
-          <h3>6</h3>
-        </Box>
-        <Box>
-          <h3>7</h3>
-        </Box>
-        <Box>
-          <h3>8</h3>
-        </Box>
-        <Box>
-          <h3>9</h3>
-        </Box>
+        {carouselData.map((post, index) => (
+          <BlogPost
+            imageSrc={post.imageSrc}
+            date={post.date}
+            title={post.title}
+            excerpt={post.excerpt}
+            key={index}
+          />
+        ))}
       </Slider>
-    </div>
+    </Box>
   );
 }
 
