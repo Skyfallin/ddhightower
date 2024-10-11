@@ -23,7 +23,7 @@ const navLinks: NavLink[] = [
     text: "Home",
   },
   {
-    hyperlink: "chapters",
+    hyperlink: "/chapters",
     text: "Sample Chapters",
   },
 ];

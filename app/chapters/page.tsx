@@ -1,11 +1,12 @@
 import { draftMode } from "next/headers";
 
-import CoverImage from "./cover-image";
+import MoreStories from "../components/more-stories";
+import CoverImage from "../cover-image";
 
 import { getAllPosts } from "@/lib/api";
 // import Intro from "./components/intro";
 import { Box } from "@chakra-ui/react";
-import Intro from "./components/intro";
+import Intro from "../components/intro";
 
 const HERO_SLUG = "prologue";
 
@@ -62,7 +63,7 @@ export default async function Page() {
           excerpt={heroPost.excerpt}
         />
       )}
-      {/* <MoreStories morePosts={morePosts} /> */}
+      <MoreStories morePosts={morePosts} />
     </div>
   );
 }
