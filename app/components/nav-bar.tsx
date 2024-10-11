@@ -31,8 +31,6 @@ const navLinks: NavLink[] = [
 const NavBar: React.FC = () => {
   const pathName = usePathname();
 
-  console.log(pathName);
-
   return (
     <Flex
       as="nav"
