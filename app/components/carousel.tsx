@@ -129,14 +129,20 @@ const Carousel: React.FC<CarouselProps> = ({
     ),
     customPaging: (i: number) => (
       <div
+        className={`custom-dot custom-dot-${i}`}
         style={{
+          //   background: "salmon",
           fontSize: "14px",
           padding: "5px",
           cursor: "pointer",
           fontWeight: "bold",
+          width: "30px",
+          color: "blue",
+          border: "1px blue solid",
+          //   top: "-25px", // TODO: add space without affecting border
         }}
       >
-        {i + 1} {/* Page number */}
+        {i + 1}
       </div>
     ),
   };

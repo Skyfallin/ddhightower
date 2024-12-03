@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/**
+* Override global styles for react-slick
+*/
+.slick-dots.slick-thumb li.slick-active div {
+  background-color: red;
+}
