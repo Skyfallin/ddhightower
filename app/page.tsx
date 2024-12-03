@@ -5,7 +5,7 @@ import CoverImage from "./cover-image";
 import { getAllPosts } from "@/lib/api";
 // import Intro from "./components/intro";
 import { Box } from "@chakra-ui/react";
-import MultipleItems from "./components/blog-posts";
+import Carousel from "./components/carousel";
 import Intro from "./components/intro";
 
 const HERO_SLUG = "prologue";
@@ -61,7 +61,13 @@ export default async function Page() {
           excerpt={heroPost.excerpt}
         />
       )}
-      <MultipleItems />
+      <Carousel
+        dots={true}
+        infinite={false}
+        speed={500}
+        slidesToShow={3}
+        slidesToScroll={3}
+      />
       {/* <MoreStories morePosts={morePosts} /> */}
     </div>
   );

@@ -1,14 +1,14 @@
 import { Box, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
-interface ContentProps {
+type ContentProps = Readonly<{
   imageSrc: string;
   date: string;
   title: string;
   excerpt: string;
-}
+}>;
 
-const BlogPost: React.FC<Readonly<ContentProps>> = ({
+const BlogPost: React.FC<ContentProps> = ({
   imageSrc,
   date,
   title,

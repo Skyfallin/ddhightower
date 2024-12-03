@@ -1,44 +1,35 @@
+// IMPORTANT: do not remove --------------------------
 "use client"; // react-slick uses client components
-
-import { Box } from "@chakra-ui/react";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+// ---------------------------------------------------
+
+import { Box } from "@chakra-ui/react";
+import Slider, { Settings } from "react-slick";
 import BlogPost from "./blog-post";
 
-// Custom Next Arrow
-const NextArrow = ({ className, style, onClick }) => {
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        background: "red", // Customize the style here
-        borderRadius: "50%",
-        right: "-25px", // Adjust the position of the arrow
-      }}
-      onClick={onClick}
-    />
-  );
-};
-
-// Custom Prev Arrow
-const PrevArrow = ({ className, style, onClick }) => {
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "block",
-        background: "blue", // Customize the style here
-        borderRadius: "50%",
-        left: "-25px", // Adjust the position of the arrow
-      }}
-      onClick={onClick}
-    />
-  );
-};
+type CarouselProps = Readonly<{
+  /**
+   * ?
+   */
+  dots: boolean;
+  /**
+   * ?
+   */
+  infinite: boolean;
+  /**
+   * ?
+   */
+  speed: number;
+  /**
+   * ?
+   */
+  slidesToShow: number;
+  /**
+   * ?
+   */
+  slidesToScroll: number;
+}>;
 
 // Sample data for the carousel
 const carouselData = [
@@ -77,20 +68,73 @@ const carouselData = [
   },
 ];
 
-function MultipleItems() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+const NextArrow = ({ className, style, onClick }) => {
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "red", // Customize the style here
+        borderRadius: "50%",
+        right: "-25px", // Adjust the position of the arrow
+      }}
+      onClick={onClick}
+    />
+  );
+};
+
+const PrevArrow = ({ className, style, onClick }) => {
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: "block",
+        background: "blue", // Customize the style here
+        borderRadius: "50%",
+        left: "-25px", // Adjust the position of the arrow
+      }}
+      onClick={onClick}
+    />
+  );
+};
+
+const Carousel: React.FC<CarouselProps> = ({
+  dots,
+  infinite,
+  speed,
+  slidesToShow,
+  slidesToScroll,
+}) => {
+  const settings: Settings = {
+    dots,
+    dotsClass: "slick-dots slick-thumb",
+
+    infinite,
+    speed,
+    slidesToShow,
+    slidesToScroll,
     nextArrow: (
       <NextArrow className={undefined} style={undefined} onClick={undefined} />
-    ), // Use your custom arrow
+    ),
     prevArrow: (
       <PrevArrow className={undefined} style={undefined} onClick={undefined} />
-    ), // Use your custom arrow
+    ),
+    customPaging: (i: number) => (
+      <div
+        style={{
+          fontSize: "14px",
+          padding: "5px",
+          cursor: "pointer",
+          fontWeight: "bold",
+        }}
+      >
+        {i + 1} {/* Page number */}
+      </div>
+    ),
   };
+
   return (
     <Box className="slider-container">
       <Slider {...settings}>
@@ -106,6 +150,6 @@ function MultipleItems() {
       </Slider>
     </Box>
   );
-}
+};
 
-export default MultipleItems;
+export default Carousel;
