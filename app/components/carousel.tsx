@@ -68,34 +68,40 @@ const carouselData = [
   },
 ];
 
-const NextArrow = ({ className, style, onClick }) => {
+/**
+ * React-slick will dynamically inject the internal logic for navigation, but
+ * these props must be passed explicitly.
+ */
+type ArrowProps = Readonly<{
+  className: any;
+  style: any;
+  onClick: any;
+}>;
+
+const NextArrow = (props: ArrowProps) => {
   return (
     <div
-      className={className}
+      {...props}
       style={{
-        ...style,
         display: "block",
-        background: "red", // Customize the style here
+        background: "red",
         borderRadius: "50%",
-        right: "-25px", // Adjust the position of the arrow
+        right: "-25px",
       }}
-      onClick={onClick}
     />
   );
 };
 
-const PrevArrow = ({ className, style, onClick }) => {
+const PrevArrow = (props: ArrowProps) => {
   return (
     <div
-      className={className}
+      {...props}
       style={{
-        ...style,
         display: "block",
-        background: "blue", // Customize the style here
+        background: "blue",
         borderRadius: "50%",
-        left: "-25px", // Adjust the position of the arrow
+        left: "-25px",
       }}
-      onClick={onClick}
     />
   );
 };
