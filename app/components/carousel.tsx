@@ -129,17 +129,14 @@ const Carousel: React.FC<CarouselProps> = ({
     ),
     customPaging: (i: number) => (
       <div
-        className={`custom-dot custom-dot-${i}`}
         style={{
-          //   background: "salmon",
+          borderRadius: "50%",
           fontSize: "14px",
           padding: "5px",
           cursor: "pointer",
           fontWeight: "bold",
           width: "30px",
           color: "blue",
-          border: "1px blue solid",
-          //   top: "-25px", // TODO: add space without affecting border
         }}
       >
         {i + 1}
@@ -151,13 +148,16 @@ const Carousel: React.FC<CarouselProps> = ({
     <Box className="slider-container">
       <Slider {...settings}>
         {carouselData.map((post, index) => (
-          <BlogPost
-            imageSrc={post.imageSrc}
-            date={post.date}
-            title={post.title}
-            excerpt={post.excerpt}
-            key={index}
-          />
+          <Box>
+            <BlogPost
+              imageSrc={post.imageSrc}
+              date={post.date}
+              title={post.title}
+              excerpt={post.excerpt}
+              key={index}
+            />
+            <Box height={"1rem"}></Box>
+          </Box>
         ))}
       </Slider>
     </Box>
