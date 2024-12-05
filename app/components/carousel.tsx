@@ -150,16 +150,13 @@ const Carousel: React.FC<CarouselProps> = ({
     <Box className="slider-container">
       <Slider {...settings}>
         {carouselData.map((post, index) => (
-          <Box>
-            <BlogPost
-              imageSrc={post.imageSrc}
-              date={post.date}
-              title={post.title}
-              excerpt={post.excerpt}
-              key={index}
-            />
-            <Box height={"1rem"}></Box>
-          </Box>
+          <BlogPost
+            imageSrc={post.imageSrc}
+            date={post.date}
+            title={post.title}
+            excerpt={post.excerpt}
+            key={index}
+          />
         ))}
       </Slider>
     </Box>
