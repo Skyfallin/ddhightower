@@ -15,14 +15,7 @@ const BlogPost: React.FC<ContentProps> = ({
   excerpt,
 }) => {
   return (
-    <Box
-      p={4}
-      textAlign="center"
-      border="1px solid"
-      borderColor="gray.200"
-      borderRadius="md"
-      background={"salmon"}
-    >
+    <Box p={4} textAlign="center" borderRadius="md">
       <Image src={imageSrc} alt={title} borderRadius="md" mb={4} />
       <Text fontSize="sm" color="gray.500" mb={2}>
         {date}

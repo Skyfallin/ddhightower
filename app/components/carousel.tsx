@@ -116,7 +116,6 @@ const Carousel: React.FC<CarouselProps> = ({
   const settings: Settings = {
     dots,
     dotsClass: "slick-dots slick-thumb",
-
     infinite,
     speed,
     slidesToShow,
