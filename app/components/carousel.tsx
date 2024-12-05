@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 // ---------------------------------------------------
 
-import { Box } from "@chakra-ui/react";
+import { Box, useMediaQuery } from "@chakra-ui/react";
 import Slider, { Settings } from "react-slick";
 import BlogPost from "./blog-post";
 
@@ -113,13 +113,15 @@ const Carousel: React.FC<CarouselProps> = ({
   slidesToShow,
   slidesToScroll,
 }) => {
+  const [isMobile] = useMediaQuery("(max-width: 767px)");
+
   const settings: Settings = {
     dots,
     dotsClass: "slick-dots slick-thumb",
     infinite,
     speed,
-    slidesToShow,
-    slidesToScroll,
+    slidesToShow: isMobile ? 1 : slidesToShow,
+    slidesToScroll: isMobile ? 1 : slidesToScroll,
     nextArrow: (
       <NextArrow className={undefined} style={undefined} onClick={undefined} />
     ),
@@ -128,6 +130,7 @@ const Carousel: React.FC<CarouselProps> = ({
     ),
     customPaging: (i: number) => (
       <div
+        key={i}
         style={{
           borderRadius: "50%",
           fontSize: "14px",
