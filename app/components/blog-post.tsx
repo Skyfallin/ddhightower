@@ -8,6 +8,13 @@ type ContentProps = Readonly<{
   excerpt: string;
 }>;
 
+const formattedDate = (date: string) =>
+  new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(date));
+
 const BlogPost: React.FC<ContentProps> = ({
   imageSrc,
   date,
@@ -24,7 +31,7 @@ const BlogPost: React.FC<ContentProps> = ({
         boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)" // Custom shadow
       />
       <Text fontSize="sm" color="gray.500" mb={2}>
-        {date}
+        {formattedDate(date)}
       </Text>
       <Heading size="md" mb={2}>
         {title}
