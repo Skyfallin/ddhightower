@@ -2,9 +2,9 @@ import { draftMode } from "next/headers";
 
 import CoverImage from "./cover-image";
 
-import { getAllPosts } from "@/lib/api";
+import { getAllBlogPosts, getAllPosts } from "@/lib/api";
 // import Intro from "./components/intro";
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import Carousel from "./components/carousel";
 import Intro from "./components/intro";
 
@@ -43,16 +43,27 @@ function HeroPost({
 
 export default async function Page() {
   const { isEnabled } = draftMode();
+  // Retrieve posts
   const allPosts = await getAllPosts(isEnabled);
   // const heroPost = allPosts[0]; latest
   const heroPost = allPosts.find((post) => post.slug === HERO_SLUG);
   // const morePosts = allPosts.slice(1); // latest
   const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG);
 
+  // Retrieve blog posts
+  const allBlogPosts = await getAllBlogPosts(isEnabled);
+  // const heroPost = allPosts[0]; latest
+  // const heroPost = allPosts.find((post) => post.slug === HERO_SLUG);
+  // // const morePosts = allPosts.slice(1); // latest
+  // const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG);
+
+  // TODO: change default heading color, font
+  // TODO: MIN height screen section is not accounting for navbar
+
   return (
     <div className="container mx-auto px-5 max-w-84rem">
       <Intro />
-      {heroPost && (
+      {/* {heroPost && (
         <HeroPost
           title={heroPost.title}
           coverImage={heroPost.coverImage}
@@ -60,8 +71,10 @@ export default async function Page() {
           slug={heroPost.slug}
           excerpt={heroPost.excerpt}
         />
-      )}
+      )} */}
+      <Heading>Blog</Heading>
       <Carousel
+        data={allBlogPosts}
         dots={true}
         infinite={false}
         speed={500}

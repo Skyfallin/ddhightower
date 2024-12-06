@@ -5,10 +5,15 @@ import "slick-carousel/slick/slick.css";
 // ---------------------------------------------------
 
 import { Box, useMediaQuery } from "@chakra-ui/react";
+import React from "react";
 import Slider, { Settings } from "react-slick";
 import BlogPost from "./blog-post";
 
 type CarouselProps = Readonly<{
+  /**
+   * ?
+   */
+  data: any; // TODO: change this
   /**
    * Whether to display pagination dots.
    */
@@ -107,6 +112,7 @@ const PrevArrow = (props: ArrowProps) => {
 };
 
 const Carousel: React.FC<CarouselProps> = ({
+  data,
   dots,
   infinite,
   speed,
@@ -146,12 +152,19 @@ const Carousel: React.FC<CarouselProps> = ({
     ),
   };
 
+  if (!data) {
+    return <Box>Loading...</Box>;
+  }
+
+  // TODO: create a type for the datum
+  data.forEach((datum) => console.log(datum));
+
   return (
     <Box className="slider-container">
       <Slider {...settings}>
-        {carouselData.map((post, index) => (
+        {data.map((post, index) => (
           <BlogPost
-            imageSrc={post.imageSrc}
+            imageSrc={post.coverImage?.url}
             date={post.date}
             title={post.title}
             excerpt={post.excerpt}

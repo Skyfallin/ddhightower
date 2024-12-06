@@ -47,74 +47,102 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
   ).then((response) => response.json());
 }
 
-function extractPost(fetchResponse: any): any {
-  return fetchResponse?.data?.blogPostCollection?.items?.[0];
+// Extract functions for Contenful collections. Abstracted because query fields are the same
+function extractCollectionItem(fetchResponse: any, collectionKey: string): any {
+  return fetchResponse?.data?.[collectionKey]?.items?.[0];
 }
 
-function extractPostEntries(fetchResponse: any): any[] {
-  return fetchResponse?.data?.blogPostCollection?.items;
+function extractCollectionItems(
+  fetchResponse: any,
+  collectionKey: string
+): any[] {
+  return fetchResponse?.data?.[collectionKey]?.items;
 }
 
-export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
-  const entry = await fetchGraphQL(
-    `query {
-      blogPostCollection(where: { slug: "${slug}" }, preview: true, limit: 1) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
+async function fetchCollection(
+  collectionName: string,
+  filters: string,
+  preview: boolean,
+  limit: number
+): Promise<any> {
+  const query = `query {
+    ${collectionName}(where: { ${filters} }, preview: ${
+    preview ? "true" : "false"
+  }, limit: ${limit}) {
+      items {
+        ${POST_GRAPHQL_FIELDS}
       }
-    }`,
-    true
-  );
-  return extractPost(entry);
+    }
+  }`;
+  return fetchGraphQL(query, preview);
 }
 
-export async function getAllPosts(isDraftMode: boolean): Promise<any[]> {
-  const entries = await fetchGraphQL(
-    `query {
-      blogPostCollection(where: { slug_exists: true }, order: date_ASC, preview: ${
-        isDraftMode ? "true" : "false"
-      }) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
-      }
-    }`,
-    isDraftMode
+export async function getPreviewItemBySlug(
+  collectionName: string,
+  slug: string | null,
+  preview: boolean
+): Promise<any> {
+  const entry = await fetchCollection(
+    collectionName,
+    `slug: "${slug}"`,
+    preview,
+    1
   );
-  return extractPostEntries(entries);
+  return extractCollectionItem(entry, collectionName);
 }
 
-export async function getPostAndMorePosts(
+export async function getAllItems(
+  collectionName: string,
+  isDraftMode: boolean
+): Promise<any[]> {
+  const entries = await fetchCollection(
+    collectionName,
+    "slug_exists: true",
+    isDraftMode,
+    100
+  );
+  return extractCollectionItems(entries, collectionName);
+}
+
+export async function getItemAndMoreItems(
+  collectionName: string,
   slug: string,
   preview: boolean
 ): Promise<any> {
-  const entry = await fetchGraphQL(
-    `query {
-      blogPostCollection(where: { slug: "${slug}" }, preview: ${
-      preview ? "true" : "false"
-    }, limit: 1) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
-      }
-    }`,
-    preview
+  const entry = await fetchCollection(
+    collectionName,
+    `slug: "${slug}"`,
+    preview,
+    1
   );
-  const entries = await fetchGraphQL(
-    `query {
-      blogPostCollection(where: { slug_not_in: "${slug}" }, order: date_ASC, preview: ${
-      preview ? "true" : "false"
-    }, limit: 2) {
-        items {
-          ${POST_GRAPHQL_FIELDS}
-        }
-      }
-    }`,
-    preview
+  const entries = await fetchCollection(
+    collectionName,
+    `slug_not_in: "${slug}"`,
+    preview,
+    2
   );
   return {
-    post: extractPost(entry),
-    morePosts: extractPostEntries(entries),
+    post: extractCollectionItem(entry, collectionName),
+    morePosts: extractCollectionItems(entries, collectionName),
   };
 }
+
+// Blog Post Functions
+export const getPreviewBlogPostBySlug = (slug: string | null) =>
+  getPreviewItemBySlug("blogPostCollection", slug, true);
+
+export const getAllBlogPosts = (isDraftMode: boolean) =>
+  getAllItems("blogPostCollection", isDraftMode);
+
+export const getBlogPostAndMoreBlogPosts = (slug: string, preview: boolean) =>
+  getItemAndMoreItems("blogPostCollection", slug, preview);
+
+// Post Functions
+export const getPreviewPostBySlug = (slug: string | null) =>
+  getPreviewItemBySlug("postCollection", slug, true);
+
+export const getAllPosts = (isDraftMode: boolean) =>
+  getAllItems("postCollection", isDraftMode);
+
+export const getPostAndMorePosts = (slug: string, preview: boolean) =>
+  getItemAndMoreItems("postCollection", slug, preview);
