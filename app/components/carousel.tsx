@@ -4,16 +4,17 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 // ---------------------------------------------------
 
-import { Box, useMediaQuery } from "@chakra-ui/react";
+import { Box, Text, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import Slider, { Settings } from "react-slick";
 import BlogPost from "./blog-post";
 
 type CarouselProps = Readonly<{
   /**
-   * ?
+   * Data of entries from Contentful collection
+   * TODO: add type
    */
-  data: any; // TODO: change this
+  data: any;
   /**
    * Whether to display pagination dots.
    */
@@ -35,43 +36,6 @@ type CarouselProps = Readonly<{
    */
   slidesToScroll: number;
 }>;
-
-// Sample data for the carousel
-const carouselData = [
-  {
-    imageSrc:
-      "https://images.ctfassets.net/j40z2xmw1dqz/1H7XGkEmIhEwBKbJHDTqXU/9056dafd10eb03ce4d7d2d191d48af7b/skyfallin_Generate_a_high-quality_birds-eye_view_of_a_charming__bbc1c8b5-bb69-4bb4-8612-f9f5165265f3.png",
-    date: "October 11, 2024",
-    title: "Panel One",
-    excerpt: "This is the first panel of the carousel.",
-  },
-  {
-    imageSrc:
-      "https://images.ctfassets.net/j40z2xmw1dqz/1H7XGkEmIhEwBKbJHDTqXU/9056dafd10eb03ce4d7d2d191d48af7b/skyfallin_Generate_a_high-quality_birds-eye_view_of_a_charming__bbc1c8b5-bb69-4bb4-8612-f9f5165265f3.png",
-    date: "October 12, 2024",
-    title: "Panel Two",
-    excerpt: "This is the second panel of the carousel.",
-  },
-  {
-    imageSrc:
-      "https://images.ctfassets.net/j40z2xmw1dqz/1H7XGkEmIhEwBKbJHDTqXU/9056dafd10eb03ce4d7d2d191d48af7b/skyfallin_Generate_a_high-quality_birds-eye_view_of_a_charming__bbc1c8b5-bb69-4bb4-8612-f9f5165265f3.png",
-    date: "October 13, 2024",
-    title: "Panel Three",
-    excerpt: "This is the third panel of the carousel.",
-  },
-  {
-    imageSrc: "/images/panel1.jpg",
-    date: "October 11, 2024",
-    title: "Panel 4",
-    excerpt: "This is the first panel of the carousel.",
-  },
-  {
-    imageSrc: "/images/panel2.jpg",
-    date: "October 12, 2024",
-    title: "Panel 5",
-    excerpt: "This is the second panel of the carousel.",
-  },
-];
 
 /**
  * React-slick will dynamically inject the internal logic for navigation, but
@@ -153,16 +117,14 @@ const Carousel: React.FC<CarouselProps> = ({
   };
 
   if (!data) {
-    return <Box>Loading...</Box>;
+    return <Text>Loading...</Text>;
   }
 
-  // TODO: create a type for the datum
-  data.forEach((datum) => console.log(datum));
-
+  // TODO: create a type for a post datum
   return (
     <Box className="slider-container">
       <Slider {...settings}>
-        {data.map((post, index) => (
+        {data.map((post, index: number) => (
           <BlogPost
             imageSrc={post.coverImage?.url}
             date={post.date}
