@@ -16,7 +16,13 @@ const BlogPost: React.FC<ContentProps> = ({
 }) => {
   return (
     <Box p={4} textAlign="center" borderRadius="md">
-      <Image src={imageSrc} alt={title} borderRadius="md" mb={4} />
+      <Image
+        src={imageSrc}
+        alt={title}
+        borderRadius="md"
+        mb={4}
+        boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)" // Custom shadow
+      />
       <Text fontSize="sm" color="gray.500" mb={2}>
         {date}
       </Text>
