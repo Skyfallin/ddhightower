@@ -2,8 +2,9 @@ import { draftMode } from "next/headers";
 
 import { getAllBlogPosts } from "@/lib/api";
 // import Intro from "./components/intro";
-import { Heading } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import Carousel from "./components/carousel";
+import Footer from "./components/footer";
 import Intro from "./components/intro";
 
 export default async function Page() {
@@ -15,17 +16,20 @@ export default async function Page() {
   // TODO: change default heading color, font
   // TODO: MIN height screen section is not accounting for navbar
   return (
-    <div className="container mx-auto px-5 max-w-84rem">
-      <Intro />
-      <Heading>Blog</Heading>
-      <Carousel
-        data={allBlogPosts}
-        dots={true}
-        infinite={false}
-        speed={500}
-        slidesToShow={3}
-        slidesToScroll={3}
-      />
-    </div>
+    <Box>
+      <Box className="container mx-auto px-5 max-w-84rem">
+        <Intro />
+        <Heading>Blog</Heading>
+        <Carousel
+          data={allBlogPosts}
+          dots={true}
+          infinite={false}
+          speed={500}
+          slidesToShow={3}
+          slidesToScroll={3}
+        />
+      </Box>
+      <Footer />
+    </Box>
   );
 }
