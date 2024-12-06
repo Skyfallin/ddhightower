@@ -53,9 +53,8 @@ const NextArrow = (props: ArrowProps) => {
       {...props}
       style={{
         display: "block",
-        background: "red",
+        background: "white",
         borderRadius: "50%",
-        right: "-25px",
       }}
     />
   );
@@ -69,7 +68,6 @@ const PrevArrow = (props: ArrowProps) => {
         display: "block",
         background: "blue",
         borderRadius: "50%",
-        left: "-25px",
       }}
     />
   );
@@ -108,7 +106,6 @@ const Carousel: React.FC<CarouselProps> = ({
           cursor: "pointer",
           fontWeight: "bold",
           width: "30px",
-          color: "blue",
         }}
       >
         {i + 1}
