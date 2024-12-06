@@ -22,7 +22,6 @@ const BlogPost: React.FC<ContentProps> = ({
       </Text>
       <Heading size="md" mb={2}>
         {title}
-        Test
       </Heading>
       <Text>{excerpt}</Text>
     </Box>
