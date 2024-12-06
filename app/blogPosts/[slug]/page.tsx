@@ -30,7 +30,7 @@ export default async function PostPage({
   return (
     <div className="container mx-auto px-5">
       <article>
-        <div className="mb-8 sm:mx-0 md:mb-16">
+        <div className="mb-8 sm:mx-0 md:mb-16 mt-4 fade-effect">
           <CoverImage
             title={post.title}
             url={post.coverImage.url}

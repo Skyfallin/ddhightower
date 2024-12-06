@@ -32,7 +32,7 @@ const BlogPost: React.FC<ContentProps> = ({
             alt={title}
             borderRadius="md"
             mb={4}
-            boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)" // Custom shadow
+            boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)"
           />
         </Link>
       ) : (
@@ -41,7 +41,7 @@ const BlogPost: React.FC<ContentProps> = ({
           alt={title}
           borderRadius="md"
           mb={4}
-          boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)" // Custom shadow
+          boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)"
         />
       )}
 
