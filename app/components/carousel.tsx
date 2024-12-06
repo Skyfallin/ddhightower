@@ -37,16 +37,6 @@ type CarouselProps = Readonly<{
   slidesToScroll: number;
 }>;
 
-/**
- * React-slick will dynamically inject the internal logic for navigation, but
- * these props must be passed explicitly.
- */
-type ArrowProps = Readonly<{
-  className: any;
-  style: any;
-  onClick: any;
-}>;
-
 const Carousel: React.FC<CarouselProps> = ({
   data,
   dots,
@@ -95,6 +85,7 @@ const Carousel: React.FC<CarouselProps> = ({
             date={post.date}
             title={post.title}
             excerpt={post.excerpt}
+            slug={post.slug}
             key={index}
           />
         ))}

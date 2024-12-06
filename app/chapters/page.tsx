@@ -4,7 +4,6 @@ import MoreStories from "../components/more-stories";
 import CoverImage from "../cover-image";
 
 import { getAllPosts } from "@/lib/api";
-// import Intro from "./components/intro";
 import { Box } from "@chakra-ui/react";
 import Intro from "../components/intro";
 
@@ -44,9 +43,7 @@ function HeroPost({
 export default async function Page() {
   const { isEnabled } = draftMode();
   const allPosts = await getAllPosts(isEnabled);
-  // const heroPost = allPosts[0]; latest
   const heroPost = allPosts.find((post) => post.slug === HERO_SLUG);
-  // const morePosts = allPosts.slice(1); // latest
   const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG);
 
   return (

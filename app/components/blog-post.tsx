@@ -1,4 +1,4 @@
-import { Box, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Heading, Image, Link, Text } from "@chakra-ui/react";
 import React from "react";
 
 type ContentProps = Readonly<{
@@ -6,6 +6,7 @@ type ContentProps = Readonly<{
   date: string;
   title: string;
   excerpt: string;
+  slug: string;
 }>;
 
 const formattedDate = (date: string) =>
@@ -20,16 +21,30 @@ const BlogPost: React.FC<ContentProps> = ({
   date,
   title,
   excerpt,
+  slug,
 }) => {
   return (
     <Box p={4} textAlign="center" borderRadius="md">
-      <Image
-        src={imageSrc}
-        alt={title}
-        borderRadius="md"
-        mb={4}
-        boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)" // Custom shadow
-      />
+      {slug ? (
+        <Link href={`/blogPosts/${slug}`} aria-label={title}>
+          <Image
+            src={imageSrc}
+            alt={title}
+            borderRadius="md"
+            mb={4}
+            boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)" // Custom shadow
+          />
+        </Link>
+      ) : (
+        <Image
+          src={imageSrc}
+          alt={title}
+          borderRadius="md"
+          mb={4}
+          boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)" // Custom shadow
+        />
+      )}
+
       <Text fontSize="sm" color="gray.500" mb={2}>
         {formattedDate(date)}
       </Text>
