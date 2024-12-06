@@ -47,32 +47,6 @@ type ArrowProps = Readonly<{
   onClick: any;
 }>;
 
-const NextArrow = (props: ArrowProps) => {
-  return (
-    <div
-      {...props}
-      style={{
-        display: "block",
-        background: "white",
-        borderRadius: "50%",
-      }}
-    />
-  );
-};
-
-const PrevArrow = (props: ArrowProps) => {
-  return (
-    <div
-      {...props}
-      style={{
-        display: "block",
-        background: "blue",
-        borderRadius: "50%",
-      }}
-    />
-  );
-};
-
 const Carousel: React.FC<CarouselProps> = ({
   data,
   dots,
@@ -90,12 +64,6 @@ const Carousel: React.FC<CarouselProps> = ({
     speed,
     slidesToShow: isMobile ? 1 : slidesToShow,
     slidesToScroll: isMobile ? 1 : slidesToScroll,
-    nextArrow: isMobile ? undefined : (
-      <NextArrow className={undefined} style={undefined} onClick={undefined} />
-    ),
-    prevArrow: isMobile ? undefined : (
-      <PrevArrow className={undefined} style={undefined} onClick={undefined} />
-    ),
     customPaging: (i: number) => (
       <div
         key={i}
