@@ -4,9 +4,10 @@ import Date from "../../components/date";
 import MoreStories from "../../components/more-stories";
 import CoverImage from "../../cover-image";
 
+import Footer from "@/app/components/footer";
 import { getAllPosts, getBlogPostAndMoreBlogPosts } from "@/lib/api";
 import { Markdown } from "@/lib/markdown";
-import { Divider } from "@chakra-ui/react";
+import { Box, Divider } from "@chakra-ui/react";
 
 export async function generateStaticParams() {
   const allPosts = await getAllPosts(false);
@@ -28,32 +29,35 @@ export default async function PostPage({
   );
 
   return (
-    <div className="container mx-auto px-5">
-      <article>
-        <div className="mb-8 sm:mx-0 md:mb-16 mt-4 fade-effect">
-          <CoverImage
-            title={post.title}
-            url={post.coverImage.url}
-            borderRadius={"full"}
-          />
-        </div>
-        <div className="mx-auto max-w-2xl">
-          <div className="mb-6 block md:hidden"></div>
-          <div className="mb-6 text-lg">
-            <Date dateString={post.date} />
-          </div>
-        </div>
+    <Box>
+      <Box className="container mx-auto px-5">
+        <article>
+          <Box className="mb-8 sm:mx-0 md:mb-16 mt-4 fade-effect">
+            <CoverImage
+              title={post.title}
+              url={post.coverImage.url}
+              borderRadius={"full"}
+            />
+          </Box>
+          <Box className="mx-auto max-w-2xl">
+            <Box className="mb-6 block md:hidden"></Box>
+            <Box className="mb-6 text-lg">
+              <Date dateString={post.date} />
+            </Box>
+          </Box>
 
-        <div className="mx-auto max-w-2xl">
-          <div className="prose">
-            <Markdown content={post.content} />
-          </div>
-        </div>
-      </article>
+          <Box className="mx-auto max-w-2xl">
+            <Box className="prose">
+              <Markdown content={post.content} />
+            </Box>
+          </Box>
+        </article>
 
-      <Divider borderColor="#222725" mt={8} mb={20} />
+        <Divider borderColor="#222725" mt={8} mb={20} />
 
-      <MoreStories morePosts={morePosts} />
-    </div>
+        <MoreStories morePosts={morePosts} />
+      </Box>
+      <Footer />
+    </Box>
   );
 }

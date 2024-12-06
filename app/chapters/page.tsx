@@ -5,6 +5,7 @@ import CoverImage from "../cover-image";
 
 import { getAllPosts } from "@/lib/api";
 import { Box } from "@chakra-ui/react";
+import Footer from "../components/footer";
 import Intro from "../components/intro";
 
 const HERO_SLUG = "prologue";
@@ -47,18 +48,21 @@ export default async function Page() {
   const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG);
 
   return (
-    <div className="container mx-auto px-5 max-w-84rem">
-      <Intro />
-      {heroPost && (
-        <HeroPost
-          title={heroPost.title}
-          coverImage={heroPost.coverImage}
-          date={heroPost.date}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
-        />
-      )}
-      <MoreStories morePosts={morePosts} />
-    </div>
+    <Box>
+      <Box className="container mx-auto px-5 max-w-84rem">
+        <Intro />
+        {heroPost && (
+          <HeroPost
+            title={heroPost.title}
+            coverImage={heroPost.coverImage}
+            date={heroPost.date}
+            slug={heroPost.slug}
+            excerpt={heroPost.excerpt}
+          />
+        )}
+        <MoreStories morePosts={morePosts} />
+      </Box>
+      <Footer />
+    </Box>
   );
 }
