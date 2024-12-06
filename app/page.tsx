@@ -19,7 +19,7 @@ export default async function Page() {
     <Box>
       <Box className="container mx-auto px-5 max-w-84rem">
         <Intro />
-        <Heading>Blog</Heading>
+        <Heading p={4}>Blog</Heading>
         <Carousel
           data={allBlogPosts}
           dots={true}

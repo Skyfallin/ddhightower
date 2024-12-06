@@ -49,6 +49,12 @@ const customTheme = extendTheme({
     heading: "'Merriweather', serif",
     body: "'Libre Baskerville', serif",
   },
+  Heading: {
+    baseStyle: {
+      fontFamily: "'Libre Baskerville', serif",
+      color: "#33302e",
+    },
+  },
   Text: {
     baseStyle: {
       fontFamily: "'Libre Baskerville', serif", // Set default font family for Text
