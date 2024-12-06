@@ -92,10 +92,10 @@ const Carousel: React.FC<CarouselProps> = ({
     speed,
     slidesToShow: isMobile ? 1 : slidesToShow,
     slidesToScroll: isMobile ? 1 : slidesToScroll,
-    nextArrow: (
+    nextArrow: isMobile ? undefined : (
       <NextArrow className={undefined} style={undefined} onClick={undefined} />
     ),
-    prevArrow: (
+    prevArrow: isMobile ? undefined : (
       <PrevArrow className={undefined} style={undefined} onClick={undefined} />
     ),
     customPaging: (i: number) => (
