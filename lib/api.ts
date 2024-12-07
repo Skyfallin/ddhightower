@@ -127,16 +127,6 @@ export async function getItemAndMoreItems(
   };
 }
 
-// Blog Post Functions
-export const getPreviewBlogPostBySlug = (slug: string | null) =>
-  getPreviewItemBySlug("blogPostCollection", slug, true);
-
-export const getAllBlogPosts = (isDraftMode: boolean) =>
-  getAllItems("blogPostCollection", isDraftMode);
-
-export const getBlogPostAndMoreBlogPosts = (slug: string, preview: boolean) =>
-  getItemAndMoreItems("blogPostCollection", slug, preview);
-
 // Post Functions
 export const getPreviewPostBySlug = (slug: string | null) =>
   getPreviewItemBySlug("postCollection", slug, true);
@@ -146,3 +136,13 @@ export const getAllPosts = (isDraftMode: boolean) =>
 
 export const getPostAndMorePosts = (slug: string, preview: boolean) =>
   getItemAndMoreItems("postCollection", slug, preview);
+
+// Blog Post Functions
+export const getPreviewBlogPostBySlug = (slug: string | null) =>
+  getPreviewItemBySlug("blogPostCollection", slug, true);
+
+export const getAllBlogPosts = (isDraftMode: boolean) =>
+  getAllItems("blogPostCollection", isDraftMode);
+
+export const getBlogPostAndMoreBlogPosts = (slug: string, preview: boolean) =>
+  getItemAndMoreItems("blogPostCollection", slug, preview);

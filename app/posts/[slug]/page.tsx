@@ -1,4 +1,3 @@
-import { draftMode } from "next/headers";
 
 import Date from "../../components/date";
 import MoreStories from "../../components/more-stories";
@@ -22,8 +21,7 @@ export default async function PostPage({
 }: {
   params: { slug: string };
 }) {
-  const { isEnabled } = draftMode();
-  const { post, morePosts } = await getPostAndMorePosts(params.slug, isEnabled);
+  const { post, morePosts } = await getPostAndMorePosts(params.slug, false);
 
   return (
     <Box>

@@ -1,25 +1,13 @@
-import { draftMode } from "next/headers";
 
 import { getAllBlogPosts } from "@/lib/api";
-// import Intro from "./components/intro";
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import Carousel from "./components/carousel";
 import Footer from "./components/footer";
 import Intro from "./components/intro";
 
 export default async function Page() {
-  const { isEnabled } = draftMode();
-
   // Retrieve blog posts
-  const allBlogPosts = await getAllBlogPosts(isEnabled);
-
-  if (!allBlogPosts) {
-    return <Text>Loading...</Text>;
-  }
-
-  allBlogPosts.forEach(post => (
-    console.log(post.title)
-  ))
+  const allBlogPosts = await getAllBlogPosts(false);
 
   // TODO: change default heading color, font
   // TODO: MIN height screen section is not accounting for navbar

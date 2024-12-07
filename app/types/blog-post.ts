@@ -1,4 +1,4 @@
-export type PostData = {
+export type BlogPostData = {
     coverImage?: {
       url?: string | undefined;
     };

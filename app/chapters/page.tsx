@@ -1,4 +1,3 @@
-import { draftMode } from "next/headers";
 
 import MoreStories from "../components/more-stories";
 import CoverImage from "../cover-image";
@@ -42,8 +41,7 @@ function HeroPost({
 }
 
 export default async function Page() {
-  const { isEnabled } = draftMode();
-  const allPosts = await getAllPosts(isEnabled);
+  const allPosts = await getAllPosts(false);
   const heroPost = allPosts.find((post) => post.slug === HERO_SLUG);
   const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG);
 
