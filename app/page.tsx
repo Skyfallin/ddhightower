@@ -1,95 +1,31 @@
-import { draftMode } from "next/headers";
-import Link from "next/link";
 
-import Date from "./components/date";
-import MoreStories from "./components/more-stories";
-import CoverImage from "./cover-image";
-
-import { getAllPosts } from "@/lib/api";
-import { Box } from "@chakra-ui/react";
-import { FaThumbtack } from "react-icons/fa";
-// import Intro from "./components/intro";
-import Label from "./components/label";
-import ResponsiveIntro from "./components/responsive-intro";
-import { truncateText } from "./util/text-util";
-
-const HERO_SLUG = "prologue";
-
-function HeroPost({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  slug,
-}: {
-  title: string;
-  coverImage: any;
-  date: string;
-  excerpt: string;
-  author: any;
-  slug: string;
-}) {
-  return (
-    <section>
-      <div className="mb-8 md:mb-16">
-        <CoverImage
-          title={title}
-          slug={slug}
-          url={coverImage.url}
-          borderRadius={"full"}
-        />
-      </div>
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
-        <div>
-          <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
-            <Link href={`/posts/${slug}`} className="hover:underline">
-              {title}
-            </Link>
-          </h3>
-          <Box display="flex" gap={2}>
-            <Box display="flex" alignItems="center">
-              <FaThumbtack
-                color="#7A8450"
-                style={{ height: "100%", width: "auto" }}
-              />
-            </Box>
-            <Label>
-              <Date dateString={date} />
-            </Label>
-          </Box>
-        </div>
-        <div>
-          <p className="text-lg leading-relaxed mt-4 md:mt-0 mb-4">
-            {truncateText(excerpt)}
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
+import { getAllBlogPosts } from "@/lib/api";
+import { Box, Heading } from "@chakra-ui/react";
+import Carousel from "./components/carousel";
+import Footer from "./components/footer";
+import Intro from "./components/intro";
 
 export default async function Page() {
-  const { isEnabled } = draftMode();
-  const allPosts = await getAllPosts(isEnabled);
-  // const heroPost = allPosts[0]; latest
-  const heroPost = allPosts.find((post) => post.slug === HERO_SLUG);
-  // const morePosts = allPosts.slice(1); // latest
-  const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG);
+  // Retrieve blog posts
+  const allBlogPosts = await getAllBlogPosts(false);
 
+  // TODO: change default heading color, font
+  // TODO: MIN height screen section is not accounting for navbar
   return (
-    <div className="container mx-auto px-5">
-      <ResponsiveIntro />
-      {heroPost && (
-        <HeroPost
-          title={heroPost.title}
-          coverImage={heroPost.coverImage}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
+    <Box>
+      <Box className="container mx-auto px-5 max-w-84rem">
+        <Intro />
+        <Heading p={4}>Blog</Heading>
+        <Carousel
+          data={allBlogPosts}
+          dots={true}
+          infinite={false}
+          speed={500}
+          slidesToShow={3}
+          slidesToScroll={3}
         />
-      )}
-      <MoreStories morePosts={morePosts} />
-    </div>
+      </Box>
+      <Footer />
+    </Box>
   );
 }

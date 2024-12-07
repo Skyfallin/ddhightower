@@ -4,3 +4,37 @@
     min-width: 720;
   }
 }
+
+.fade-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.fade-effect::before,
+.fade-effect::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 15%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.fade-effect::before {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 241, 224, 1),
+    rgba(255, 241, 224, 0)
+  );
+}
+
+.fade-effect::after {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(255, 241, 224, 1),
+    rgba(255, 241, 224, 0)
+  );
+}

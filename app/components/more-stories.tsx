@@ -25,7 +25,6 @@ function PostPreview({
   coverImage: any;
   date: string;
   excerpt: string;
-  author: any;
   slug: string;
 }) {
   return (
@@ -105,7 +104,6 @@ export default function MoreStories({ morePosts }: { morePosts: any[] }) {
             title={post.title}
             coverImage={post.coverImage}
             date={post.date}
-            author={post.author}
             slug={post.slug}
             excerpt={post.excerpt}
           />

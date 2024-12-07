@@ -14,12 +14,13 @@ export default function CoverImage({
   slug,
   borderRadius,
 }: Readonly<CoverImageProps>) {
-  const borderTopRadius = borderRadius === "half" ? "lg" : undefined;
-  const borderRadiusFull = borderRadius === "full" ? "lg" : undefined;
+  const borderTopRadius = borderRadius === "half" ? "3xl" : undefined;
+  const borderRadiusFull = borderRadius === "full" ? "3xl" : undefined;
 
   const image = (
     <Image
       alt={`Cover Image for ${title}`}
+      aspectRatio={{ base: 1 / 1, sm: "unset" }}
       src={url}
       width="100%"
       height="auto"
