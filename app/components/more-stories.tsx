@@ -1,4 +1,4 @@
-import { truncateText } from "@/app/util/text-util";
+import { truncateText } from '@/app/util/text-util'
 import {
   Box,
   Button,
@@ -8,11 +8,12 @@ import {
   LinkBox,
   LinkOverlay,
   Text,
-} from "@chakra-ui/react";
-import CoverImage from "../cover-image";
-import DateComponent from "./date";
-import Label from "./label";
-import TopShadow from "./top-shadow";
+} from '@chakra-ui/react'
+import CoverImage from '../cover-image'
+import BlogPost from './blog-post'
+import DateComponent from './date'
+import Label from './label'
+import TopShadow from './top-shadow'
 
 function PostPreview({
   title,
@@ -21,33 +22,33 @@ function PostPreview({
   excerpt,
   slug,
 }: {
-  title: string;
-  coverImage: any;
-  date: string;
-  excerpt: string;
-  slug: string;
+  title: string
+  coverImage: any
+  date: string
+  excerpt: string
+  slug: string
 }) {
   return (
     <LinkBox as="article" className="lg-min-w-740">
       <Card
-        borderRadius={"lg"}
-        boxShadow={"lg"}
+        borderRadius={'lg'}
+        boxShadow={'lg'}
         mx="auto"
         my={4}
-        shadow={"lg"}
+        shadow={'lg'}
         variant="outline"
         transition="transform 0.2s ease-in-out"
-        _hover={{ transform: "scale(1.024)" }}
+        _hover={{ transform: 'scale(1.024)' }}
       >
         <TopShadow />
 
-        <Box display={"flex"} flexDirection={"column"}>
+        <Box display={'flex'} flexDirection={'column'}>
           <Box className="w-full h-auto object-cover">
             <CoverImage
               title={title}
               slug={slug}
               url={coverImage.url}
-              borderRadius={"half"}
+              borderRadius={'half'}
             />
           </Box>
 
@@ -77,9 +78,9 @@ function PostPreview({
 
               <Button
                 alignSelf="flex-end"
-                borderRadius={"sm"}
+                borderRadius={'sm'}
                 minW="100px"
-                textColor={"#faebd7"}
+                textColor={'#faebd7'}
               >
                 Read More
               </Button>
@@ -88,27 +89,34 @@ function PostPreview({
         </Box>
       </Card>
     </LinkBox>
-  );
+  )
 }
 
+// TODO: add type for morePosts
 export default function MoreStories({ morePosts }: { morePosts: any[] }) {
   return (
     <section>
-      <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
+      <Heading
+        as={'h1'}
+        fontSize={{ base: '6xl', md: '7xl' }}
+        fontWeight="bold"
+        letterSpacing="tighter"
+        lineHeight="tight"
+      >
         More Stories
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 mb-32">
+      </Heading>
+      <Box className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 mb-32">
         {morePosts.map((post) => (
-          <PostPreview
+          <BlogPost
             key={post.slug}
             title={post.title}
-            coverImage={post.coverImage}
+            imageSrc={post.coverImage?.url}
             date={post.date}
             slug={post.slug}
             excerpt={post.excerpt}
           />
         ))}
-      </div>
+      </Box>
     </section>
-  );
+  )
 }

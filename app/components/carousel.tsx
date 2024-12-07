@@ -82,14 +82,14 @@ const Carousel: React.FC<CarouselProps> = ({
   return (
     <Box className="slider-container">
       <Slider {...settings}>
-        {data.map((post, index: number) => (
+        {data.map((post) => (
           <BlogPost
+            key={post.slug}
+            title={post.title ?? ''}
             imageSrc={post.coverImage?.url ?? ''}
             date={post.date ?? ''}
-            title={post.title ?? ''}
-            excerpt={post.excerpt ?? ''}
             slug={post.slug ?? ''}
-            key={index}
+            excerpt={post.excerpt ?? ''}
           />
         ))}
       </Slider>
