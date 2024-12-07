@@ -20,7 +20,7 @@ export default async function Page() {
           fontWeight="bold"
           letterSpacing="tighter"
           lineHeight="tight"
-          p={4}
+          px={4}
         >
           Blog
         </Heading>
