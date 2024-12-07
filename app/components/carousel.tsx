@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 // ---------------------------------------------------
 
-import { Box, Text, useMediaQuery } from "@chakra-ui/react";
+import { Box, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import Slider, { Settings } from "react-slick";
 import { Post } from "../types/post";
@@ -70,10 +70,6 @@ const Carousel: React.FC<CarouselProps> = ({
       </div>
     ),
   };
-
-  if (!data) {
-    return <Text>Loading...</Text>;
-  }
 
   return (
     <Box className="slider-container">
