@@ -7,14 +7,14 @@ import "slick-carousel/slick/slick.css";
 import { Box, Text, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import Slider, { Settings } from "react-slick";
+import { Post } from "../types/post";
 import BlogPost from "./blog-post";
 
 type CarouselProps = Readonly<{
   /**
    * Data of entries from Contentful collection
-   * TODO: add type
    */
-  data: any;
+  data: Post[];
   /**
    * Whether to display pagination dots.
    */
@@ -75,17 +75,16 @@ const Carousel: React.FC<CarouselProps> = ({
     return <Text>Loading...</Text>;
   }
 
-  // TODO: create a type for a post datum
   return (
     <Box className="slider-container">
       <Slider {...settings}>
         {data.map((post, index: number) => (
           <BlogPost
-            imageSrc={post.coverImage?.url}
-            date={post.date}
-            title={post.title}
-            excerpt={post.excerpt}
-            slug={post.slug}
+            imageSrc={post.coverImage?.url ?? ""}
+            date={post.date ?? ""}
+            title={post.title ?? ""}
+            excerpt={post.excerpt ?? ""}
+            slug={post.slug ?? ""}
             key={index}
           />
         ))}
