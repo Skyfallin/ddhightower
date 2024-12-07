@@ -11,6 +11,12 @@ const customTheme = extendTheme({
         fontFamily: "'Libre Baskerville', serif",
         color: "#222725", // Eerie black
       },
+      h1: {
+        color: "#33302e",
+      },
+      h2: {
+        color: "#33302e",
+      }, 
     },
   },
   components: {

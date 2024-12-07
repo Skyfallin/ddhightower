@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 // ---------------------------------------------------
 
-import { Box, useMediaQuery } from "@chakra-ui/react";
+import { Box, Flex, Spinner, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import Slider, { Settings } from "react-slick";
 import { BlogPostData } from "../types/blog-post";
@@ -63,13 +63,21 @@ const Carousel: React.FC<CarouselProps> = ({
           padding: "5px",
           cursor: "pointer",
           fontWeight: "bold",
-          width: "30px",
+          width: "30px", 
         }}
       >
         {i + 1}
       </div>
     ),
   };
+
+  if (!data) {
+  return (
+    <Flex justifyContent={'center'}>
+      <Spinner />
+      </Flex>
+  )   
+  }
 
   return (
     <Box className="slider-container">
