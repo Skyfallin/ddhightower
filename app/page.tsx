@@ -1,15 +1,12 @@
 import { getAllBlogPosts } from '@/lib/api'
 import { Box, Heading } from '@chakra-ui/react'
 import Carousel from './components/carousel'
-import Footer from './components/footer'
 import Intro from './components/intro'
 
 export default async function Page() {
   // Retrieve blog posts
   const allBlogPosts = await getAllBlogPosts(false)
 
-  // TODO: change default heading color, font
-  // TODO: MIN height screen section is not accounting for navbar
   return (
     <Box bg="#f2dfce">
       <Box className="container mx-auto px-5 max-w-84rem">
@@ -33,7 +30,6 @@ export default async function Page() {
           slidesToScroll={3}
         />
       </Box>
-      <Footer />
     </Box>
   )
 }

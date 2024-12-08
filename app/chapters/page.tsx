@@ -3,7 +3,6 @@ import CoverImage from '../cover-image'
 
 import { getAllPosts } from '@/lib/api'
 import { Box, Flex, Text } from '@chakra-ui/react'
-import Footer from '../components/footer'
 import Intro from '../components/intro'
 import { formattedDate } from '../util/formatted-date'
 
@@ -57,7 +56,6 @@ export default async function Page() {
         )}
         <MoreStories route="chapters" morePosts={morePosts} />
       </Box>
-      <Footer />
     </Box>
   )
 }
