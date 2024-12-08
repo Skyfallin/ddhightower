@@ -98,10 +98,11 @@ export default function MoreStories({ morePosts }: { morePosts: any[] }) {
     <section>
       <Heading
         as={'h1'}
-        fontSize={{ base: '6xl', md: '7xl' }}
+        fontSize={{ base: '4xl', md: '7xl' }}
         fontWeight="bold"
         letterSpacing="tighter"
         lineHeight="tight"
+        px={4}
       >
         More Stories
       </Heading>
