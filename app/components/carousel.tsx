@@ -80,7 +80,7 @@ const Carousel: React.FC<CarouselProps> = ({
   }
 
   return (
-    <Box className="slider-container">
+    <Box className="slider-container" mb={16}>
       <Slider {...settings}>
         {data.map((post) => (
           <ItemPreview
