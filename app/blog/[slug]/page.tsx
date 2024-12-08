@@ -51,7 +51,7 @@ export default async function BlogPostPage({
 
         <Divider borderColor={'#33302e'} opacity={0.25} my={8} />
 
-        <MoreStories route="test" morePosts={moreItems} />
+        <MoreStories route="blog" morePosts={moreItems} />
       </Box>
     </Box>
   )
