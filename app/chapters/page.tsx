@@ -30,7 +30,7 @@ function HeroPost({
         url={coverImage.url}
         borderRadius={'full'}
       />
-      <Text fontSize="sm" color="gray.500" mb={2}>
+      <Text fontSize="md" color="gray.500" mb={2}>
         {formattedDate(date)}
       </Text>
     </Flex>
