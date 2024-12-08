@@ -22,32 +22,34 @@ export default async function PostPage({
   const { item, moreItems } = await getPostAndMorePosts(params.slug, false)
 
   return (
-    <Box className="container mx-auto px-5">
-      <article>
-        <Box className="mb-8 sm:mx-0 md:mb-16 mt-4 fade-effect">
-          <CoverImage
-            title={item.title}
-            url={item.coverImage.url}
-            borderRadius={'full'}
-          />
-        </Box>
-        <Box className="mx-auto max-w-2xl">
-          <Box className="mb-6 block md:hidden"></Box>
-          <Box className="mb-6 text-lg">
-            <Date dateString={item.date} />
+    <Box bg="#FFF1E0" pt={4}>
+      <Box className="container mx-auto px-5">
+        <article>
+          <Box className="mb-8 sm:mx-0 md:mb-16 fade-effect">
+            <CoverImage
+              title={item.title}
+              url={item.coverImage.url}
+              borderRadius={'full'}
+            />
           </Box>
-        </Box>
-
-        <Box className="mx-auto max-w-2xl">
-          <Box className="prose">
-            <Markdown content={item.content} />
+          <Box className="mx-auto max-w-2xl">
+            <Box className="mb-6 block md:hidden"></Box>
+            <Box className="mb-6 text-lg">
+              <Date dateString={item.date} />
+            </Box>
           </Box>
-        </Box>
-      </article>
 
-      <Divider borderColor={'#33302e'} opacity={0.25} my={8} />
+          <Box className="mx-auto max-w-2xl">
+            <Box className="prose">
+              <Markdown content={item.content} />
+            </Box>
+          </Box>
+        </article>
 
-      <MoreStories route="chapters" morePosts={moreItems} />
+        <Divider borderColor={'#33302e'} opacity={0.25} my={8} />
+
+        <MoreStories route="chapters" morePosts={moreItems} />
+      </Box>
     </Box>
   )
 }
