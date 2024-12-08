@@ -29,6 +29,7 @@ export default function RootLayout({
       </head>
       <body>
         <ChakraProvider cssVarsRoot="body" theme={customTheme}>
+          {/* FFF1E0 */}
           <HeaderBar />
           <NavBar />
           <section>{children}</section>
