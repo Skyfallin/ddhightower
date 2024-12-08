@@ -1,4 +1,4 @@
-import { Image } from '@chakra-ui/react'
+import { Box, Image } from '@chakra-ui/react'
 import Link from 'next/link'
 
 interface CoverImageProps {
@@ -33,7 +33,7 @@ export default function CoverImage({
   )
 
   return (
-    <div className="sm:mx-0">
+    <Box className="sm:mx-0">
       {slug ? (
         <Link href={`/chapters/${slug}`} aria-label={title}>
           {image}
@@ -41,6 +41,6 @@ export default function CoverImage({
       ) : (
         image
       )}
-    </div>
+    </Box>
   )
 }
