@@ -69,6 +69,8 @@ const Carousel: React.FC<CarouselProps> = ({
         {i + 1}
       </div>
     ),
+    prevArrow: <></>,
+    nextArrow: <></>,
   }
 
   if (!data) {
