@@ -11,7 +11,7 @@ export default async function Page() {
   // TODO: change default heading color, font
   // TODO: MIN height screen section is not accounting for navbar
   return (
-    <Box>
+    <Box bg="#f2dfce">
       <Box className="container mx-auto px-5 max-w-84rem">
         <Intro />
         <Heading

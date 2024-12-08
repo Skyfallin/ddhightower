@@ -43,7 +43,7 @@ export default async function Page() {
   const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG)
 
   return (
-    <Box>
+    <Box bg="#f2dfce">
       <Box className="container mx-auto px-5 max-w-84rem">
         <Intro />
         {heroPost && (
