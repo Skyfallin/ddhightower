@@ -26,15 +26,15 @@ const POST_GRAPHQL_FIELDS = `
       }
     }
   }
-`;
+`
 
 async function fetchGraphQL(query: string, preview = false): Promise<any> {
   return fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
     {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${
           preview
             ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
@@ -42,21 +42,21 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
         }`,
       },
       body: JSON.stringify({ query }),
-      next: { tags: ["posts"] },
+      next: { tags: ['posts'] },
     }
-  ).then((response) => response.json());
+  ).then((response) => response.json())
 }
 
 // Extract functions for Contenful collections. Abstracted because query fields are the same
 function extractCollectionItem(fetchResponse: any, collectionKey: string): any {
-  return fetchResponse?.data?.[collectionKey]?.items?.[0];
+  return fetchResponse?.data?.[collectionKey]?.items?.[0]
 }
 
 function extractCollectionItems(
   fetchResponse: any,
   collectionKey: string
 ): any[] {
-  return fetchResponse?.data?.[collectionKey]?.items;
+  return fetchResponse?.data?.[collectionKey]?.items
 }
 
 async function fetchCollection(
@@ -67,14 +67,14 @@ async function fetchCollection(
 ): Promise<any> {
   const query = `query {
     ${collectionName}(where: { ${filters} }, preview: ${
-    preview ? "true" : "false"
+    preview ? 'true' : 'false'
   }, limit: ${limit}) {
       items {
         ${POST_GRAPHQL_FIELDS}
       }
     }
-  }`;
-  return fetchGraphQL(query, preview);
+  }`
+  return fetchGraphQL(query, preview)
 }
 
 export async function getPreviewItemBySlug(
@@ -87,8 +87,8 @@ export async function getPreviewItemBySlug(
     `slug: "${slug}"`,
     preview,
     1
-  );
-  return extractCollectionItem(entry, collectionName);
+  )
+  return extractCollectionItem(entry, collectionName)
 }
 
 export async function getAllItems(
@@ -97,11 +97,11 @@ export async function getAllItems(
 ): Promise<any[]> {
   const entries = await fetchCollection(
     collectionName,
-    "slug_exists: true",
+    'slug_exists: true',
     isDraftMode,
     100
-  );
-  return extractCollectionItems(entries, collectionName);
+  )
+  return extractCollectionItems(entries, collectionName)
 }
 
 export async function getItemAndMoreItems(
@@ -114,35 +114,35 @@ export async function getItemAndMoreItems(
     `slug: "${slug}"`,
     preview,
     1
-  );
+  )
   const entries = await fetchCollection(
     collectionName,
     `slug_not_in: "${slug}"`,
     preview,
     2
-  );
+  )
   return {
-    post: extractCollectionItem(entry, collectionName),
-    morePosts: extractCollectionItems(entries, collectionName),
-  };
+    item: extractCollectionItem(entry, collectionName),
+    moreItems: extractCollectionItems(entries, collectionName),
+  }
 }
 
 // Post Functions
 export const getPreviewPostBySlug = (slug: string | null) =>
-  getPreviewItemBySlug("postCollection", slug, true);
+  getPreviewItemBySlug('postCollection', slug, true)
 
 export const getAllPosts = (isDraftMode: boolean) =>
-  getAllItems("postCollection", isDraftMode);
+  getAllItems('postCollection', isDraftMode)
 
 export const getPostAndMorePosts = (slug: string, preview: boolean) =>
-  getItemAndMoreItems("postCollection", slug, preview);
+  getItemAndMoreItems('postCollection', slug, preview)
 
 // Blog Post Functions
 export const getPreviewBlogPostBySlug = (slug: string | null) =>
-  getPreviewItemBySlug("blogPostCollection", slug, true);
+  getPreviewItemBySlug('blogPostCollection', slug, true)
 
 export const getAllBlogPosts = (isDraftMode: boolean) =>
-  getAllItems("blogPostCollection", isDraftMode);
+  getAllItems('blogPostCollection', isDraftMode)
 
 export const getBlogPostAndMoreBlogPosts = (slug: string, preview: boolean) =>
-  getItemAndMoreItems("blogPostCollection", slug, preview);
+  getItemAndMoreItems('blogPostCollection', slug, preview)
