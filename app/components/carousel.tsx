@@ -8,7 +8,7 @@ import { Box, Flex, Spinner, useMediaQuery } from '@chakra-ui/react'
 import React from 'react'
 import Slider, { Settings } from 'react-slick'
 import { BlogPostData } from '../types/blog-post'
-import BlogPost from './blog-post'
+import ItemPreview from './item-preview'
 
 type CarouselProps = Readonly<{
   /**
@@ -83,8 +83,9 @@ const Carousel: React.FC<CarouselProps> = ({
     <Box className="slider-container">
       <Slider {...settings}>
         {data.map((post) => (
-          <BlogPost
+          <ItemPreview
             key={post.slug}
+            route="blog"
             title={post.title ?? ''}
             imageSrc={post.coverImage?.url ?? ''}
             date={post.date ?? ''}

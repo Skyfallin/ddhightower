@@ -15,7 +15,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function PostPage({
+export default async function BlogPostPage({
   params,
 }: {
   params: { slug: string }
@@ -52,7 +52,7 @@ export default async function PostPage({
 
         <Divider borderColor="#222725" mt={8} mb={20} />
 
-        <MoreStories morePosts={moreItems} />
+        <MoreStories route="test" morePosts={moreItems} />
       </Box>
       <Footer />
     </Box>

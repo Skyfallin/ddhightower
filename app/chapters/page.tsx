@@ -1,13 +1,12 @@
+import MoreStories from '../components/more-stories'
+import CoverImage from '../cover-image'
 
-import MoreStories from "../components/more-stories";
-import CoverImage from "../cover-image";
+import { getAllPosts } from '@/lib/api'
+import { Box } from '@chakra-ui/react'
+import Footer from '../components/footer'
+import Intro from '../components/intro'
 
-import { getAllPosts } from "@/lib/api";
-import { Box } from "@chakra-ui/react";
-import Footer from "../components/footer";
-import Intro from "../components/intro";
-
-const HERO_SLUG = "prologue";
+const HERO_SLUG = 'prologue'
 
 function HeroPost({
   title,
@@ -16,34 +15,34 @@ function HeroPost({
   excerpt,
   slug,
 }: {
-  title: string;
-  coverImage: any;
-  date: string;
-  excerpt: string;
-  slug: string;
+  title: string
+  coverImage: any
+  date: string
+  excerpt: string
+  slug: string
 }) {
   return (
     <section>
       <Box
         className="mb-8 md:mb-16"
         transition="transform 0.2s ease-in-out"
-        _hover={{ transform: "scale(1.024)" }}
+        _hover={{ transform: 'scale(1.024)' }}
       >
         <CoverImage
           title={title}
           slug={slug}
           url={coverImage.url}
-          borderRadius={"full"}
+          borderRadius={'full'}
         />
       </Box>
     </section>
-  );
+  )
 }
 
 export default async function Page() {
-  const allPosts = await getAllPosts(false);
-  const heroPost = allPosts.find((post) => post.slug === HERO_SLUG);
-  const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG);
+  const allPosts = await getAllPosts(false)
+  const heroPost = allPosts.find((post) => post.slug === HERO_SLUG)
+  const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG)
 
   return (
     <Box>
@@ -58,9 +57,9 @@ export default async function Page() {
             excerpt={heroPost.excerpt}
           />
         )}
-        <MoreStories morePosts={morePosts} />
+        <MoreStories route="chapters" morePosts={morePosts} />
       </Box>
       <Footer />
     </Box>
-  );
+  )
 }

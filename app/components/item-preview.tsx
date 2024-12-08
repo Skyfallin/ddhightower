@@ -2,6 +2,7 @@ import { Box, Heading, Image, Link, Text } from '@chakra-ui/react'
 import React from 'react'
 
 type ContentProps = Readonly<{
+  route: string
   imageSrc: string
   date: string
   title: string
@@ -16,7 +17,8 @@ const formattedDate = (date: string) =>
     year: 'numeric',
   }).format(new Date(date))
 
-const BlogPost: React.FC<ContentProps> = ({
+const ItemPreview: React.FC<ContentProps> = ({
+  route,
   imageSrc,
   date,
   title,
@@ -38,7 +40,7 @@ const BlogPost: React.FC<ContentProps> = ({
   return (
     <Box p={4} textAlign="center" borderRadius="md">
       {slug ? (
-        <Link href={`/blogPosts/${slug}`} aria-label={title}>
+        <Link href={`/${route}/${slug}`} aria-label={title}>
           {image}
         </Link>
       ) : (
@@ -56,4 +58,4 @@ const BlogPost: React.FC<ContentProps> = ({
   )
 }
 
-export default BlogPost
+export default ItemPreview

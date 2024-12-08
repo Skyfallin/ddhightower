@@ -49,7 +49,7 @@ export default async function PostPage({
 
         <Divider borderColor="#222725" mt={8} mb={20} />
 
-        <MoreStories morePosts={moreItems} />
+        <MoreStories route="chapters" morePosts={moreItems} />
       </Box>
       <Footer />
     </Box>
