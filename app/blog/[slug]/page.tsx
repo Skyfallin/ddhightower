@@ -2,7 +2,6 @@ import Date from '../../components/date'
 import MoreStories from '../../components/more-stories'
 import CoverImage from '../../cover-image'
 
-import Footer from '@/app/components/footer'
 import { getAllBlogPosts, getBlogPostAndMoreBlogPosts } from '@/lib/api'
 import { Markdown } from '@/lib/markdown'
 import { Box, Divider } from '@chakra-ui/react'
@@ -26,10 +25,10 @@ export default async function BlogPostPage({
   )
 
   return (
-    <Box>
+    <Box bg="#FFF1E0" pt={4}>
       <Box className="container mx-auto px-5">
         <article>
-          <Box className="mb-8 sm:mx-0 md:mb-16 mt-4 fade-effect">
+          <Box className="mb-8 sm:mx-0 md:mb-16 fade-effect">
             <CoverImage
               title={item.title}
               url={item.coverImage.url}
@@ -52,9 +51,8 @@ export default async function BlogPostPage({
 
         <Divider borderColor={'#33302e'} opacity={0.25} my={8} />
 
-        <MoreStories route="test" morePosts={moreItems} />
+        <MoreStories route="blog" morePosts={moreItems} />
       </Box>
-      <Footer />
     </Box>
   )
 }

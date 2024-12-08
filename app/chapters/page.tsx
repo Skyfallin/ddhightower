@@ -3,7 +3,6 @@ import CoverImage from '../cover-image'
 
 import { getAllPosts } from '@/lib/api'
 import { Box, Flex, Text } from '@chakra-ui/react'
-import Footer from '../components/footer'
 import Intro from '../components/intro'
 import { formattedDate } from '../util/formatted-date'
 
@@ -43,7 +42,7 @@ export default async function Page() {
   const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG)
 
   return (
-    <Box>
+    <Box bg="#f2dfce">
       <Box className="container mx-auto px-5 max-w-84rem">
         <Intro />
         {heroPost && (
@@ -57,7 +56,6 @@ export default async function Page() {
         )}
         <MoreStories route="chapters" morePosts={morePosts} />
       </Box>
-      <Footer />
     </Box>
   )
 }

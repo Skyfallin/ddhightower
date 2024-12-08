@@ -69,6 +69,8 @@ const Carousel: React.FC<CarouselProps> = ({
         {i + 1}
       </div>
     ),
+    prevArrow: <></>,
+    nextArrow: <></>,
   }
 
   if (!data) {
@@ -80,7 +82,7 @@ const Carousel: React.FC<CarouselProps> = ({
   }
 
   return (
-    <Box className="slider-container">
+    <Box className="slider-container" mb={16}>
       <Slider {...settings}>
         {data.map((post) => (
           <ItemPreview

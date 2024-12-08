@@ -1,24 +1,25 @@
-"use client";
+'use client'
 
-import { ChakraProvider } from "@chakra-ui/react";
-import { Inter } from "next/font/google";
-import HeaderBar from "./components/header-bar";
-import NavBar from "./components/nav-bar";
-import "./globals.css";
-import { metadata } from "./metadata";
-import customTheme from "./theme/custom-theme";
-import "./theme/styles.css";
+import { ChakraProvider, Flex } from '@chakra-ui/react'
+import { Inter } from 'next/font/google'
+import Footer from './components/footer'
+import HeaderBar from './components/header-bar'
+import NavBar from './components/nav-bar'
+import './globals.css'
+import { metadata } from './metadata'
+import customTheme from './theme/custom-theme'
+import './theme/styles.css'
 
 const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
+  variable: '--font-inter',
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en" className={inter.variable}>
@@ -30,10 +31,12 @@ export default function RootLayout({
         <ChakraProvider cssVarsRoot="body" theme={customTheme}>
           <HeaderBar />
           <NavBar />
-          <section className="min-h-screen">{children}</section>
-          {/* <Footer /> */}
+          <Flex minH="100vh" flexDirection={'column'}>
+            {children}
+            <Footer />
+          </Flex>
         </ChakraProvider>
       </body>
     </html>
-  );
+  )
 }

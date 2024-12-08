@@ -7,7 +7,7 @@ const customTheme = extendTheme({
   styles: {
     global: {
       body: {
-        backgroundColor: '#FFF1E0', // Old lace (previously #faebd7 - Antique white)
+        backgroundColor: '#f2dfce',
         fontFamily: "'Libre Baskerville', serif",
         color: '#222725', // Eerie black
       },
