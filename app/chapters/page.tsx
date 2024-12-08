@@ -2,9 +2,10 @@ import MoreStories from '../components/more-stories'
 import CoverImage from '../cover-image'
 
 import { getAllPosts } from '@/lib/api'
-import { Box } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import Footer from '../components/footer'
 import Intro from '../components/intro'
+import { formattedDate } from '../util/formatted-date'
 
 const HERO_SLUG = 'prologue'
 
@@ -22,20 +23,17 @@ function HeroPost({
   slug: string
 }) {
   return (
-    <section>
-      <Box
-        className="mb-8 md:mb-16"
-        transition="transform 0.2s ease-in-out"
-        _hover={{ transform: 'scale(1.024)' }}
-      >
-        <CoverImage
-          title={title}
-          slug={slug}
-          url={coverImage.url}
-          borderRadius={'full'}
-        />
-      </Box>
-    </section>
+    <Flex flexDirection={'column'} gap={4} mb={4} px={4}>
+      <CoverImage
+        title={title}
+        slug={slug}
+        url={coverImage.url}
+        borderRadius={'full'}
+      />
+      <Text fontSize="sm" color="gray.500" mb={2}>
+        {formattedDate(date)}
+      </Text>
+    </Flex>
   )
 }
 

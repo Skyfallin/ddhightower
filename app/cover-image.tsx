@@ -14,9 +14,6 @@ export default function CoverImage({
   slug,
   borderRadius,
 }: Readonly<CoverImageProps>) {
-  const borderTopRadius = borderRadius === 'half' ? '3xl' : undefined
-  const borderRadiusFull = borderRadius === 'full' ? '3xl' : undefined
-
   const image = (
     <Image
       alt={`Cover Image for ${title}`}
@@ -25,8 +22,10 @@ export default function CoverImage({
       width="100%"
       height="auto"
       maxH={'500px'}
-      borderTopRadius={borderTopRadius}
-      borderRadius={borderRadiusFull}
+      borderRadius={'lg'}
+      boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)"
+      transition="transform 0.2s ease-in-out"
+      _hover={{ transform: 'scale(1.024)' }}
       objectFit="cover"
       cursor={slug ? 'pointer' : 'default'}
     />

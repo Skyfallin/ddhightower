@@ -1,5 +1,6 @@
 import { Box, Heading, Image, Link, Text } from '@chakra-ui/react'
 import React from 'react'
+import { formattedDate } from '../util/formatted-date'
 
 type ContentProps = Readonly<{
   route: string
@@ -9,13 +10,6 @@ type ContentProps = Readonly<{
   excerpt: string
   slug: string
 }>
-
-const formattedDate = (date: string) =>
-  new Intl.DateTimeFormat('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  }).format(new Date(date))
 
 const ItemPreview: React.FC<ContentProps> = ({
   route,
@@ -29,7 +23,7 @@ const ItemPreview: React.FC<ContentProps> = ({
     <Image
       src={imageSrc}
       alt={title}
-      borderRadius="md"
+      borderRadius="lg"
       mb={4}
       boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)"
       transition="transform 0.2s ease-in-out"
