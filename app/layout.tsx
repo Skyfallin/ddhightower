@@ -1,6 +1,6 @@
 'use client'
 
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, Flex } from '@chakra-ui/react'
 import { Inter } from 'next/font/google'
 import Footer from './components/footer'
 import HeaderBar from './components/header-bar'
@@ -29,11 +29,12 @@ export default function RootLayout({
       </head>
       <body>
         <ChakraProvider cssVarsRoot="body" theme={customTheme}>
-          {/* FFF1E0 */}
           <HeaderBar />
           <NavBar />
-          <section>{children}</section>
-          <Footer />
+          <Flex minH="100vh" flexDirection={'column'}>
+            {children}
+            <Footer />
+          </Flex>
         </ChakraProvider>
       </body>
     </html>
