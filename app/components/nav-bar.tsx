@@ -1,16 +1,7 @@
-import {
-  Button,
-  Divider,
-  Flex,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Link,
-  Text,
-} from '@chakra-ui/react'
+import { Button, Divider, Flex, Link, Text } from '@chakra-ui/react'
 import { usePathname } from 'next/navigation'
 import React from 'react'
-import { FaMagnifyingGlass } from 'react-icons/fa6'
+import SearchForm from './search-form'
 
 interface NavLink {
   hyperlink: string
@@ -41,21 +32,11 @@ const NavBar: React.FC = () => {
     >
       <Flex
         className="container mx-auto px-5 max-w-84rem h-full"
-        justifyContent={'space-evenly'}
-        padding="1rem"
+        justifyContent={{ base: 'space-evenly', md: 'space-between' }}
+        py="1rem"
       >
-        <Flex align="center">
-          <InputGroup width="200px">
-            <InputLeftElement pointerEvents="none">
-              <FaMagnifyingGlass color="#33302e" />
-            </InputLeftElement>
-            <Input
-              borderColor={'#33302e'}
-              placeholder="Search..."
-              rounded="full"
-              paddingLeft="2.5rem" // Add left padding to prevent text overlap
-            />
-          </InputGroup>
+        <Flex alignItems="center">
+          <SearchForm initialQuery={''} />
         </Flex>
 
         <Link
@@ -64,7 +45,7 @@ const NavBar: React.FC = () => {
         >
           <Text
             color={'#33302e'}
-            display={{ base: 'none', md: 'block' }} // Only show on larger screens
+            display={{ base: 'none', md: 'block' }}
             fontFamily="'Libre Baskerville', serif"
             fontSize="6xl"
             fontWeight="bold"
@@ -73,15 +54,17 @@ const NavBar: React.FC = () => {
           </Text>
         </Link>
 
-        <Button
-          className="bg-text-charcoal-light hover:bg-text-white hover:text-charcoal-light border border-charcoal text-white font-bold duration-200 transition-colors mb-6 lg:mb-0"
-          borderRadius="0"
-          backgroundColor="#33302e"
-          _hover={{ backgroundColor: 'white' }}
-          my={'auto'}
-        >
-          Contact
-        </Button>
+        <Flex justifyContent="center" width={{ md: '300px' }}>
+          <Button
+            className="bg-text-charcoal-light hover:bg-text-white hover:text-charcoal-light border border-charcoal text-white font-bold duration-200 transition-colors mb-6 lg:mb-0"
+            borderRadius="0"
+            backgroundColor="#33302e"
+            _hover={{ backgroundColor: 'white' }}
+            my={'auto'}
+          >
+            Contact
+          </Button>
+        </Flex>
       </Flex>
 
       <Divider borderColor={'#33302e'} opacity={0.25} />
