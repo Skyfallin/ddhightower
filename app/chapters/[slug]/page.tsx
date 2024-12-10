@@ -26,11 +26,7 @@ export default async function PostPage({
       <Box className="container mx-auto px-5">
         <article>
           <Box className="mb-8 sm:mx-0 md:mb-16 fade-effect">
-            <CoverImage
-              title={item.title}
-              url={item.coverImage.url}
-              borderRadius={'full'}
-            />
+            <CoverImage title={item.title} url={item.coverImage.url} />
           </Box>
           <Box className="mx-auto max-w-2xl">
             <Box className="mb-6 block md:hidden"></Box>

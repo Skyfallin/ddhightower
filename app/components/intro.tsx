@@ -3,11 +3,7 @@ import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 const Intro = () => {
   return (
     <Flex flexDirection="column" paddingY={4}>
-      <Box
-        flex={1.5}
-        alignSelf="center"
-        display={{ base: 'block', md: 'none' }} // Only show on small screens
-      >
+      <Box flex={1.5} alignSelf="center" hideFrom={'md'}>
         <Heading as="h1" fontSize="4xl" fontWeight="bold" letterSpacing="-1px">
           D. D. Hightower
         </Heading>

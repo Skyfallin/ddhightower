@@ -32,13 +32,9 @@ const NavBar: React.FC = () => {
     >
       <Flex
         className="container mx-auto px-5 max-w-84rem h-full"
-        justifyContent={{ base: 'space-evenly', md: 'space-between' }}
+        justifyContent={{ base: 'space-evenly', md: 'space-evenly' }}
         py="1rem"
       >
-        <Flex alignItems="center">
-          <SearchForm initialQuery={''} />
-        </Flex>
-
         <Link
           href="/"
           _hover={{ textDecoration: 'none' }} // Removes underline on hover
@@ -54,7 +50,8 @@ const NavBar: React.FC = () => {
           </Text>
         </Link>
 
-        <Flex justifyContent="center" width={{ md: '300px' }}>
+        <Flex alignItems="center" gap={{ base: 4, md: 8 }}>
+          <SearchForm initialQuery={''} />
           <Button
             className="bg-text-charcoal-light hover:bg-text-white hover:text-charcoal-light border border-charcoal text-white font-bold duration-200 transition-colors mb-6 lg:mb-0"
             borderRadius="0"

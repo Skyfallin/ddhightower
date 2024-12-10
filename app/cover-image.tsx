@@ -1,18 +1,18 @@
 import { Box, Image } from '@chakra-ui/react'
 import Link from 'next/link'
 
-interface CoverImageProps {
+type CoverImageProps = Readonly<{
   title: string
   url: string
   slug?: string
-  borderRadius: 'half' | 'full'
-}
+  zoomOnHover?: boolean
+}>
 
 export default function CoverImage({
   title,
   url,
   slug,
-  borderRadius,
+  zoomOnHover = false,
 }: Readonly<CoverImageProps>) {
   const image = (
     <Image
@@ -25,7 +25,7 @@ export default function CoverImage({
       borderRadius={'lg'}
       boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)"
       transition="transform 0.2s ease-in-out"
-      _hover={{ transform: 'scale(1.024)' }}
+      _hover={zoomOnHover ? { transform: 'scale(1.024)' } : undefined}
       objectFit="cover"
       cursor={slug ? 'pointer' : 'default'}
     />

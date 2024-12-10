@@ -27,7 +27,7 @@ function HeroPost({
         title={title}
         slug={slug}
         url={coverImage.url}
-        borderRadius={'full'}
+        zoomOnHover={true}
       />
       <Text fontSize="md" color="gray.500" mb={2}>
         {formattedDate(date)}
