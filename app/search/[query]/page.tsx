@@ -1,3 +1,4 @@
+import { Box, Heading } from '@chakra-ui/react'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import SearchForm from '../../components/search-form'
@@ -26,13 +27,21 @@ export default async function SearchResultsPage({
   const hasResults = results && results.length > 0
 
   return (
-    <div style={{ padding: '1rem' }}>
+    <Box className="container mx-auto px-5 max-w-84rem">
+      <Heading
+        as={'h1'}
+        fontSize={{ base: 'lg', md: '4xl' }}
+        fontWeight="bold"
+        letterSpacing="tighter"
+        lineHeight="tight"
+        // px={4}
+      >
+        Search Results for: "{query}"
+      </Heading>
       {/* Render the client-side form */}
       <Suspense fallback={<div>Loading search form...</div>}>
         <SearchForm initialQuery={query} />
       </Suspense>
-
-      <h1>Search Results for: "{query}"</h1>
 
       {hasResults ? (
         <ul>
@@ -48,6 +57,6 @@ export default async function SearchResultsPage({
         {/* Example link to another search query */}
         <Link href="/search/another+term">Search for "another term"</Link>
       </div>
-    </div>
+    </Box>
   )
 }
