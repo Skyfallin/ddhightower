@@ -70,9 +70,7 @@ export default async function SearchResultsPage({
   const { query } = params
   const blogResults = await fetchSearchResults(query)
   const chapterResults = await fetchSearchResults(query)
-  const hasResults =
-    (blogResults && blogResults.length > 0) ||
-    (chapterResults && chapterResults.length > 0)
+  const hasResults = blogResults.length > 0 || chapterResults.length > 0
 
   return (
     <Flex
@@ -100,16 +98,19 @@ export default async function SearchResultsPage({
 
       {hasResults ? (
         <Flex flexDirection={'column'}>
-          <Heading
-            as={'h1'}
-            fontSize={{ base: 'lg', md: '4xl' }}
-            fontWeight="bold"
-            letterSpacing="tighter"
-            lineHeight="tight"
-            px={4}
-          >
-            Blog
-          </Heading>
+          {blogResults.length > 0 && (
+            <Heading
+              as={'h1'}
+              fontSize={{ base: 'lg', md: '3xl' }}
+              fontWeight="bold"
+              letterSpacing="tighter"
+              lineHeight="tight"
+              px={4}
+              mt={{ base: 4, md: 8 }}
+            >
+              Blog
+            </Heading>
+          )}
           <Carousel
             data={blogResults}
             dots={true}
@@ -118,16 +119,18 @@ export default async function SearchResultsPage({
             slidesToShow={4}
             slidesToScroll={4}
           />
-          <Heading
-            as={'h1'}
-            fontSize={{ base: 'lg', md: '4xl' }}
-            fontWeight="bold"
-            letterSpacing="tighter"
-            lineHeight="tight"
-            px={4}
-          >
-            Sample Chapters
-          </Heading>
+          {chapterResults.length > 0 && (
+            <Heading
+              as={'h1'}
+              fontSize={{ base: 'lg', md: '3xl' }}
+              fontWeight="bold"
+              letterSpacing="tighter"
+              lineHeight="tight"
+              px={4}
+            >
+              Sample Chapters
+            </Heading>
+          )}
           <Carousel
             data={chapterResults}
             dots={true}
@@ -138,7 +141,7 @@ export default async function SearchResultsPage({
           />
         </Flex>
       ) : (
-        <Text>No results found.</Text>
+        <Text px={4}>No results found.</Text>
       )}
     </Flex>
   )
