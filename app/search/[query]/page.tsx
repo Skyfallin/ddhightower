@@ -1,6 +1,5 @@
 import Carousel from '@/app/components/carousel'
-import { Box, Heading } from '@chakra-ui/react'
-import Link from 'next/link'
+import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 import { Suspense } from 'react'
 import SearchForm from '../../components/search-form'
 
@@ -12,9 +11,54 @@ async function fetchSearchResults(query: string) {
 
   // Mock data for demonstration
   return [
-    { id: 1, title: `Result for "${query}" #1` },
-    { id: 2, title: `Result for "${query}" #2` },
-    { id: 3, title: `Result for "${query}" #3` },
+    {
+      coverImage: {
+        url: 'https://www.sciencealert.com/images/2024/10/happy_dog.jpg',
+      },
+      title: `Result for "${query}" #1`,
+      excerpt: '',
+      slug: 'test1',
+    },
+    {
+      coverImage: {
+        url: 'https://www.sciencealert.com/images/2024/10/happy_dog.jpg',
+      },
+      title: `Result for "${query}" #2`,
+      excerpt: '',
+      slug: 'test2',
+    },
+    {
+      coverImage: {
+        url: 'https://www.sciencealert.com/images/2024/10/happy_dog.jpg',
+      },
+      title: `Result for "${query}" #3`,
+      excerpt: '',
+      slug: 'test3',
+    },
+    {
+      coverImage: {
+        url: 'https://www.sciencealert.com/images/2024/10/happy_dog.jpg',
+      },
+      title: `Result for "${query}" #4`,
+      excerpt: '',
+      slug: 'test4',
+    },
+    {
+      coverImage: {
+        url: 'https://www.sciencealert.com/images/2024/10/happy_dog.jpg',
+      },
+      title: `Result for "${query}" #5`,
+      excerpt: '',
+      slug: 'test5',
+    },
+    {
+      coverImage: {
+        url: 'https://www.sciencealert.com/images/2024/10/happy_dog.jpg',
+      },
+      title: `Result for "${query}" #6`,
+      excerpt: '',
+      slug: 'test6',
+    },
   ]
 }
 
@@ -28,20 +72,27 @@ export default async function SearchResultsPage({
   const hasResults = results && results.length > 0
 
   return (
-    <Box className="container mx-auto px-5 max-w-84rem">
+    <Flex
+      className="container mx-auto px-5 max-w-84rem"
+      flexDirection={'column'}
+      gap={4}
+      py={4}
+    >
       <Heading
         as={'h1'}
         fontSize={{ base: 'lg', md: '4xl' }}
         fontWeight="bold"
         letterSpacing="tighter"
         lineHeight="tight"
-        // px={4}
+        px={4}
       >
         Search Results for: "{query}"
       </Heading>
       {/* Render the client-side form */}
       <Suspense fallback={<div>Loading search form...</div>}>
-        <SearchForm initialQuery={query} />
+        <Box px={4}>
+          <SearchForm initialQuery={query} />
+        </Box>
       </Suspense>
 
       {hasResults ? (
@@ -50,22 +101,12 @@ export default async function SearchResultsPage({
           dots={true}
           infinite={false}
           speed={500}
-          slidesToShow={3}
-          slidesToScroll={3}
+          slidesToShow={4}
+          slidesToScroll={4}
         />
       ) : (
-        // <ul>
-        //   {results.map((item) => (
-        //     <li key={item.id}>{item.title}</li>
-        //   ))}
-        // </ul>
-        <p>No results found.</p>
+        <Text>No results found.</Text>
       )}
-
-      <div style={{ marginTop: '20px' }}>
-        {/* Example link to another search query */}
-        <Link href="/search/another+term">Search for "another term"</Link>
-      </div>
-    </Box>
+    </Flex>
   )
 }

@@ -7,37 +7,10 @@ import 'slick-carousel/slick/slick.css'
 import { Box, Flex, Spinner, useMediaQuery } from '@chakra-ui/react'
 import React from 'react'
 import Slider, { Settings } from 'react-slick'
-import { BlogPostData } from '../types/blog-post'
+import { CarouselItem } from '../types'
 import ItemPreview from './item-preview'
 
-type CarouselProps = Readonly<{
-  /**
-   * Data of entries from Contentful collection
-   */
-  data: BlogPostData[]
-  /**
-   * Whether to display pagination dots.
-   */
-  dots: boolean
-  /**
-   * Whether the carousel should infinitely loop.
-   */
-  infinite: boolean
-  /**
-   * The speed of the animation.
-   */
-  speed: number
-  /**
-   * How many slides to display per page.
-   */
-  slidesToShow: number
-  /**
-   * How many slides to scroll per page.
-   */
-  slidesToScroll: number
-}>
-
-const Carousel: React.FC<CarouselProps> = ({
+const Carousel: React.FC<CarouselItem> = ({
   data,
   dots,
   infinite,
