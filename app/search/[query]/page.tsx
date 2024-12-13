@@ -1,3 +1,4 @@
+import Carousel from '@/app/components/carousel'
 import { Box, Heading } from '@chakra-ui/react'
 import Link from 'next/link'
 import { Suspense } from 'react'
@@ -44,12 +45,20 @@ export default async function SearchResultsPage({
       </Suspense>
 
       {hasResults ? (
-        <ul>
-          {results.map((item) => (
-            <li key={item.id}>{item.title}</li>
-          ))}
-        </ul>
+        <Carousel
+          data={results}
+          dots={true}
+          infinite={false}
+          speed={500}
+          slidesToShow={3}
+          slidesToScroll={3}
+        />
       ) : (
+        // <ul>
+        //   {results.map((item) => (
+        //     <li key={item.id}>{item.title}</li>
+        //   ))}
+        // </ul>
         <p>No results found.</p>
       )}
 
