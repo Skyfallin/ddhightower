@@ -68,8 +68,11 @@ export default async function SearchResultsPage({
   params: { query: string }
 }) {
   const { query } = params
-  const results = await fetchSearchResults(query)
-  const hasResults = results && results.length > 0
+  const blogResults = await fetchSearchResults(query)
+  const chapterResults = await fetchSearchResults(query)
+  const hasResults =
+    (blogResults && blogResults.length > 0) ||
+    (chapterResults && chapterResults.length > 0)
 
   return (
     <Flex
@@ -80,7 +83,7 @@ export default async function SearchResultsPage({
     >
       <Heading
         as={'h1'}
-        fontSize={{ base: 'lg', md: '4xl' }}
+        fontSize={{ base: 'xl', md: '4xl' }}
         fontWeight="bold"
         letterSpacing="tighter"
         lineHeight="tight"
@@ -96,14 +99,44 @@ export default async function SearchResultsPage({
       </Suspense>
 
       {hasResults ? (
-        <Carousel
-          data={results}
-          dots={true}
-          infinite={false}
-          speed={500}
-          slidesToShow={4}
-          slidesToScroll={4}
-        />
+        <Flex flexDirection={'column'}>
+          <Heading
+            as={'h1'}
+            fontSize={{ base: 'lg', md: '4xl' }}
+            fontWeight="bold"
+            letterSpacing="tighter"
+            lineHeight="tight"
+            px={4}
+          >
+            Blog
+          </Heading>
+          <Carousel
+            data={blogResults}
+            dots={true}
+            infinite={false}
+            speed={500}
+            slidesToShow={4}
+            slidesToScroll={4}
+          />
+          <Heading
+            as={'h1'}
+            fontSize={{ base: 'lg', md: '4xl' }}
+            fontWeight="bold"
+            letterSpacing="tighter"
+            lineHeight="tight"
+            px={4}
+          >
+            Sample Chapters
+          </Heading>
+          <Carousel
+            data={chapterResults}
+            dots={true}
+            infinite={false}
+            speed={500}
+            slidesToShow={4}
+            slidesToScroll={4}
+          />
+        </Flex>
       ) : (
         <Text>No results found.</Text>
       )}
