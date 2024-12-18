@@ -46,7 +46,7 @@ To run this project locally, follow these steps:
  cd ddhightower-portfolio
  ```
 
-### 2. Install dependencies
+2. **Install dependencies**:
 
 Run the following command to install all required dependencies:
 
@@ -56,6 +56,10 @@ npm install
 yarn install
 ```
 
+3. **Set up environment variables**:
+
+Create a .env.local file in the root directory and add the following:
+
 ```Dotenv
 CONTENTFUL_SPACE_ID=your_contentful_space_id
 CONTENTFUL_ACCESS_TOKEN=your_contentful_access_token
@@ -63,6 +67,26 @@ ALGOLIA_APP_ID=your_algolia_app_id
 ALGOLIA_SEARCH_API_KEY=your_algolia_search_api_key
 ```
 
-3. **Test**
+4. **Start the development server**:
 
-4.  **Test**
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+## 📜 License
+
+This project is licensed under the MIT License. See the full license text below:
+
+---
+
+MIT License
+
+Copyright (c) `2025` `Dimetrius Hightower`
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
