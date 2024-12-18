@@ -42,7 +42,7 @@ const ItemPreview: React.FC<ContentProps> = ({
       )}
 
       <Text fontSize="sm" color="gray.500" mb={2}>
-        {formattedDate(date)}
+        {formattedDate(date ? date : new Date().toISOString())}
       </Text>
       <Heading size="md" mb={2}>
         {title}

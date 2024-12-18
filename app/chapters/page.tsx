@@ -22,12 +22,18 @@ function HeroPost({
   slug: string
 }) {
   return (
-    <Flex flexDirection={'column'} gap={4} mb={4} px={4}>
+    <Flex
+      flexDirection={'column'}
+      gap={4}
+      mb={4}
+      px={4}
+      py={{ base: 4, md: 0 }}
+    >
       <CoverImage
         title={title}
         slug={slug}
         url={coverImage.url}
-        borderRadius={'full'}
+        zoomOnHover={true}
       />
       <Text fontSize="md" color="gray.500" mb={2}>
         {formattedDate(date)}
@@ -42,20 +48,18 @@ export default async function Page() {
   const morePosts = allPosts.filter((post) => post.slug !== HERO_SLUG)
 
   return (
-    <Box bg="#f2dfce">
-      <Box className="container mx-auto px-5 max-w-84rem">
-        <Intro />
-        {heroPost && (
-          <HeroPost
-            title={heroPost.title}
-            coverImage={heroPost.coverImage}
-            date={heroPost.date}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
-          />
-        )}
-        <MoreStories route="chapters" morePosts={morePosts} />
-      </Box>
+    <Box className="container mx-auto px-5 max-w-84rem">
+      <Intro />
+      {heroPost && (
+        <HeroPost
+          title={heroPost.title}
+          coverImage={heroPost.coverImage}
+          date={heroPost.date}
+          slug={heroPost.slug}
+          excerpt={heroPost.excerpt}
+        />
+      )}
+      <MoreStories route="chapters" morePosts={morePosts} />
     </Box>
   )
 }
