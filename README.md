@@ -22,14 +22,16 @@ Welcome to [Dimetrius Hightower's Portfolio Website](https://www.ddhightower.com
 
 Here's an overview of the key directories and files in this project:
 
-- `components/`  
+- `app/`  
+  Next.js app router (Directory structure NextJS 13)
+  - `components/`  
   Reusable UI components.
-- `pages/`  
-  Next.js pages.
-- `styles/`  
+  - `theme/`  
   Global and Tailwind CSS styles.
-- `graphql/`  
-  GraphQL queries and API setup.
+  - `types/`  
+  Reusable prop types.
+  - `util/`  
+  Utility functions.
 - `lib/`  
   Utility functions and configurations.
 - `public/`  
@@ -42,8 +44,8 @@ To run this project locally, follow these steps:
 1. **Clone the repository**:
 
  ```bash
- git clone https://github.com/your-repo/ddhightower-portfolio.git
- cd ddhightower-portfolio
+ git clone https://github.com/Skyfallin/ddhightower.git
+ cd ddhightower
  ```
 
 2. **Install dependencies**:
