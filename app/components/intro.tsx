@@ -4,7 +4,13 @@ const Intro = () => {
   return (
     <Flex flexDirection="column" gap={4} padding={4}>
       <Box alignSelf="center" hideFrom={'md'}>
-        <Heading as="h1" fontSize="4xl" fontWeight="bold" letterSpacing="-1px">
+        <Heading
+          as="h1"
+          fontSize="4xl"
+          fontWeight="bold"
+          letterSpacing="-1px"
+          textShadow="1px 1px 2px rgba(0, 0, 0, 0.25)"
+        >
           D. D. Hightower
         </Heading>
       </Box>
