@@ -17,6 +17,7 @@ export default async function Page() {
         letterSpacing="tighter"
         lineHeight="tight"
         px={4}
+        textShadow="1px 1px 2px rgba(0, 0, 0, 0.25)"
       >
         Blog
       </Heading>
@@ -25,8 +26,8 @@ export default async function Page() {
         dots={true}
         infinite={false}
         speed={500}
-        slidesToShow={3}
-        slidesToScroll={3}
+        slidesToShow={4}
+        slidesToScroll={4}
       />
     </Box>
   )
