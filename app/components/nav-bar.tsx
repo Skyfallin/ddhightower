@@ -42,7 +42,6 @@ const NavBar: React.FC = () => {
           <Text
             color={'#33302e'}
             display={{ base: 'none', md: 'block' }}
-            fontFamily="'Libre Baskerville', serif"
             fontSize="6xl"
             fontWeight="bold"
           >
