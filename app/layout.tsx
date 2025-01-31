@@ -31,7 +31,7 @@ export default function RootLayout({
         <ChakraProvider cssVarsRoot="body" theme={customTheme}>
           <HeaderBar />
           <NavBar />
-          <Flex minH="100vh" flexDirection={'column'}>
+          <Flex flexDirection={'column'}>
             {children}
             <Footer />
           </Flex>
