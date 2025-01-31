@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import SearchForm from '../../components/search-form'
 
 // A server-side function for data fetching.
+// TODO: replace with actual API call to Algolia
 async function fetchSearchResults(query: string) {
   // Example:
   // const res = await fetch(`https://api.example.com/search?query=${query}`, { cache: 'no-store' });
