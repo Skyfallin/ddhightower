@@ -1,3 +1,5 @@
+'use client'
+
 import { Button, Divider, Flex, Link, Text } from '@chakra-ui/react'
 import { usePathname } from 'next/navigation'
 import React from 'react'
