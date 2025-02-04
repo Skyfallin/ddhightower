@@ -1,5 +1,5 @@
 import ContentfulImage from '@/lib/contentful-image'
-import { Box, Heading, Link, Text } from '@chakra-ui/react'
+import { Flex, Heading, Link, Text } from '@chakra-ui/react'
 import React from 'react'
 import { formattedDate } from '../util/formatted-date'
 
@@ -25,23 +25,25 @@ const ItemPreview: React.FC<ContentProps> = ({
   )
 
   return (
-    <Box p={4} textAlign="center" borderRadius="md">
-      {slug ? (
-        <Link href={`/${route}/${slug}`} aria-label={title}>
-          {image}
-        </Link>
-      ) : (
-        image
-      )}
+    <Flex p={4} textAlign="center" borderRadius="md">
+      <Flex flexDirection={'column'}>
+        {slug ? (
+          <Link href={`/${route}/${slug}`} aria-label={title}>
+            {image}
+          </Link>
+        ) : (
+          image
+        )}
 
-      <Text fontSize="sm" color="gray.500" mb={2}>
-        {formattedDate(date ? date : new Date().toISOString())}
-      </Text>
-      <Heading size="md" mb={2}>
-        {title}
-      </Heading>
-      <Text>{excerpt}</Text>
-    </Box>
+        <Text fontSize="sm" color="gray.500" mb={2}>
+          {formattedDate(date ? date : new Date().toISOString())}
+        </Text>
+        <Heading size="md" mb={2}>
+          {title}
+        </Heading>
+        <Text>{excerpt}</Text>
+      </Flex>
+    </Flex>
   )
 }
 
