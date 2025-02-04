@@ -14,20 +14,23 @@ export default function CoverImage({
   slug,
   zoomOnHover = false,
 }: Readonly<CoverImageProps>) {
+  const optimizedUrl = `${url}?q=${90}&fm=webp&fit=fill`
+
   const image = (
     <Image
       alt={`Cover Image for ${title}`}
       aspectRatio={{ base: 1 / 1, sm: 'unset' }}
-      src={url}
+      src={optimizedUrl}
       width="100%"
       height="auto"
-      maxH={'500px'}
+      maxH={'384px'}
       borderRadius={'lg'}
       boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)"
       transition="transform 0.2s ease-in-out"
       _hover={zoomOnHover ? { transform: 'scale(1.024)' } : undefined}
       objectFit="cover"
       cursor={slug ? 'pointer' : 'default'}
+      fetchPriority="high"
     />
   )
 

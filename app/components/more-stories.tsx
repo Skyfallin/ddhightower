@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react'
+import { Grid, GridItem, Heading } from '@chakra-ui/react'
 import ItemPreview from './item-preview'
 
 type MoreItemsProps = Readonly<{
@@ -22,19 +22,22 @@ const MoreStories: React.FC<MoreItemsProps> = ({ route, morePosts }) => {
       >
         More Stories
       </Heading>
-      <Box className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 mb-32">
+
+      <Grid templateColumns={['1fr', '1fr', 'repeat(3, 1fr)']} py={4}>
         {morePosts.map((post) => (
-          <ItemPreview
-            key={post.slug}
-            route={route}
-            title={post.title}
-            imageSrc={post.coverImage?.url}
-            date={post.date}
-            slug={post.slug}
-            excerpt={post.excerpt}
-          />
+          <GridItem>
+            <ItemPreview
+              key={post.slug}
+              route={route}
+              title={post.title}
+              imageSrc={post.coverImage?.url}
+              date={post.date}
+              slug={post.slug}
+              excerpt={post.excerpt}
+            />
+          </GridItem>
         ))}
-      </Box>
+      </Grid>
     </section>
   )
 }

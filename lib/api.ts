@@ -119,7 +119,7 @@ export async function getItemAndMoreItems(
     collectionName,
     `slug_not_in: "${slug}"`,
     preview,
-    2
+    3
   )
   return {
     item: extractCollectionItem(entry, collectionName),

@@ -23,7 +23,6 @@ const ContentfulImage: React.FC<ContentfulImageProps> = ({
       src={optimizedImageUrl({ src, width, quality })}
       borderRadius="lg"
       fetchPriority="high"
-      _placeholder="blur"
       boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)"
       transition="transform 0.2s ease-in-out"
       _hover={{ transform: 'scale(1.024)' }}
