@@ -1,4 +1,5 @@
-import { Box, Heading, Image, Link, Text } from '@chakra-ui/react'
+import ContentfulImage from '@/lib/contentful-image'
+import { Box, Heading, Link, Text } from '@chakra-ui/react'
 import React from 'react'
 import { formattedDate } from '../util/formatted-date'
 
@@ -19,19 +20,8 @@ const ItemPreview: React.FC<ContentProps> = ({
   excerpt,
   slug,
 }) => {
-  const optimizedImageUrl = `${imageSrc}?w=512&h=512&fm=webp&fit=fill`
   const image = (
-    <Image
-      src={optimizedImageUrl}
-      alt={title}
-      borderRadius="lg"
-      mb={4}
-      fetchPriority="high"
-      _placeholder="blur"
-      boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)"
-      transition="transform 0.2s ease-in-out"
-      _hover={{ transform: 'scale(1.024)' }}
-    />
+    <ContentfulImage alt="Contentful Image" src={imageSrc} mb={4} width={512} />
   )
 
   return (

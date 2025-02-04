@@ -1,18 +1,35 @@
-"use client";
+'use client'
 
-import Image from "next/image";
+import { Image, ImageProps } from '@chakra-ui/react'
 
-interface ContentfulImageProps {
-  src: string;
-  width?: number;
-  quality?: number;
-  [key: string]: any; // For other props that might be passed
+interface ContentfulImageProps extends ImageProps {
+  src: string
+  width?: number
+  quality?: number
 }
 
-const contentfulLoader = ({ src, width, quality }: ContentfulImageProps) => {
-  return `${src}?w=${width}&q=${quality || 75}`;
-};
-
-export default function ContentfulImage(props: ContentfulImageProps) {
-  return <Image alt={props.alt} loader={contentfulLoader} {...props} />;
+const optimizedImageUrl = ({ src, width, quality }: ContentfulImageProps) => {
+  return `${src}?w=${width}&q=${quality || 75}&fm=webp&fit=fill`
 }
+
+const ContentfulImage: React.FC<ContentfulImageProps> = ({
+  src,
+  width,
+  quality,
+  ...props
+}) => {
+  return (
+    <Image
+      src={optimizedImageUrl({ src, width, quality })}
+      borderRadius="lg"
+      fetchPriority="high"
+      _placeholder="blur"
+      boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)"
+      transition="transform 0.2s ease-in-out"
+      _hover={{ transform: 'scale(1.024)' }}
+      {...props}
+    />
+  )
+}
+
+export default ContentfulImage
