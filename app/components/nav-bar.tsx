@@ -1,11 +1,10 @@
 'use client'
 
+import { HOME_PAGE_ENABLED } from '@/lib/constants'
 import { Button, Divider, Flex, Link, Text } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
-import SearchForm from './search-form'
-import { HOME_PAGE_ENABLED } from '@/lib/constants'
 
 interface NavLink {
   hyperlink: string
@@ -13,9 +12,7 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  ...(HOME_PAGE_ENABLED
-    ? [{ hyperlink: '/', text: 'Home' }]
-    : []),
+  ...(HOME_PAGE_ENABLED ? [{ hyperlink: '/', text: 'Home' }] : []),
   { hyperlink: '/chapters', text: 'Sample Chapters' },
 ]
 
@@ -32,7 +29,8 @@ const NavBar: React.FC = () => {
     >
       <Flex
         className="container mx-auto px-5 max-w-84rem h-full"
-        justifyContent={{ base: 'space-evenly', md: 'space-evenly' }}
+        // justifyContent={{ base: 'space-evenly', md: 'space-evenly' }}
+        justifyContent="center"
         py="1rem"
       >
         <Link
@@ -51,7 +49,7 @@ const NavBar: React.FC = () => {
         </Link>
 
         <Flex alignItems="center" gap={{ base: 4, md: 8 }}>
-          <SearchForm initialQuery={''} />
+          {/* <SearchForm initialQuery={''} /> */}
           <Button
             as={NextLink}
             href="/contact"
