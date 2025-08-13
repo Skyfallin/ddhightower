@@ -116,7 +116,7 @@ const Carousel: React.FC<CarouselItem> = ({
             <ItemPreview
               route="blog"
               title={post.title ?? ''}
-              imageSrc={post.coverImage?.url ?? ''}
+              imageSrc={post.coverImage?.url ?? undefined}
               date={post.date ?? ''}
               slug={post.slug ?? ''}
               excerpt={post.excerpt ?? ''}

@@ -30,7 +30,7 @@ const MoreStories: React.FC<MoreItemsProps> = ({ route, morePosts }) => {
               key={post.slug}
               route={route}
               title={post.title}
-              imageSrc={post.coverImage?.url}
+              imageSrc={route === 'chapters' ? undefined : post.coverImage?.url} // Use stock icon for chapter cards
               date={post.date}
               slug={post.slug}
               excerpt={post.excerpt}
