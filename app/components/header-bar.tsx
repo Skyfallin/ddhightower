@@ -8,12 +8,14 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 
-interface SocialLink {
+// SocialLink represents a single social media link with its icon and URL
+export interface SocialLink {
   icon: JSX.Element;
   hyperlink: string;
 }
 
-const socialLinks: SocialLink[] = [
+// socialLinks contains all of the author's public social profiles
+export const socialLinks: SocialLink[] = [
   // {
   //   icon: <FaDiscord size={"24"} />,
   //   hyperlink: "https://x.com/",

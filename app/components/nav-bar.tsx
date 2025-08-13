@@ -1,9 +1,10 @@
 'use client'
 
+import { HOME_PAGE_ENABLED } from '@/lib/constants'
 import { Button, Divider, Flex, Link, Text } from '@chakra-ui/react'
+import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
-import SearchForm from './search-form'
 
 interface NavLink {
   hyperlink: string
@@ -11,14 +12,8 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  {
-    hyperlink: '/',
-    text: 'Home',
-  },
-  {
-    hyperlink: '/chapters',
-    text: 'Sample Chapters',
-  },
+  ...(HOME_PAGE_ENABLED ? [{ hyperlink: '/', text: 'Home' }] : []),
+  { hyperlink: '/chapters', text: 'Sample Chapters' },
 ]
 
 const NavBar: React.FC = () => {
@@ -34,7 +29,7 @@ const NavBar: React.FC = () => {
     >
       <Flex
         className="container mx-auto px-5 max-w-84rem h-full"
-        justifyContent={{ base: 'space-evenly', md: 'space-evenly' }}
+        justifyContent={{ base: 'center', md: 'space-evenly' }}
         py="1rem"
       >
         <Link
@@ -53,13 +48,17 @@ const NavBar: React.FC = () => {
         </Link>
 
         <Flex alignItems="center" gap={{ base: 4, md: 8 }}>
-          <SearchForm initialQuery={''} />
+          {/* <SearchForm initialQuery={''} /> */}
           <Button
+            as={NextLink}
+            href="/contact"
             className="bg-text-charcoal-light hover:bg-text-white hover:text-charcoal-light border border-charcoal text-white font-bold duration-200 transition-colors mb-6 lg:mb-0"
             borderRadius="0"
             backgroundColor="#33302e"
             _hover={{ backgroundColor: 'white' }}
             my={'auto'}
+            px={8}
+            width={{ base: '200px', md: 'auto' }}
           >
             Contact
           </Button>

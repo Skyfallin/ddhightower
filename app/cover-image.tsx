@@ -14,7 +14,7 @@ export default function CoverImage({
   slug,
   zoomOnHover = false,
 }: Readonly<CoverImageProps>) {
-  const optimizedUrl = `${url}?q=${90}&fm=webp&fit=fill`
+  const optimizedUrl = `${'https://spellshore-web-pull.b-cdn.net/runic_map.png'}?q=${90}&fm=webp&fit=fill`
 
   const image = (
     <Image

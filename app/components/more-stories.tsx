@@ -14,7 +14,7 @@ const MoreStories: React.FC<MoreItemsProps> = ({ route, morePosts }) => {
     <section>
       <Heading
         as={'h1'}
-        fontSize={{ base: '4xl', md: '7xl' }}
+        fontSize={{ base: '4xl', md: '5xl' }}
         fontWeight="bold"
         letterSpacing="tighter"
         lineHeight="tight"
@@ -30,7 +30,7 @@ const MoreStories: React.FC<MoreItemsProps> = ({ route, morePosts }) => {
               key={post.slug}
               route={route}
               title={post.title}
-              imageSrc={post.coverImage?.url}
+              imageSrc={route === 'chapters' ? undefined : post.coverImage?.url} // Use stock icon for chapter cards
               date={post.date}
               slug={post.slug}
               excerpt={post.excerpt}

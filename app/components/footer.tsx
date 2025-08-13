@@ -1,4 +1,5 @@
-import { Divider, Flex, Text } from '@chakra-ui/react'
+import { Divider, Flex, Link, Text } from '@chakra-ui/react'
+import { socialLinks } from './header-bar'
 
 const Footer = () => {
   return (
@@ -9,8 +10,22 @@ const Footer = () => {
       justifyContent={'center'}
     >
       <Divider borderColor={'#33302e'} opacity={0.25} />
-      <Text fontSize="sm" py={8}>
-        © 2024 D. D. Hightower. All Rights Reserved
+      <Flex gap={4} py={4}>
+        {socialLinks.map((link, index) => (
+          <Link
+            _hover={{ color: '#FFF1E0' }}
+            flexShrink={0}
+            href={link.hyperlink}
+            key={index}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {link.icon}
+          </Link>
+        ))}
+      </Flex>
+      <Text fontSize="sm" pb={8}>
+        © 2025 D. D. Hightower. All Rights Reserved
       </Text>
     </Flex>
   )

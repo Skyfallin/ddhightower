@@ -2,7 +2,7 @@ import MoreStories from '../components/more-stories'
 import CoverImage from '../cover-image'
 
 import { getAllPosts } from '@/lib/api'
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 import Intro from '../components/intro'
 import { formattedDate } from '../util/formatted-date'
 
@@ -10,13 +10,17 @@ const HERO_SLUG = 'prologue'
 
 function HeroPost({
   title,
-  coverImage,
+  /**
+   * URL for the hero post's cover image.
+   * Uses a static stock image rather than a CMS-provided asset.
+   */
+  coverImageUrl,
   date,
   excerpt,
   slug,
 }: {
   title: string
-  coverImage: any
+  coverImageUrl: string
   date: string
   excerpt: string
   slug: string
@@ -29,10 +33,19 @@ function HeroPost({
       px={4}
       py={{ base: 4, md: 0 }}
     >
+      <Heading
+        as="h1"
+        fontSize={{ base: '4xl', md: '5xl' }}
+        fontWeight="bold"
+        letterSpacing="tighter"
+        lineHeight="tight"
+      >
+        Read Prologue
+      </Heading>
       <CoverImage
         title={title}
         slug={slug}
-        url={coverImage.url}
+        url={coverImageUrl}
         zoomOnHover={true}
       />
       <Text fontSize="md" color="gray.500" mb={2}>
@@ -53,7 +66,7 @@ export default async function Page() {
       {heroPost && (
         <HeroPost
           title={heroPost.title}
-          coverImage={heroPost.coverImage}
+          coverImageUrl="/hero-chapter.jpg"
           date={heroPost.date}
           slug={heroPost.slug}
           excerpt={heroPost.excerpt}
