@@ -5,6 +5,7 @@ import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import SearchForm from './search-form'
+import { HOME_PAGE_ENABLED } from '@/lib/constants'
 
 interface NavLink {
   hyperlink: string
@@ -12,14 +13,10 @@ interface NavLink {
 }
 
 const navLinks: NavLink[] = [
-  {
-    hyperlink: '/',
-    text: 'Home',
-  },
-  {
-    hyperlink: '/chapters',
-    text: 'Sample Chapters',
-  },
+  ...(HOME_PAGE_ENABLED
+    ? [{ hyperlink: '/', text: 'Home' }]
+    : []),
+  { hyperlink: '/chapters', text: 'Sample Chapters' },
 ]
 
 const NavBar: React.FC = () => {
