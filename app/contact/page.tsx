@@ -4,16 +4,16 @@ import {
   Box,
   Button,
   FormControl,
-  FormLabel,
   FormErrorMessage,
+  FormLabel,
   Heading,
   Input,
   Link,
   Textarea,
 } from '@chakra-ui/react'
-import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 // contactSchema validates the contact form fields
 const contactSchema = z.object({
@@ -59,11 +59,11 @@ export default function ContactPage() {
       <Box
         as="form"
         onSubmit={handleSubmit(onSubmit)}
-        maxW="md"
+        maxW="lg"
         display="flex"
         flexDirection="column"
         gap={4}
-        bg="white"
+        bg="whiteAlpha.600"
         p={6}
         borderRadius="md"
         boxShadow="md"
@@ -105,10 +105,10 @@ export default function ContactPage() {
         <Button
           type="submit"
           alignSelf="flex-start"
-          borderRadius="md"
-          bg="#33302e"
-          color="white"
-          _hover={{ bg: 'white', color: '#33302e' }}
+          className="bg-text-charcoal-light hover:bg-text-white hover:text-charcoal-light border border-charcoal text-white font-bold duration-200 transition-colors mb-6 lg:mb-0"
+          borderRadius="0"
+          backgroundColor="#33302e"
+          _hover={{ backgroundColor: 'white' }}
         >
           Send
         </Button>
@@ -118,10 +118,9 @@ export default function ContactPage() {
           Email
         </Heading>
         <Link href="mailto:d.d.hightower@gmail.com" color="#990f3d">
-          d.d.hightower@gmail.com
+          ddhightower.author@gmail.com
         </Link>
       </Box>
     </Box>
   )
 }
-
