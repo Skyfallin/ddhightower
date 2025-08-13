@@ -1,9 +1,15 @@
 import { getAllBlogPosts } from '@/lib/api'
+import { HOME_PAGE_ENABLED } from '@/lib/constants'
 import { Box, Heading } from '@chakra-ui/react'
+import { redirect } from 'next/navigation'
 import Carousel from './components/carousel'
 import Intro from './components/intro'
 
 export default async function Page() {
+  if (!HOME_PAGE_ENABLED) {
+    redirect('/chapters')
+  }
+
   // Retrieve blog posts
   const allBlogPosts = await getAllBlogPosts(false)
 

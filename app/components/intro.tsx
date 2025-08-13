@@ -16,9 +16,9 @@ const Intro = () => {
       </Box>
       <Box alignContent={'center'} paddingY={{ base: '0', md: '4' }}>
         <Text fontSize={['sm', 'sm', 'md']} textAlign={'center'}>
-          Explore the creative world of D. D. Hightower, a New York-based
-          fantasy novelist. Dive into a collection of exclusive preview chapters
-          and other exciting writing projects.
+          Explore the world of D. D. Hightower, a New York-based fantasy
+          novelist. Dive into a collection of exclusive preview chapters and
+          other exciting writing projects.
         </Text>
       </Box>
     </Flex>

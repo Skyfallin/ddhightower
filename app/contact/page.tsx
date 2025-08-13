@@ -4,15 +4,16 @@ import {
   Box,
   Button,
   FormControl,
+  FormErrorMessage,
   FormLabel,
   Heading,
   Input,
   Link,
   Textarea,
 } from '@chakra-ui/react'
-import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 // contactSchema validates the contact form fields
 const contactSchema = z.object({
@@ -58,30 +59,56 @@ export default function ContactPage() {
       <Box
         as="form"
         onSubmit={handleSubmit(onSubmit)}
-        maxW="md"
+        maxW="lg"
         display="flex"
         flexDirection="column"
         gap={4}
+        bg="whiteAlpha.600"
+        p={6}
+        borderRadius="md"
+        boxShadow="md"
       >
         <FormControl isInvalid={!!errors.name}>
           <FormLabel>Name</FormLabel>
-          <Input {...register('name')} />
+          <Input
+            {...register('name')}
+            bg="white"
+            borderColor="#33302e"
+            borderRadius="md"
+            focusBorderColor="#990f3d"
+          />
+          <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={!!errors.email}>
           <FormLabel>Email</FormLabel>
-          <Input type="email" {...register('email')} />
+          <Input
+            type="email"
+            {...register('email')}
+            bg="white"
+            borderColor="#33302e"
+            borderRadius="md"
+            focusBorderColor="#990f3d"
+          />
+          <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
         </FormControl>
         <FormControl isInvalid={!!errors.message}>
           <FormLabel>Message</FormLabel>
-          <Textarea {...register('message')} />
+          <Textarea
+            {...register('message')}
+            bg="white"
+            borderColor="#33302e"
+            borderRadius="md"
+            focusBorderColor="#990f3d"
+          />
+          <FormErrorMessage>{errors.message?.message}</FormErrorMessage>
         </FormControl>
         <Button
           type="submit"
           alignSelf="flex-start"
-          className="bg-text-charcoal-light hover:bg-text-white hover:text-charcoal-light border border-charcoal text-white font-bold duration-200 transition-colors"
+          className="bg-text-charcoal-light hover:bg-text-white hover:text-charcoal-light border border-charcoal text-white font-bold duration-200 transition-colors mb-6 lg:mb-0"
           borderRadius="0"
           backgroundColor="#33302e"
-          _hover={{ backgroundColor: 'white', color: '#33302e' }}
+          _hover={{ backgroundColor: 'white' }}
         >
           Send
         </Button>
@@ -91,10 +118,9 @@ export default function ContactPage() {
           Email
         </Heading>
         <Link href="mailto:d.d.hightower@gmail.com" color="#990f3d">
-          d.d.hightower@gmail.com
+          ddhightower.author@gmail.com
         </Link>
       </Box>
     </Box>
   )
 }
-

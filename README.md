@@ -67,6 +67,7 @@ CONTENTFUL_SPACE_ID=your_contentful_space_id
 CONTENTFUL_ACCESS_TOKEN=your_contentful_access_token
 ALGOLIA_APP_ID=your_algolia_app_id
 ALGOLIA_SEARCH_API_KEY=your_algolia_search_api_key
+NEXT_PUBLIC_ENABLE_HOME=true # set to false to disable home page
 ```
 
 4. **Start the development server**:

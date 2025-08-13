@@ -10,7 +10,7 @@ const Footer = () => {
     >
       <Divider borderColor={'#33302e'} opacity={0.25} />
       <Text fontSize="sm" py={8}>
-        © 2024 D. D. Hightower. All Rights Reserved
+        © 2025 D. D. Hightower. All Rights Reserved
       </Text>
     </Flex>
   )
