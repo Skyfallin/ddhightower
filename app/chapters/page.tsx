@@ -2,7 +2,7 @@ import MoreStories from '../components/more-stories'
 import CoverImage from '../cover-image'
 
 import { getAllPosts } from '@/lib/api'
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 import Intro from '../components/intro'
 import { formattedDate } from '../util/formatted-date'
 
@@ -33,6 +33,15 @@ function HeroPost({
       px={4}
       py={{ base: 4, md: 0 }}
     >
+      <Heading
+        as="h1"
+        fontSize={{ base: '4xl', md: '5xl' }}
+        fontWeight="bold"
+        letterSpacing="tighter"
+        lineHeight="tight"
+      >
+        Read Prologue
+      </Heading>
       <CoverImage
         title={title}
         slug={slug}

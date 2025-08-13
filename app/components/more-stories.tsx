@@ -14,7 +14,7 @@ const MoreStories: React.FC<MoreItemsProps> = ({ route, morePosts }) => {
     <section>
       <Heading
         as={'h1'}
-        fontSize={{ base: '4xl', md: '7xl' }}
+        fontSize={{ base: '4xl', md: '5xl' }}
         fontWeight="bold"
         letterSpacing="tighter"
         lineHeight="tight"
