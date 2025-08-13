@@ -29,8 +29,7 @@ const NavBar: React.FC = () => {
     >
       <Flex
         className="container mx-auto px-5 max-w-84rem h-full"
-        // justifyContent={{ base: 'space-evenly', md: 'space-evenly' }}
-        justifyContent="center"
+        justifyContent={{ base: 'center', md: 'space-evenly' }}
         py="1rem"
       >
         <Link
@@ -58,6 +57,8 @@ const NavBar: React.FC = () => {
             backgroundColor="#33302e"
             _hover={{ backgroundColor: 'white' }}
             my={'auto'}
+            px={8}
+            width={{ base: '200px', md: 'auto' }}
           >
             Contact
           </Button>
