@@ -29,9 +29,8 @@ const NavBar: React.FC = () => {
     >
       <Flex
         className="container mx-auto px-5 max-w-84rem h-full"
-        // justifyContent={{ base: 'space-evenly', md: 'space-evenly' }}
-        justifyContent="center"
         py="1rem"
+        w="100%"
       >
         <Link
           href="/"
@@ -48,7 +47,7 @@ const NavBar: React.FC = () => {
           </Text>
         </Link>
 
-        <Flex alignItems="center" gap={{ base: 4, md: 8 }}>
+        <Flex alignItems="center" gap={{ base: 4, md: 8 }} ml="auto">
           {/* <SearchForm initialQuery={''} /> */}
           <Button
             as={NextLink}
