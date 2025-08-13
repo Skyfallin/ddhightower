@@ -60,7 +60,7 @@ const ItemPreview: React.FC<ContentProps> = ({
         <Heading size="md" mb={2}>
           {title}
         </Heading>
-        <Text>{excerpt}</Text>
+        <Text>{excerpt}...</Text>
       </Flex>
     </Flex>
   )
