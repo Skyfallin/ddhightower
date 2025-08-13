@@ -1,11 +1,16 @@
-import { Box, Image } from '@chakra-ui/react'
+"use client"
+
+import { Box, Image, Skeleton } from '@chakra-ui/react'
 import Link from 'next/link'
+import { useState } from 'react'
 
 type CoverImageProps = Readonly<{
   title: string
   url: string
   slug?: string
   zoomOnHover?: boolean
+  /** Display a loading skeleton while the image loads. */
+  showSkeleton?: boolean
 }>
 
 export default function CoverImage({
@@ -13,7 +18,10 @@ export default function CoverImage({
   url,
   slug,
   zoomOnHover = false,
+  showSkeleton = false,
 }: Readonly<CoverImageProps>) {
+  const [isLoaded, setIsLoaded] = useState(false)
+
   const optimizedUrl = `${'https://spellshore-web-pull.b-cdn.net/runic_map.png'}?q=${90}&fm=webp&fit=fill`
 
   const image = (
@@ -31,17 +39,31 @@ export default function CoverImage({
       objectFit="cover"
       cursor={slug ? 'pointer' : 'default'}
       fetchPriority="high"
+      onLoad={() => setIsLoaded(true)}
     />
+  )
+
+  const display = showSkeleton ? (
+    <Skeleton
+      isLoaded={isLoaded}
+      height="384px"
+      width="100%"
+      borderRadius="lg"
+    >
+      {image}
+    </Skeleton>
+  ) : (
+    image
   )
 
   return (
     <Box className="sm:mx-0">
       {slug ? (
         <Link href={`/chapters/${slug}`} aria-label={title}>
-          {image}
+          {display}
         </Link>
       ) : (
-        image
+        display
       )}
     </Box>
   )
