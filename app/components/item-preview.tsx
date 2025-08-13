@@ -1,11 +1,15 @@
 import ContentfulImage from '@/lib/contentful-image'
-import { Flex, Heading, Link, Text } from '@chakra-ui/react'
+import { Flex, Heading, Icon, Link, Text } from '@chakra-ui/react'
 import React from 'react'
+import { FaBook } from 'react-icons/fa'
 import { formattedDate } from '../util/formatted-date'
 
 type ContentProps = Readonly<{
   route: string
-  imageSrc: string
+  /**
+   * Optional image source. When omitted, a book icon is rendered.
+   */
+  imageSrc?: string
   date: string
   title: string
   excerpt: string
@@ -20,8 +24,10 @@ const ItemPreview: React.FC<ContentProps> = ({
   excerpt,
   slug,
 }) => {
-  const image = (
+  const image = imageSrc ? (
     <ContentfulImage alt="Contentful Image" src={imageSrc} mb={4} width={512} />
+  ) : (
+    <Icon as={FaBook} boxSize={32} mb={4} />
   )
 
   return (
