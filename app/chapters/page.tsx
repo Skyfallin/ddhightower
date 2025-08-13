@@ -1,28 +1,20 @@
 import MoreStories from '../components/more-stories'
-import CoverImage from '../cover-image'
 
 import { getAllPosts } from '@/lib/api'
-import { Box, Flex, Text } from '@chakra-ui/react'
+import { Box, Flex, Skeleton, Text } from '@chakra-ui/react'
 import Intro from '../components/intro'
+import Link from 'next/link'
 import { formattedDate } from '../util/formatted-date'
 
 const HERO_SLUG = 'prologue'
 
 function HeroPost({
   title,
-  /**
-   * URL for the hero post's cover image.
-   * Uses a static stock image rather than a CMS-provided asset.
-   */
-  coverImageUrl,
   date,
-  excerpt,
   slug,
 }: {
   title: string
-  coverImageUrl: string
   date: string
-  excerpt: string
   slug: string
 }) {
   return (
@@ -33,12 +25,21 @@ function HeroPost({
       px={4}
       py={{ base: 4, md: 0 }}
     >
-      <CoverImage
-        title={title}
-        slug={slug}
-        url={coverImageUrl}
-        zoomOnHover={true}
-      />
+      <Link href={`/chapters/${slug}`} aria-label={title}>
+        <Skeleton
+          variant="shine"
+          width="full"
+          height={{ base: '200px', md: '384px' }}
+          borderRadius="lg"
+          /**
+           * Soft gradient resembling paper and cream tones.
+           */
+          css={{
+            '--start-color': 'colors.orange.100',
+            '--end-color': 'colors.yellow.200',
+          }}
+        />
+      </Link>
       <Text fontSize="md" color="gray.500" mb={2}>
         {formattedDate(date)}
       </Text>
@@ -57,10 +58,8 @@ export default async function Page() {
       {heroPost && (
         <HeroPost
           title={heroPost.title}
-          coverImageUrl="/hero-chapter.jpg"
           date={heroPost.date}
           slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
         />
       )}
       <MoreStories route="chapters" morePosts={morePosts} />
