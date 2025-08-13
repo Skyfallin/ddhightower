@@ -19,6 +19,7 @@ The project is a Next.js website deployed via Vercel, which acts as a portfolio 
 - Use TanStack useQuery and useMutation over fetch
 - Use Zustand for any client state
 - Use Zod for schema validation
+- Use React Hook Form for form handling
 
 ## Pull Request Guidelines for OpenAI Codex
 
