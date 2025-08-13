@@ -1,6 +1,7 @@
 'use client'
 
 import { Button, Divider, Flex, Link, Text } from '@chakra-ui/react'
+import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import SearchForm from './search-form'
@@ -55,6 +56,8 @@ const NavBar: React.FC = () => {
         <Flex alignItems="center" gap={{ base: 4, md: 8 }}>
           <SearchForm initialQuery={''} />
           <Button
+            as={NextLink}
+            href="/contact"
             className="bg-text-charcoal-light hover:bg-text-white hover:text-charcoal-light border border-charcoal text-white font-bold duration-200 transition-colors mb-6 lg:mb-0"
             borderRadius="0"
             backgroundColor="#33302e"
