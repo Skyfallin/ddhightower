@@ -21,6 +21,7 @@ export default {
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
+        heading: ["var(--font-inter)"],
       },
       maxWidth: {
         "84rem": "84rem",

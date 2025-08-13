@@ -15,9 +15,11 @@ const customTheme = extendTheme({
       },
       h1: {
         color: '#33302e',
+        fontFamily: 'var(--font-inter)',
       },
       h2: {
         color: '#33302e',
+        fontFamily: 'var(--font-inter)',
       },
     },
   },
@@ -28,6 +30,9 @@ const customTheme = extendTheme({
       },
     },
     Button: {
+      baseStyle: {
+        fontFamily: 'var(--font-inter)',
+      },
       variants: {
         solid: {
           bg: wineColor, // Wine color background
@@ -51,15 +56,27 @@ const customTheme = extendTheme({
         },
       },
     },
+    Input: {
+      baseStyle: {
+        field: {
+          fontFamily: 'var(--font-inter)',
+        },
+      },
+    },
+    FormLabel: {
+      baseStyle: {
+        fontFamily: 'var(--font-inter)',
+      },
+    },
     Card,
   },
   fonts: {
-    heading: "'Libre Baskerville', serif",
+    heading: 'var(--font-inter)',
     body: "'Libre Baskerville', serif",
   },
   Heading: {
     baseStyle: {
-      fontFamily: "'Libre Baskerville', serif",
+      fontFamily: 'var(--font-inter)',
       color: '#33302e',
     },
   },
