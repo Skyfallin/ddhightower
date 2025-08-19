@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { Box, Image, Skeleton } from '@chakra-ui/react'
 import Link from 'next/link'
@@ -56,15 +56,22 @@ export default function CoverImage({
   const content = (
     <Box position="relative">
       {showSkeleton ? (
-        <Skeleton isLoaded={isLoaded} height="384px" width="100%" borderRadius="lg">
+        <Skeleton
+          startColor="#FFF1E0"
+          endColor="whiteAlpha.200"
+          isLoaded={isLoaded}
+          height="384px"
+          width="100%"
+          borderRadius="lg"
+        >
           {image}
         </Skeleton>
       ) : (
         image
       )}
       <Box
-        bg="blackAlpha.600"
-        backdropFilter="saturate(120%) blur(2px)"
+        bg="whiteAlpha.200"
+        backdropFilter="saturate(120%) "
         inset="0"
         position="absolute"
         zIndex="1"
