@@ -4,6 +4,7 @@ import { Box, Image, Skeleton } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
+/** Props for the CoverImage component. */
 type CoverImageProps = Readonly<{
   title: string
   url: string
@@ -42,7 +43,6 @@ export default function CoverImage({
       height="auto"
       maxH={'384px'}
       borderRadius={'lg'}
-      boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)"
       transition="transform 0.2s ease-in-out"
       _hover={zoomOnHover ? { transform: 'scale(1.024)' } : undefined}
       objectFit="cover"
@@ -53,27 +53,35 @@ export default function CoverImage({
     />
   )
 
-  const display = showSkeleton ? (
-    <Skeleton
-      isLoaded={isLoaded}
-      height="384px"
-      width="100%"
-      borderRadius="lg"
-    >
-      {image}
-    </Skeleton>
-  ) : (
-    image
+  const content = (
+    <Box position="relative">
+      {showSkeleton ? (
+        <Skeleton isLoaded={isLoaded} height="384px" width="100%" borderRadius="lg">
+          {image}
+        </Skeleton>
+      ) : (
+        image
+      )}
+      <Box
+        bg="blackAlpha.600"
+        backdropFilter="saturate(120%) blur(2px)"
+        inset="0"
+        position="absolute"
+        zIndex="1"
+        pointerEvents="none"
+        borderRadius="lg"
+      />
+    </Box>
   )
 
   return (
     <Box className="sm:mx-0">
       {slug ? (
         <Link href={`/chapters/${slug}`} aria-label={title}>
-          {display}
+          {content}
         </Link>
       ) : (
-        display
+        content
       )}
     </Box>
   )
