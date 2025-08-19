@@ -1,5 +1,5 @@
 import { ChakraProvider, Flex } from '@chakra-ui/react'
-import { Inter } from 'next/font/google'
+import { Inter, IM_Fell_English } from 'next/font/google'
 import Footer from './components/footer'
 import HeaderBar from './components/header-bar'
 import NavBar from './components/nav-bar'
@@ -14,16 +14,27 @@ const inter = Inter({
   display: 'swap',
 })
 
+const imFell = IM_Fell_English({
+  variable: '--font-im-fell',
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '400',
+})
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${imFell.variable}`}>
       <head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Libre+Baskerville:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>
         <ChakraProvider cssVarsRoot="body" theme={customTheme}>

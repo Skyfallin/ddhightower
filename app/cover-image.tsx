@@ -30,7 +30,7 @@ export default function CoverImage({
     if (imageRef.current?.complete) {
       setIsLoaded(true)
     }
-  }, [])
+  }, [imageRef])
 
   const optimizedUrl = `${'https://spellshore-web-pull.b-cdn.net/runic_map.png'}?q=${90}&fm=webp&fit=fill`
 
