@@ -2,7 +2,7 @@
 
 import { Box, Image, Skeleton } from '@chakra-ui/react'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 type CoverImageProps = Readonly<{
   title: string
@@ -21,6 +21,15 @@ export default function CoverImage({
   showSkeleton = false,
 }: Readonly<CoverImageProps>) {
   const [isLoaded, setIsLoaded] = useState(false)
+  const imageRef = useRef<HTMLImageElement | null>(null)
+
+  // When the image is cached, the load event may fire before the handler is attached.
+  // Check the `complete` state on mount to ensure the skeleton hides appropriately.
+  useEffect(() => {
+    if (imageRef.current?.complete) {
+      setIsLoaded(true)
+    }
+  }, [])
 
   const optimizedUrl = `${'https://spellshore-web-pull.b-cdn.net/runic_map.png'}?q=${90}&fm=webp&fit=fill`
 
@@ -39,6 +48,7 @@ export default function CoverImage({
       objectFit="cover"
       cursor={slug ? 'pointer' : 'default'}
       fetchPriority="high"
+      ref={imageRef}
       onLoad={() => setIsLoaded(true)}
     />
   )
