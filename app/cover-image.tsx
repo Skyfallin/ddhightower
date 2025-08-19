@@ -41,8 +41,9 @@ export default function CoverImage({
       src={optimizedUrl}
       width="100%"
       height="auto"
-      maxH={'384px'}
-      borderRadius={'lg'}
+      maxH="384px"
+      borderRadius="lg"
+      boxShadow="0 8px 16px rgba(0, 0, 0, 0.2), 0 -4px 8px rgba(0, 0, 0, 0.1)"
       transition="transform 0.2s ease-in-out"
       _hover={zoomOnHover ? { transform: 'scale(1.024)' } : undefined}
       objectFit="cover"
@@ -80,6 +81,8 @@ export default function CoverImage({
       />
     </Box>
   )
+
+  // TODO: blur the sides, increase the whiteAlpha when it is loaded as a chapter page
 
   return (
     <Box className="sm:mx-0">
