@@ -54,12 +54,12 @@ const customTheme = extendTheme({
     Card,
   },
   fonts: {
-    heading: "'Libre Baskerville', serif",
+    heading: "var(--font-im-fell), serif",
     body: "'Libre Baskerville', serif",
   },
   Heading: {
     baseStyle: {
-      fontFamily: "'Libre Baskerville', serif",
+      fontFamily: "var(--font-im-fell), serif",
       color: '#33302e',
     },
   },
